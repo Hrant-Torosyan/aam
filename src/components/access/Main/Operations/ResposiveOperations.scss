@@ -1,0 +1,90 @@
+@media (max-width: 575.98px) {
+	.operationBlock {
+		.operationBlockContent {
+			height: 330px;
+		}
+		.operationBlockItem {
+			.operationBlockMain {
+				font-size: 13px;
+				width: 50%;
+			}
+			.operationBlockInfo {
+				width: 50%;
+				p:nth-child(1),
+				p:nth-child(3),
+				div {
+					display: none;
+				}
+				p {
+					font-size: 13px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.operationBlock {
+		.operationBlockContent {
+			height: 366px;
+		}
+		.operationBlockItem {
+			.operationBlockMain {
+				font-size: 12px;
+			}
+			.operationBlockInfo {
+				p {
+					font-size: 12px;
+				}
+				div {
+					span {
+						font-size: 11px;
+						padding: 6px 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.operationBlock {
+		.operationBlockContent {
+			height: 366px;
+		}
+		.operationBlockItem {
+			.operationBlockMain {
+				font-size: 13px;
+			}
+			.operationBlockInfo {
+				p {
+					font-size: 13px;
+				}
+				div {
+					span {
+						font-size: 12px;
+						padding: 6px 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.operationBlock {
+		.operationBlockItem {
+			.operationBlockInfo {
+				div {
+					span {
+						font-size: 12px;
+						padding: 6px 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+}

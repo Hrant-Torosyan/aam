@@ -1,0 +1,161 @@
+@media (max-width: 575.98px) {
+	.analytics {
+		.analyticsTitle {
+			margin-bottom: 25px;
+			h1 {
+				font-size: 18px;
+			}
+			.analyticsTitleItem {
+				> p {
+					display: none;
+				}
+				.percent {
+					padding: 8px 15px;
+					font-size: 13px;
+				}
+				.select {
+					width: 100px;
+					padding: 8px 10px;
+				}
+			}
+		}
+		.analyticsContent {
+			.analyticsContentMain {
+				width: 100%;
+				margin-top: 20px;
+				margin-left: 0;
+				order: 4;
+			}
+			.balance {
+				width: 100%;
+				order: 1;
+				.balanceList {
+					p {
+						font-size: 14px;
+					}
+				}
+
+				> p {
+					&:nth-child(2) {
+						font-size: 14px;
+						margin-bottom: 25px;
+					}
+					&:nth-child(3) {
+						font-size: 34px;
+					}
+				}
+			}
+
+			#lineChart {
+				order: 3;
+				margin-left: 0 !important;
+				margin-top: 20px;
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.analytics {
+		.analyticsTitle {
+			margin-bottom: 25px;
+			h1 {
+				font-size: 22px;
+			}
+			.analyticsTitleItem {
+				> p {
+					display: none;
+				}
+			}
+		}
+		.analyticsContent {
+			.analyticsContentMain {
+				width: 100%;
+				margin-top: 20px;
+				margin-left: 0;
+				order: 4;
+			}
+			.balance {
+				width: calc(49% - 20px);
+				order: 1;
+				.balanceList {
+					p {
+						font-size: 14px;
+					}
+				}
+
+				> p {
+					&:nth-child(2) {
+						font-size: 14px;
+						margin-bottom: 25px;
+					}
+					&:nth-child(3) {
+						font-size: 34px;
+					}
+				}
+			}
+
+			#lineChart {
+				order: 3;
+				margin-left: 0 !important;
+				margin-top: 20px;
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.analytics {
+		.analyticsContent {
+			.analyticsContentMain {
+				width: 100%;
+				margin-top: 20px;
+				margin-left: 0;
+				order: 4;
+			}
+			.balance {
+				width: calc(49% - 20px);
+				order: 1;
+				.balanceList {
+					p {
+						font-size: 14px;
+					}
+				}
+
+				> p {
+					&:nth-child(2) {
+						font-size: 14px;
+						margin-bottom: 25px;
+					}
+					&:nth-child(3) {
+						font-size: 34px;
+					}
+				}
+			}
+
+			#lineChart {
+				order: 3;
+				margin-left: 0 !important;
+				margin-top: 20px;
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.analytics {
+		.analyticsContent {
+			.analyticsContentMain {
+				width: calc(65% - 20px);
+				margin-top: 20px;
+				margin-left: 20px;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+}

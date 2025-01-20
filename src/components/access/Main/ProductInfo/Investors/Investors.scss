@@ -1,0 +1,107 @@
+.investors {
+	text-align: center;
+	> p {
+		margin-bottom: 30px;
+		text-align-last: left;
+	}
+	.investorsItem {
+		padding-bottom: 20px;
+		border-bottom: 2px solid rgb(215, 235, 251);
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+		h3 {
+			color: rgb(14, 26, 50);
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 20px;
+		}
+		img {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			margin-right: 25px;
+		}
+	}
+	button {
+		color: rgb(150, 197, 249);
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 20px;
+		transition: 0.5s;
+		border-radius: 20px;
+		padding: 10px 20px;
+
+		&:hover {
+			background: rgba(150, 197, 249, 0.15);
+		}
+	}
+}
+
+@media (max-width: 575.98px) {
+	.investors {
+		display: none;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.investors {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.investors {
+		margin: 0 !important;
+
+		> p {
+			margin-bottom: 25px;
+		}
+		.investorsItem {
+			padding-bottom: 15px;
+			margin-bottom: 15px;
+
+			h3 {
+				font-size: 15px;
+			}
+			img {
+				width: 55px;
+				height: 55px;
+				margin-right: 10px;
+			}
+		}
+		button {
+			font-size: 13px;
+			padding: 8px 17px;
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.investors {
+		> p {
+			margin-bottom: 25px;
+		}
+		.investorsItem {
+			padding-bottom: 15px;
+			margin-bottom: 15px;
+
+			h3 {
+				font-size: 15px;
+			}
+			img {
+				width: 55px;
+				height: 55px;
+
+				margin-right: 10px;
+			}
+		}
+		button {
+			font-size: 13px;
+			padding: 8px 17px;
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+}

@@ -1,0 +1,307 @@
+@media (max-width: 575.98px) {
+	.mainProfileTitle {
+		margin-bottom: 30px;
+		h1 {
+			font-size: 18px;
+		}
+		.mainProfileButton {
+			padding: 2px;
+			button {
+				padding: 8px 30px;
+				font-size: 12px;
+				p {
+					display: none;
+				}
+			}
+		}
+	}
+	.mainProfile {
+		.mainProfileContent {
+			display: none;
+			.mainProfileContentProducts {
+				width: 100%;
+				.products {
+					margin: 0;
+					padding-left: 0;
+					.product {
+						margin: 0 !important;
+						&:nth-child(2n) {
+							margin: 0 !important;
+						}
+						&:nth-child(1n) {
+							margin-top: 20px !important;
+						}
+						width: 100%;
+					}
+				}
+			}
+		}
+		.mainProfileContentMobile {
+			display: block !important;
+			.mainProfileUserCard {
+				flex-direction: column;
+				padding: 25px;
+				.userInfoEdit {
+					top: 15px;
+					right: 15px;
+				}
+				.mainProfileUserInfo {
+					margin-bottom: 20px;
+					img {
+						width: 60px;
+						height: 60px;
+					}
+					.mainProfileUserInfoName {
+						margin-left: 20px;
+						h1 {
+							color: rgb(14, 26, 50);
+							font-size: 16px;
+							line-height: 16px;
+						}
+						span {
+							font-size: 13px;
+						}
+					}
+				}
+
+				.mainProfileUserInfos {
+					padding: 10px 20px !important ;
+					.mainProfileUserInfosImg {
+						width: 40px;
+						img {
+							padding: 10px;
+						}
+					}
+					span {
+						color: rgb(163, 174, 208);
+						font-size: 15px;
+						font-weight: 400;
+					}
+					p {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+	}
+	.profileEditContent {
+		border: none;
+		padding: 0;
+		.profileImage {
+			justify-content: center;
+			margin-top: 50px;
+			.imageUpload {
+				width: 120px;
+				height: 120px;
+				.fon {
+					img {
+						width: 30%;
+					}
+				}
+			}
+			.button {
+				display: none;
+			}
+		}
+		.mobileButton {
+			display: block;
+			padding: 2px;
+			width: 100%;
+			text-align: center;
+
+			button {
+				width: 100%;
+				text-align: center;
+				display: inline-block;
+				padding: 13px 50px;
+				p {
+					font-size: 15px;
+				}
+			}
+		}
+		.profileEditInputs {
+			.profileEditInputsList {
+				width: 100%;
+			}
+			.profileEditInput {
+				p {
+					font-size: 16px;
+				}
+				.inputStyle {
+					input {
+						padding: 11px 20px;
+						font-size: 14px;
+						&::placeholder {
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.mainProfileTitle {
+		margin-bottom: 30px;
+		h1 {
+			font-size: 20px;
+		}
+		.mainProfileButton {
+			padding: 2px;
+			button {
+				padding: 8px 20px;
+				font-size: 12px;
+			}
+		}
+	}
+	.mainProfile {
+		.mainProfileContent {
+			display: none;
+		}
+		.mainProfileContentMobile {
+			display: block !important;
+		}
+	}
+	.profileEditContent {
+		.profileImage {
+			.imageUpload {
+				width: 120px;
+				height: 120px;
+				.fon {
+					img {
+						width: 30%;
+					}
+				}
+			}
+			.button {
+				padding: 2px;
+				button {
+					padding: 13px 50px;
+					p {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+		.profileEditInputs {
+			.profileEditInputsList {
+				width: 100%;
+			}
+			.profileEditInput {
+				width: 100%;
+				p {
+					font-size: 16px;
+				}
+				.inputStyle {
+					padding: 2px;
+
+					input {
+						padding: 11px 20px;
+						font-size: 15px;
+						&::placeholder {
+							font-size: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.mainProfileTitle {
+		margin-bottom: 30px;
+		h1 {
+			font-size: 22px;
+		}
+		.mainProfileButton {
+			padding: 3px;
+			button {
+				padding: 10px 35px;
+			}
+		}
+	}
+	.mainProfile {
+		.mainProfileContent {
+			display: none;
+		}
+		.mainProfileContentMobile {
+			display: block !important;
+		}
+	}
+	.profileEditContent {
+		.profileEditInputs {
+			.profileEditInputsList {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.mainProfileTitle {
+		margin-bottom: 30px;
+		h1 {
+			font-size: 22px;
+		}
+		.mainProfileButton {
+			padding: 3px;
+			button {
+				padding: 10px 35px;
+			}
+		}
+	}
+	.mainProfile {
+		.mainProfileContent {
+			.mainProfileContentItem {
+				.mainProfileUserCard {
+					padding: 20px;
+					.userInfoEdit {
+						top: 15px;
+						right: 15px;
+					}
+					.mainProfileUserInfo {
+						margin-bottom: 20px;
+						img {
+							width: 60px;
+							height: 60px;
+						}
+						.mainProfileUserInfoName {
+							margin-left: 20px;
+							h1 {
+								color: rgb(14, 26, 50);
+								font-size: 16px;
+								line-height: 16px;
+							}
+							span {
+								font-size: 13px;
+							}
+						}
+					}
+
+					.mainProfileUserInfos {
+						padding: 10px 5px;
+						.mainProfileUserInfosImg {
+							width: 40px;
+							img {
+								padding: 10px;
+							}
+						}
+						span {
+							color: rgb(163, 174, 208);
+							font-size: 15px;
+							font-weight: 400;
+						}
+						p {
+							font-size: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+}

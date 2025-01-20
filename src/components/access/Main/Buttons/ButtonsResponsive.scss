@@ -1,0 +1,115 @@
+@media (max-width: 575.98px) {
+	.buttons {
+		flex-wrap: wrap;
+		.button {
+			margin-right: 10px;
+
+			padding: 2px;
+
+			button {
+				padding: 10px 15px;
+				p {
+					font-size: 12px;
+					line-height: 12px;
+				}
+				span {
+					line-height: 12px;
+					font-size: 12px;
+
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.buttons {
+		.button {
+			padding: 2px;
+
+			button {
+				padding: 13px 15px;
+				p {
+					font-size: 13px;
+					line-height: 13px;
+				}
+				span {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.buttons {
+		.button {
+			padding: 2px;
+
+			button {
+				padding: 13px 15px;
+				p {
+					font-size: 13px;
+					line-height: 13px;
+				}
+				span {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.buttons {
+		.button {
+			border-radius: 50px;
+			padding: 2px;
+			button {
+				background: white;
+				display: flex;
+				align-items: center;
+				border-radius: 50px;
+				transition: 0.5s;
+				padding: 13px 15px;
+				p {
+					font-size: 14px;
+					line-height: 13px;
+				}
+				span {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+	.buttons {
+		.button {
+			border-radius: 50px;
+			padding: 2px;
+			button {
+				background: white;
+				display: flex;
+				align-items: center;
+				border-radius: 50px;
+				transition: 0.5s;
+				padding: 13px 15px;
+				p {
+					font-size: 14px;
+					line-height: 13px;
+				}
+				span {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
+	}
+}

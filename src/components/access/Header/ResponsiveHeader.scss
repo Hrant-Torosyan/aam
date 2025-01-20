@@ -1,0 +1,170 @@
+@media (max-width: 575.98px) {
+	header {
+		.headerLeft {
+			width: auto;
+			bottom: 0;
+			background: rgb(244, 247, 254);
+			top: auto;
+			height: auto;
+			width: 100%;
+			padding: 15px 10px 30px;
+			.headerLeftLogo {
+				display: none;
+			}
+			nav {
+				display: none;
+			}
+			.mobileMenu {
+				display: block;
+			}
+		}
+		.headerTop {
+			background: rgb(244, 247, 254);
+			padding: 12px 15px;
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	header {
+		.headerLeft {
+			width: auto;
+			bottom: 0;
+			background: rgb(244, 247, 254);
+			top: auto;
+			height: auto;
+			width: 100%;
+			padding: 15px 40px 30px;
+			.headerLeftLogo {
+				display: none;
+			}
+			nav {
+				display: none;
+			}
+			.mobileMenu {
+				display: block;
+			}
+		}
+		.headerTop {
+			background: rgb(244, 247, 254);
+			padding: 12px 15px;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	header {
+		.headerLeft {
+			width: auto;
+			padding: 20px;
+			.headerLeftLogo {
+				margin: 0;
+				img {
+					width: 60px;
+					margin: 0;
+					margin-bottom: 30px;
+				}
+			}
+			nav {
+				ul {
+					a {
+						padding: 15px;
+						svg {
+							margin: 0;
+						}
+						span {
+							display: none;
+						}
+					}
+				}
+				.logout {
+					padding: 15px;
+					svg {
+						margin: 0;
+					}
+					span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	header {
+		.headerLeft {
+			width: auto;
+			padding: 20px;
+			.headerLeftLogo {
+				margin: 0;
+				img {
+					width: 60px;
+					margin: 0;
+					margin-bottom: 30px;
+				}
+			}
+			nav {
+				ul {
+					a {
+						padding: 15px;
+						svg {
+							margin: 0;
+						}
+						span {
+							display: none;
+						}
+					}
+				}
+				.logout {
+					padding: 15px;
+					svg {
+						margin: 0;
+					}
+					span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1339.98px) {
+	header {
+		.headerLeft {
+			width: auto;
+			padding: 20px;
+			.headerLeftLogo {
+				margin: 0;
+				img {
+					width: 60px;
+					margin: 0;
+					margin-bottom: 20px;
+				}
+			}
+			nav {
+				ul {
+					a {
+						padding: 15px;
+						svg {
+							margin: 0;
+						}
+						span {
+							display: none;
+						}
+					}
+				}
+				.logout {
+					padding: 15px;
+					svg {
+						margin: 0;
+					}
+					span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

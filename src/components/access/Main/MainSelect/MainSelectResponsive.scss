@@ -1,0 +1,167 @@
+@media (max-width: 575.98px) {
+	.mainSelect {
+		border-radius: 15px;
+		> p {
+			font-size: 13px;
+		}
+		> .typeInfo {
+			h3 {
+				font-size: 12px;
+			}
+			p {
+				font-size: 9px;
+			}
+			img {
+				width: 23px;
+				height: 23px;
+			}
+		}
+		.mainSelectItem {
+			border-radius: 15px;
+			> div {
+				padding: 16px;
+				font-size: 13px;
+			}
+		}
+		.mainSelectItemType {
+			.mainSelectItemTypeItem {
+				padding: 15px;
+				> p {
+					font-size: 14px;
+				}
+				.typeInfo {
+					h3 {
+						font-size: 13px;
+					}
+					p {
+						font-size: 10px;
+					}
+					img {
+						width: 25px;
+						height: 25px;
+					}
+				}
+			}
+		}
+	}
+
+	.selectTitle {
+		padding-left: 2px;
+		font-size: 13px;
+		margin-bottom: 10px;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.mainSelect {
+		border-radius: 15px;
+		> p {
+			font-size: 13px;
+		}
+		> .typeInfo {
+			h3 {
+				font-size: 12px;
+			}
+			p {
+				font-size: 9px;
+			}
+			img {
+				width: 23px;
+				height: 23px;
+			}
+		}
+		.mainSelectItem {
+			border-radius: 15px;
+			> div {
+				padding: 16px;
+				font-size: 13px;
+			}
+		}
+		.mainSelectItemType {
+			.mainSelectItemTypeItem {
+				padding: 15px;
+				> p {
+					font-size: 14px;
+				}
+				.typeInfo {
+					h3 {
+						font-size: 13px;
+					}
+					p {
+						font-size: 10px;
+					}
+					img {
+						width: 25px;
+						height: 25px;
+					}
+				}
+			}
+		}
+	}
+
+	.selectTitle {
+		padding-left: 2px;
+		font-size: 13px;
+		margin-bottom: 10px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.mainSelect {
+		> p {
+			font-size: 15px;
+		}
+		> .typeInfo {
+			h3 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 10px;
+			}
+			img {
+				width: 25px;
+				height: 25px;
+			}
+		}
+		.mainSelectItem {
+			border-radius: 10px;
+			> div {
+				padding: 16px;
+				font-size: 14px;
+			}
+		}
+		.mainSelectItemType {
+			.mainSelectItemTypeItem {
+				padding: 15px;
+				> p {
+					font-size: 15px;
+				}
+				.typeInfo {
+					h3 {
+						font-size: 14px;
+					}
+					p {
+						font-size: 10px;
+					}
+					img {
+						width: 25px;
+						height: 25px;
+					}
+				}
+			}
+		}
+	}
+	.typeSelect {
+		padding: 10px 25px;
+	}
+	.selectTitle {
+		padding-left: 2px;
+		font-size: 15px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+}

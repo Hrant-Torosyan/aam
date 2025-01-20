@@ -1,0 +1,106 @@
+#loginPage {
+	h2 {
+		color: rgb(77, 156, 243);
+		font-size: 19.25px;
+		font-weight: 500;
+		line-height: 28px;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+	> p {
+		color: rgb(52, 142, 241);
+		font-size: 13px;
+		font-weight: 400;
+		text-decoration-line: underline;
+		text-align-last: left;
+		cursor: pointer;
+		margin-left: 5px;
+	}
+
+	.buttonStyleToo {
+		overflow: hidden;
+		border-radius: 20px;
+		background: red;
+		padding: 2px;
+		background: linear-gradient(
+			158.2deg,
+			rgb(44, 115, 243) -103.971%,
+			rgb(48, 205, 231) 151.363%
+		);
+		margin-top: 20px;
+		button,
+		div {
+			cursor: pointer;
+			width: 100%;
+			transition: 0.5s;
+			padding: 15px;
+			border-radius: 18px;
+			background: white;
+			span {
+				background: linear-gradient(236.49deg, rgb(34, 100, 220), rgb(0, 180, 210));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				color: transparent;
+				font-size: 20px;
+				transition: 0.5s;
+				font-weight: 600;
+				line-height: 120%;
+				text-align: center;
+			}
+		}
+		&:hover {
+			button,
+			div {
+				background: transparent;
+				span {
+					background: none;
+					-webkit-background-clip: border-box;
+					background-clip: border-box;
+					-webkit-text-fill-color: initial;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 575.98px) {
+	#loginPage {
+		.errors {
+			top: 100px !important;
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	#loginPage {
+		.errors {
+			top: 100px !important;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#loginPage {
+		.errors {
+			top: 100px !important;
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	#loginPage {
+		.errors {
+			top: 100px !important;
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+	#loginPage {
+		.errors {
+			top: 100px !important;
+		}
+	}
+}

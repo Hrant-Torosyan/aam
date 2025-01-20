@@ -1,0 +1,144 @@
+.doughnutChart {
+	width: 35%;
+
+	padding: 25px 40px;
+	border-radius: 25px;
+	background: rgb(255, 255, 255);
+	margin-top: 35px;
+	border: 1px solid rgba(46, 147, 239, 0.3);
+	text-align: center;
+
+	> .doughnutChartTitle {
+		color: rgb(14, 26, 50);
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 20px;
+		margin-bottom: 20px;
+		text-align-last: left;
+		letter-spacing: -0.1%;
+	}
+	.chartBlcok {
+		padding: 30px;
+		border-radius: 500px;
+		box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+		position: relative;
+		max-width: 300px;
+		margin: 0 auto;
+		> p {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 70px;
+			transform: translate(-50%, -50%);
+			color: rgb(52, 142, 241);
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 15px;
+			letter-spacing: -0.5px;
+			text-align: center;
+		}
+	}
+}
+
+@media (max-width: 575.98px) {
+	.doughnutChart {
+		order: 2;
+		width: 100%;
+		padding: 15px;
+		display: flex;
+		margin-top: 20px;
+		align-items: center;
+		flex-wrap: wrap;
+		padding: 15px 20px;
+		.chartBlcok {
+			padding: 0px;
+			width: 50%;
+
+			order: 3;
+			p {
+				font-size: 15px;
+			}
+		}
+
+		> .doughnutChartTitle {
+			font-size: 14px;
+			margin-bottom: 15px;
+			order: 1;
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.doughnutChart {
+		order: 2;
+		width: 51%;
+		padding: 15px;
+		display: flex;
+		margin-top: 0px;
+		align-items: center;
+		flex-wrap: wrap;
+		padding: 15px 20px;
+		.chartBlcok {
+			padding: 0px;
+			width: 50%;
+
+			order: 3;
+			p {
+				font-size: 15px;
+			}
+		}
+
+		> .doughnutChartTitle {
+			font-size: 14px;
+			margin-bottom: 15px;
+			order: 1;
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.doughnutChart {
+		order: 2;
+		width: 51%;
+		padding: 15px;
+		display: flex;
+		margin-top: 0px;
+		align-items: center;
+		flex-wrap: wrap;
+		padding: 15px 20px;
+		.chartBlcok {
+			padding: 0px;
+			width: 50%;
+
+			order: 3;
+			p {
+				font-size: 15px;
+			}
+		}
+
+		> .doughnutChartTitle {
+			font-size: 14px;
+			margin-bottom: 15px;
+			order: 1;
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.doughnutChart {
+		margin-top: 20px;
+		padding: 20px;
+		.chartBlcok {
+			padding: 20px;
+		}
+		> .doughnutChartTitle {
+			font-size: 17px;
+		}
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+}

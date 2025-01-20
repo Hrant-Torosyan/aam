@@ -1,0 +1,75 @@
+.mainInput {
+	> p {
+		padding-left: 5px;
+		color: rgb(0, 0, 0);
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 20px;
+		letter-spacing: -0.1%;
+		text-align: left;
+		margin-bottom: 15px;
+	}
+	.inputStyle {
+		background: rgba(46, 147, 239, 0.3);
+		border-radius: 14px;
+		padding: 2px;
+		overflow: hidden;
+		margin-bottom: 20px;
+		position: relative;
+
+		.typeMoney {
+			position: absolute;
+			left: 25px;
+			transform: translate(0, -50%);
+			top: 50%;
+			z-index: 10;
+			color: rgb(0, 0, 0);
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 20px;
+		}
+		.minMax {
+			position: absolute;
+			right: 25px;
+			transform: translate(0, -50%);
+			top: 50%;
+			z-index: 10;
+			color: rgb(150, 197, 249);
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+			letter-spacing: -0.1%;
+		}
+		&:focus-within {
+			background: linear-gradient(225deg, rgb(12, 94, 255), rgb(0, 180, 210) 100%);
+		}
+		input {
+			padding: 17px 25px;
+			border-radius: 12px;
+			overflow: hidden;
+			width: 100%;
+			font-size: 16px;
+
+			background: rgb(255, 255, 255);
+			position: relative;
+			display: inline-block;
+			color: rgb(0, 0, 0);
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 20px;
+			&::placeholder {
+				color: rgba(14, 26, 50, 0.5);
+				font-size: 16px;
+				font-weight: 400;
+			}
+		}
+	}
+	.inputStyleMn {
+		input {
+			padding-left: 40px;
+		}
+	}
+	.inputStyle.error {
+		background: rgb(229, 92, 92);
+	}
+}
