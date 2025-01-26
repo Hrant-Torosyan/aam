@@ -28,8 +28,8 @@ const MainProfile = ({ setProfilePage }) => {
 		GetUerInfo().then((res) => {
 			setUserAllInfo(res);
 
-			if (res.birthDay !== null) {
-				let userDate = new Date(+res.birthDay);
+			if (res?.birthDay !== null) {
+				let userDate = new Date(+res?.birthDay);
 
 				setFormattedDate(
 					`${userDate.getDate().toString().padStart(2, "0")}-${(userDate.getMonth() + 1)
@@ -40,7 +40,7 @@ const MainProfile = ({ setProfilePage }) => {
 		});
 
 		GetProfit().then((res) => {
-			setAmount(res.amount);
+			setAmount(res?.amount);
 		});
 	}, []);
 
@@ -48,7 +48,7 @@ const MainProfile = ({ setProfilePage }) => {
 		GetProfileProducts({
 			pageSize: 4,
 		}).then((res) => {
-			setProfileProducts(res.content);
+			setProfileProducts(res?.content);
 		});
 	}, []);
 
@@ -63,7 +63,7 @@ const MainProfile = ({ setProfilePage }) => {
 				</div>
 			}
 		>
-			{userAllInfo !== null && careerInfo !== null && profileProducts !== null ? (
+			{ userAllInfo !== null && careerInfo !== null && profileProducts !== null ?  (
 				<div className="mainProfile">
 					<div className="mainProfileTitle">
 						<h1>Мой профиль</h1>
@@ -98,7 +98,7 @@ const MainProfile = ({ setProfilePage }) => {
 												/>
 											</svg>
 										</div>
-										{userAllInfo.fullName && (
+										{userAllInfo?.fullName && (
 											<div className="mainProfileUserInfo">
 												<img
 													src={
@@ -109,9 +109,9 @@ const MainProfile = ({ setProfilePage }) => {
 													alt="user"
 												/>
 												<div className="mainProfileUserInfoName">
-													<h1>{`${userAllInfo.fullName.split(" ")[0]} ${
-														userAllInfo.fullName.split(" ").length !== 1
-															? userAllInfo.fullName.split(" ")[1]
+													<h1>{`${userAllInfo?.fullName.split(" ")[0]} ${
+														userAllInfo?.fullName.split(" ").length !== 1
+															? userAllInfo?.fullName.split(" ")[1]
 															: ""
 													}`}</h1>
 													<span>
@@ -134,41 +134,41 @@ const MainProfile = ({ setProfilePage }) => {
 											</div>
 										)}
 
-										{userAllInfo.city && (
+										{userAllInfo?.city && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/map.png" alt="map" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>Город проживания</span>
-													<p>{userAllInfo.city}</p>
+													<p>{userAllInfo?.city}</p>
 												</div>
 											</div>
 										)}
-										{userAllInfo.email && (
+										{userAllInfo?.email && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/email.png" alt="email" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>E-mail</span>
-													<p>{userAllInfo.email}</p>
+													<p>{userAllInfo?.email}</p>
 												</div>
 											</div>
 										)}
-										{userAllInfo.phone && (
+										{userAllInfo?.phone && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/phone.png" alt="phone" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>Телефон</span>
-													<p>+{userAllInfo.phone}</p>
+													<p>+{userAllInfo?.phone}</p>
 												</div>
 											</div>
 										)}
 
-										{userAllInfo.website && (
+										{userAllInfo?.website && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/site.png" alt="site" />
@@ -179,9 +179,9 @@ const MainProfile = ({ setProfilePage }) => {
 														<a
 															target="_blank"
 															rel="noopener noreferrer"
-															href={userAllInfo.website}
+															href={userAllInfo?.website}
 														>
-															{userAllInfo.website}
+															{userAllInfo?.website}
 														</a>
 													</p>
 												</div>
@@ -189,9 +189,9 @@ const MainProfile = ({ setProfilePage }) => {
 										)}
 									</div>
 									<UserLvl
-										levelValue={careerInfo.levelValue}
-										nextLevelUserCount={careerInfo.nextLevelUserCount}
-										nextLevelInvestAmount={careerInfo.nextLevelInvestAmount}
+										levelValue={careerInfo?.levelValue}
+										nextLevelUserCount={careerInfo?.nextLevelUserCount}
+										nextLevelInvestAmount={careerInfo?.nextLevelInvestAmount}
 									/>
 								</div>
 							)}
@@ -228,7 +228,7 @@ const MainProfile = ({ setProfilePage }) => {
 										</svg>
 									</div>
 									<div className="mainProfileUserCardItem">
-										{userAllInfo.fullName && (
+										{userAllInfo?.fullName && (
 											<div className="mainProfileUserInfo">
 												<img
 													src={
@@ -239,8 +239,8 @@ const MainProfile = ({ setProfilePage }) => {
 													alt="user"
 												/>
 												<div className="mainProfileUserInfoName">
-													<h1>{`${userAllInfo.fullName.split(" ")[0]} ${
-														userAllInfo.fullName.split(" ")[1]
+													<h1>{`${userAllInfo?.fullName.split(" ")[0]} ${
+														userAllInfo?.fullName.split(" ")[1]
 													}`}</h1>
 													<span>
 														ID: {JSON.parse(localStorage.getItem("userAuth")).id}
@@ -261,48 +261,48 @@ const MainProfile = ({ setProfilePage }) => {
 											</div>
 										)}
 
-										{userAllInfo.city && (
+										{userAllInfo?.city && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/map.png" alt="map" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>Город проживания</span>
-													<p>{userAllInfo.city}</p>
+													<p>{userAllInfo?.city}</p>
 												</div>
 											</div>
 										)}
-										{userAllInfo.email && (
+										{userAllInfo?.email && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/email.png" alt="email" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>E-mail</span>
-													<p>{userAllInfo.email}</p>
+													<p>{userAllInfo?.email}</p>
 												</div>
 											</div>
 										)}
-										{userAllInfo.phone && (
+										{userAllInfo?.phone && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/phone.png" alt="phone" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>Телефон</span>
-													<p>+{userAllInfo.phone}</p>
+													<p>+{userAllInfo?.phone}</p>
 												</div>
 											</div>
 										)}
 
-										{userAllInfo.website && (
+										{userAllInfo?.website && (
 											<div className="mainProfileUserInfos">
 												<div className="mainProfileUserInfosImg">
 													<img src="./images/site.png" alt="site" />
 												</div>
 												<div className="mainProfileUserInfosItem">
 													<span>Веб-сайт</span>
-													<p>{userAllInfo.website}</p>
+													<p>{userAllInfo?.website}</p>
 												</div>
 											</div>
 										)}
@@ -315,9 +315,9 @@ const MainProfile = ({ setProfilePage }) => {
 								)}
 							</div>
 							<UserLvl
-								levelValue={careerInfo.levelValue}
-								nextLevelUserCount={careerInfo.nextLevelUserCount}
-								nextLevelInvestAmount={careerInfo.nextLevelInvestAmount}
+								levelValue={careerInfo?.levelValue}
+								nextLevelUserCount={careerInfo?.nextLevelUserCount}
+								nextLevelInvestAmount={careerInfo?.nextLevelInvestAmount}
 							/>
 						</div>
 					)}

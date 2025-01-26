@@ -3,6 +3,7 @@ import { lazy } from "react";
 import "./Products.scss";
 import "./ProductsResponsive.scss";
 import { MainContext } from "../../../../app/App";
+import logo from '../../../svg/logo.svg';
 const ProductInfo = lazy(() => import("../ProductInfo/ProductInfo"));
 
 const Products = ({ products, info }) => {
@@ -13,6 +14,7 @@ const Products = ({ products, info }) => {
 		event.target.src = "https://flagsapi.com/RU/flat/64.png";
 	};
 
+	console.log(products, 'prod')
 	let product = products.map((prod, key) => (
 		<div
 			key={key}
@@ -30,7 +32,7 @@ const Products = ({ products, info }) => {
 				(prod.active ? (
 					<div className="isAvailable">
 						<div className="dote"></div>
-						Доступно
+						Актив
 					</div>
 				) : (
 					<div className="isAvailable">Не доступно</div>
@@ -39,21 +41,14 @@ const Products = ({ products, info }) => {
 			<div className="productImage">
 				<img src={prod.image?.url} alt="" />
 				<div className="productImageUser">
-					<img src={prod.logo.url} alt="" />
+					<img src={logo} alt="logo"/>
 				</div>
 			</div>
 			<div className="productContent">
 				<h3>{prod.title}</h3>
 				<div className="direction">
 					<h2>{prod.description}</h2>
-					<div className="directionImg">
-						<img
-							src={`https://flagsapi.com/${prod.country}/flat/64.png`}
-							alt="альтернативный_текст"
-							onError={handleImageError}
-						></img>
-						<span>{prod.country}</span>
-					</div>
+					<h2>Страна: <span>{prod.country}</span></h2>
 				</div>
 				<div className="hashtags">
 					{prod.tags.map((item, key) => (
@@ -67,15 +62,6 @@ const Products = ({ products, info }) => {
 						<p>Цена</p>
 						<span>${prod.price}</span>
 					</div>
-					<div className="price">
-						<p>Мин. сумма</p>
-						<span>${prod.minPrice}</span>
-					</div>
-				</div>
-				<div className="buttonStyle">
-					<button>
-						<span>Инвестировать</span>
-					</button>
 				</div>
 			</div>
 		</div>

@@ -4,17 +4,17 @@ import { GetUerInfo } from "../api/profile";
 import { logout } from "../api/autorisation";
 const ProtectedRoutes = ({ children, href }) => {
 	const login = window.localStorage.getItem("userAuth");
-	// useEffect(() => {
-	// 	if (login) {
-	// 		GetUerInfo().then((res) => {
-	// 			if (res.status) {
-	// 				logout();
-	// 			}
-	// 		});
-	// 	}
-	// }, [login]);
+	useEffect(() => {
+		if (login) {
+			GetUerInfo().then((res) => {
+				if (res.status) {
+					logout();
+				}
+			});
+		}
+	}, [login]);
 
-	if (login) {
+	if (!login) {
 		return <Navigate to={href} replace={true} />;
 	}
 	return children;

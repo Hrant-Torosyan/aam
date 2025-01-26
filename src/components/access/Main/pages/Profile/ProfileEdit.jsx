@@ -22,6 +22,10 @@ const ProfileEdit = ({ setProfilePage }) => {
 	const [oldPassword, setOldPassword] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 	const [errorDate, setErrorDate] = useState(false);
+	const [instagramUrl, setInstagramUrl] = useState("");
+	const [twitterUrl, setTwitterUrl] = useState("");
+	const [facebookUrl, setFacebookUrl] = useState("");
+	const [vkUrl, setVkUrl] = useState("");
 
 	const [error, setError] = useState("");
 
@@ -42,6 +46,10 @@ const ProfileEdit = ({ setProfilePage }) => {
 			setPhone(res.phone || "");
 			setCity(res.city || "");
 			setWebsite(res.website || "");
+			setInstagramUrl(res.instagramUrl || "");
+			setTwitterUrl(res.twitterUrl || "");
+			setFacebookUrl(res.facebookUrl || "");
+			setVkUrl(res.vkUrl || "");
 			setLoading(true);
 		});
 	}, []);
@@ -51,6 +59,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 		const currentDate = new Date();
 		const currentYear = currentDate.getFullYear();
 		const currentMs = currentDate.getTime();
+
 		if (day && month && year) {
 			if (day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= currentYear - 110) {
 				dateForm = new Date(year, month - 1, day).getTime();
@@ -86,14 +95,17 @@ const ProfileEdit = ({ setProfilePage }) => {
 						companyName: "string",
 						investmentAmount: "string",
 						investmentExperience: "string",
-						image:
-							imageName === null ? (imageUrl === null ? null : imageUrl.name) : imageName,
+						image: imageName === null ? (imageUrl === null ? null : imageUrl.name) : imageName,
 						birthDay: dateForm,
 						city: city,
 						phone: phone,
 						website: website,
+						instagramUrl: instagramUrl,
+						twitterUrl: twitterUrl,
+						facebookUrl: facebookUrl,
+						vkUrl: vkUrl,
 					}).then((res) => {
-						setProfilePage("MainProfile");
+						setProfilePage("MainProfileNew");
 					});
 				} else {
 					setError("Неверный пароль");
@@ -111,11 +123,16 @@ const ProfileEdit = ({ setProfilePage }) => {
 				city: city,
 				phone: phone,
 				website: website,
+				instagramUrl: instagramUrl,
+				twitterUrl: twitterUrl,
+				facebookUrl: facebookUrl,
+				vkUrl: vkUrl,
 			}).then((res) => {
-				setProfilePage("MainProfile");
+				setProfilePage("MainProfileNew");
 			});
 		}
 	};
+
 	return (
 		<Suspense
 			fallback={
@@ -159,7 +176,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 										/>
 									</div>
 								</div>
-								<div className="profileEditInput ">
+								<div className="profileEditInput">
 									<p>Дата рождения</p>
 									<div className="profileEditInputDateList">
 										<InputDate
@@ -194,6 +211,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 									</div>
 								</div>
 							</div>
+
 							<div className="profileEditInputsList">
 								<div className="profileEditInput">
 									<p>Фамилия</p>
@@ -206,7 +224,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 									</div>
 								</div>
 
-								<div className="profileEditInput ">
+								<div className="profileEditInput">
 									<p>Сотовый</p>
 									<div className="profileEditInputPhone">
 										<div className="inputStyle">
@@ -219,6 +237,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 										</div>
 									</div>
 								</div>
+
 								<div className="profileEditInput">
 									<p>Город</p>
 									<div className="inputStyle">
@@ -230,6 +249,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 									</div>
 								</div>
 							</div>
+
 							<div className="profileEditInput">
 								<p>Сайт</p>
 								<div className="inputStyle">
@@ -240,6 +260,55 @@ const ProfileEdit = ({ setProfilePage }) => {
 									/>
 								</div>
 							</div>
+
+							<div className="profileEditInputsList">
+								<div className="profileEditInput">
+									<p>Instagram</p>
+									<div className="inputStyle">
+										<input
+											type="text"
+											value={instagramUrl}
+											onChange={(e) => setInstagramUrl(e.target.value)}
+										/>
+									</div>
+								</div>
+
+								<div className="profileEditInput">
+									<p>Twitter</p>
+									<div className="inputStyle">
+										<input
+											type="text"
+											value={twitterUrl}
+											onChange={(e) => setTwitterUrl(e.target.value)}
+										/>
+									</div>
+								</div>
+							</div>
+
+							<div className="profileEditInputsList">
+								<div className="profileEditInput">
+									<p>Facebook</p>
+									<div className="inputStyle">
+										<input
+											type="text"
+											value={facebookUrl}
+											onChange={(e) => setFacebookUrl(e.target.value)}
+										/>
+									</div>
+								</div>
+
+								<div className="profileEditInput">
+									<p>VK</p>
+									<div className="inputStyle">
+										<input
+											type="text"
+											value={vkUrl}
+											onChange={(e) => setVkUrl(e.target.value)}
+										/>
+									</div>
+								</div>
+							</div>
+
 							<div className="line"></div>
 
 							<div className="profileEditInputsList">

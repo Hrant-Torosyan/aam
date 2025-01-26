@@ -2,12 +2,12 @@ import React, { lazy, useState } from "react";
 import "./Profile.scss";
 import "./ProfileResposive.scss";
 const ProfileEdit = lazy(() => import("./ProfileEdit"));
-const MainProfile = lazy(() => import("./MainProfile"));
+const MainProfileNew = lazy(() => import("./MainProfileNew"));
 
 const Profile = () => {
-	const [profilePage, setProfilePage] = useState("MainProfile");
-	return profilePage === "MainProfile" ? (
-		<MainProfile setProfilePage={setProfilePage} />
+	const [profilePage, setProfilePage] = useState("MainProfileNew");
+	return profilePage === "MainProfileNew" ? (
+		<MainProfileNew setProfilePage={setProfilePage} />
 	) : (
 		<ProfileEdit setProfilePage={setProfilePage} />
 	);

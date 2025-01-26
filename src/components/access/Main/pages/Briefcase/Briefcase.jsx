@@ -12,14 +12,14 @@ const Briefcase = () => {
 	let mainCntx = useContext(MainContext);
 	useEffect(() => {
 		BriefcaseCategories().then((res) => {
-			if (res.categories.length) {
+			if (res?.categories?.length) {
 				setCategories(res.categories);
 			}
 		});
 	}, []);
 	useEffect(() => {
 		BriefcaseProducts(filter).then((res) => {
-			setProducts(res.content);
+			setProducts(res?.content);
 		});
 	}, [filter]);
 

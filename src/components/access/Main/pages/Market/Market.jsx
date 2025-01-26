@@ -15,7 +15,7 @@ const Market = () => {
 
 	useEffect(() => {
 		MarketCategories().then((res) => {
-			if (res.categories.length) {
+			if (res?.categories?.length) {
 				setCategories(res.categories);
 			}
 		});

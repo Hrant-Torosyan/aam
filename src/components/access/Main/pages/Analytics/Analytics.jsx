@@ -79,19 +79,19 @@ const Analytics = () => {
 	const [dateNow, setDateNow] = useState(null);
 	let glData = useContext(MainContext);
 
-	// useEffect(() => {
-	// 	Wallets().then((res) => {
-	// 		setWalletsData(res);
-	// 	});
-	// 	OperationsList(null, showOperationsList).then((res) => {
-	// 		setOperationsList(res);
-	// 	});
-	// }, [showOperationsList, isOpenSc, refresh, glData.checkPay]);
-	// useEffect(() => {
-	// 	BalanceChart(selectValue).then((res) => {
-	// 		setBalanceChartData(res);
-	// 	});
-	// }, [selectValue, isOpenSc, refresh, glData.checkPay]);
+	useEffect(() => {
+		Wallets().then((res) => {
+			setWalletsData(res);
+		});
+		OperationsList(null, showOperationsList).then((res) => {
+			setOperationsList(res);
+		});
+	}, [showOperationsList, isOpenSc, refresh, glData.checkPay]);
+	useEffect(() => {
+		BalanceChart(selectValue).then((res) => {
+			setBalanceChartData(res);
+		});
+	}, [selectValue, isOpenSc, refresh, glData.checkPay]);
 	useEffect(() => {
 		const specificDate = new Date();
 
