@@ -11,6 +11,7 @@ const Market = () => {
 	const [filter, setFilter] = useState("all");
 	const [categories, setCategories] = useState(null);
 	const [searchInp, setSearchInp] = useState("");
+	const [selectedType, setSelectedType] = useState("all"); // State for selectedType
 	let mainCntx = useContext(MainContext);
 
 	useEffect(() => {
@@ -20,11 +21,17 @@ const Market = () => {
 			}
 		});
 	}, []);
+
 	useEffect(() => {
-		MarketProducts(filter, searchInp).then((res) => {
+		MarketProducts(filter, searchInp, selectedType).then((res) => {
 			setProducts(res.content);
 		});
-	}, [filter, searchInp]);
+	}, [filter, searchInp, selectedType]); // Add selectedType to dependency array
+
+	// Handle type change (FUND, ASSET, all)
+	const handleTypeChange = (type) => {
+		setSelectedType(type); // Update the selectedType state
+	};
 
 	return (
 		<Suspense
@@ -44,12 +51,32 @@ const Market = () => {
 							<div className="marketTitle">
 								<h1>Маркет</h1>
 							</div>
-							{!mainCntx.hiddenHeader && (
-								<Search searchInp={searchInp} setSearchInp={setSearchInp} />
-							)}
+							<Search searchInp={searchInp} setSearchInp={setSearchInp} />
 							{categories && !mainCntx.hiddenHeader && (
 								<Buttons categories={categories} filter={filter} setFilter={setFilter} />
 							)}
+
+							{/* Type Switcher UI */}
+							<div className="typeSwitcher">
+								<button
+									onClick={() => handleTypeChange("FUND")}
+									className={selectedType === "FUND" ? "active" : ""}
+								>
+									FUND
+								</button>
+								<button
+									onClick={() => handleTypeChange("ASSET")}
+									className={selectedType === "ASSET" ? "active" : ""}
+								>
+									ASSET
+								</button>
+								<button
+									onClick={() => handleTypeChange("all")}
+									className={selectedType === "all" ? "active" : ""}
+								>
+									All
+								</button>
+							</div>
 						</>
 					)}
 					<Products info={"Market"} products={products} />

@@ -41,8 +41,8 @@ const ProductSlider = ({ mainData }) => {
 					)}
 
 					<img
-						src={mainData.medias[slideImg].url.url}
-						alt={mainData.medias[slideImg].url.name}
+						src={mainData.medias[slideImg]?.url.url}
+						alt={mainData.medias[slideImg]?.url.name}
 					/>
 					{mainData.medias.length > 1 && (
 						<div
@@ -81,8 +81,8 @@ const ProductSlider = ({ mainData }) => {
 								<img
 									className={slideImg === key ? "active" : ""}
 									onClick={() => setSlideImg(key)}
-									src={item.url.url}
-									alt={item.url.name}
+									src={item?.url?.url}
+									alt={item?.url?.name}
 								/>
 							</div>
 						))}

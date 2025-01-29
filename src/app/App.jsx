@@ -50,7 +50,7 @@ const App = () => {
 						<Route path={"/briefcase"} element={<Briefcase />} />
 						<Route path={"/wallet"} element={<Wallet />} />
 						<Route path={"/career"} element={<Career />} />
-						<Route path={"/profile"} element={<Profile />} />
+						<Route path={"/profile"} element={<Profile />} classname='profileRoute' />
 					</Route>
 				</Routes>
 			</Router>

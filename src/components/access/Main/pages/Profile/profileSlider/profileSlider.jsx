@@ -1,11 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./profileSlider.scss";
+
 import Products from "../../../Products/Products";
 import leftArrow from "../../../../../svg/leftArrow.svg";
 import rightArrow from "../../../../../svg/rightArrow.svg";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./profileSlider.scss";
+import "./profileSliderResponssive.scss";
 
 const ProfileSlider = ({ products = [], info }) => {
     const CustomPrevArrow = ({ onClick }) => (
@@ -24,13 +27,83 @@ const ProfileSlider = ({ products = [], info }) => {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 3.5,
         slidesToScroll: 1,
         arrows: true,
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
         centerMode: false,
-        initialSlide: 0,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    arrows: false,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 2.5,
+                    centerMode: false,
+                    variableWidth: false,
+                },
+            },
+            {
+                breakpoint: 670,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1.5,
+                    centerMode: false,
+                    variableWidth: false,
+                },
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1.5,
+                    centerMode: false,
+                    variableWidth: false,
+                }
+            },
+            {
+                breakpoint: 470,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1.2,
+                    centerMode: false,
+                    variableWidth: false,
+                },
+            },
+            {
+                breakpoint: 410,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1.2,
+                    centerMode: false,
+                    variableWidth: false,
+                },
+            },
+            {
+                breakpoint: 375,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1.2,
+                    centerMode: false,
+                    variableWidth: false,
+                },
+            },
+            {
+                breakpoint: 360,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1.1,
+                    centerMode: false,
+                    variableWidth: false,
+                },
+            },
+        ],
     };
 
     return (

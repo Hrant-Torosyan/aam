@@ -10,17 +10,12 @@
 	.product {
 		cursor: pointer;
 		position: relative;
-
-		&:nth-child(3n - 1) {
-			margin: 0 20px;
-			margin-top: 20px;
-		}
+		margin: 6px;
 		border: 1px solid rgba(46, 147, 239, 0.3);
 		border-radius: 25px;
 		background: rgb(255, 255, 255);
 		overflow: hidden;
 		width: calc(33.3333% - 14px);
-		margin-top: 20px;
 		position: relative;
 		&:hover {
 			.buttonStyle {

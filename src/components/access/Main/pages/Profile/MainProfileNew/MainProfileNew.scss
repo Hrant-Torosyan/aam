@@ -2,22 +2,24 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
   min-height: 219px;
+  position: relative;
 
   .userInfoEdit {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 296px;
     height: 50px;
-    position: relative;
+    position: absolute;
     box-sizing: border-box;
     padding: 15px;
     background-color: white;
     border-radius: 30px;
-    margin-top: 32px;
-
     border: solid 2px transparent;
+    top: 170px;
+    order: 3;
 
     &:before {
       content: '';
@@ -40,7 +42,7 @@
       margin-left: 10px;
       display: flex;
       align-items: center;
-     }
+    }
 
     .svgBackground svg {
       display: flex;
@@ -50,6 +52,30 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    order: 1;
+
+    .socialLinks {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+      img {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        margin-right: 8px;
+      }
+    }
+
+    .userContent {
+      display: flex;
+    }
 
     .avatar {
       width: 120px;
@@ -73,17 +99,6 @@
         color: #0E1A32;
         text-wrap: wrap;
       }
-
-      .socialLinks {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        img {
-          width: 32px;
-          height: 32px;
-          cursor: pointer;
-        }
-      }
     }
   }
 
@@ -92,6 +107,8 @@
     flex-direction: column;
     height: 225px;
     flex-wrap: wrap;
+    margin-left: 78px;
+    order: 2;
   }
 
   .mainProfileUserInfos {
@@ -100,7 +117,6 @@
     align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 24px;
-    margin-left: 78px;
     width: 291px;
 
 
@@ -142,4 +158,6 @@
       }
     }
   }
+
+
 }

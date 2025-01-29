@@ -5,7 +5,7 @@ const UserInfo = ({ mainData, setPopUpProd }) => {
 	return (
 		<div className="userInfo prodInfoCard">
 			<div className="userInfoImage">
-				<img src={mainData.ceoImage.url} alt="" />
+				<img src={mainData.ceoImage?.url} alt="" />
 				<h3>
 					{mainData.ceoFirstname} {mainData.ceoLastname}
 				</h3>
@@ -22,7 +22,7 @@ const UserInfo = ({ mainData, setPopUpProd }) => {
 				</div>
 				<div className="userInfoCreateList">
 					<p>Отрасль:</p>
-					<p>{mainData.categories.join(", ")}</p>
+					<p>{mainData.categories?.join(", ")}</p>
 				</div>
 				<div className="userInfoCreateList">
 					<p>Веб-сайт:</p>
@@ -45,7 +45,7 @@ const UserInfo = ({ mainData, setPopUpProd }) => {
 			</div>
 
 			<div className="hashtags">
-				{mainData.tags.map((item, key) => (
+				{mainData.tags?.map((item, key) => (
 					<div key={key} className="hashtag">
 						#{item}
 					</div>
