@@ -1,15 +1,16 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { GetProfileCareer, GetUerInfo, GetProfit } from "../../../../../api/profile";
-import { MarketProducts } from "../../../../../api/market";
+import { GetProfileCareer, GetUerInfo, GetProfit } from "../../../../../../api/profile";
+import { MarketProducts } from "../../../../../../api/market";
 
-import avatar from '../../../../images/avatar.png';
-import edit from '../../../../svg/edit.svg';
-import insta from '../../../../svg/insta.svg';
-import x from '../../../../svg/х.svg';
-import fb from '../../../../svg/fb.svg';
-import vk from '../../../../svg/vk.svg';
-import ProfileSlider from "./profileSlider/profileSlider";
+import avatar from '../../../../../images/avatar.png';
+import edit from '../../../../../svg/edit.svg';
+import insta from '../../../../../svg/insta.svg';
+import x from '../../../../../svg/х.svg';
+import fb from '../../../../../svg/fb.svg';
+import vk from '../../../../../svg/vk.svg';
+import ProfileSlider from "../profileSlider/profileSlider";
 import "./MainProfileNew.scss";
+import "./MainProfileNewResponsive.scss";
 
 const MainProfileNew = ({ setProfilePage }) => {
     const [userAllInfo, setUserAllInfo] = useState(null);
@@ -72,55 +73,49 @@ const MainProfileNew = ({ setProfilePage }) => {
                     <div className="mainInfo">
                         <div className="userInfo">
                             <div className="user">
-                                <div className="avatar">
-                                    <img
-                                        src={
-                                            userAllInfo?.image?.url ? userAllInfo.image.url : avatar
-                                        }
-                                        alt="user"
-                                    />
-                                </div>
-                                <div className="userName">
-                                    <h1>{`${userAllInfo?.fullName.split(" ")[0]} ${
-                                        userAllInfo?.fullName.split(" ").length !== 1
-                                            ? userAllInfo?.fullName.split(" ")[1]
-                                            : ""
-                                    }`}</h1>
-                                    <div className="socialLinks">
-                                        {userAllInfo?.instagramUrl && (
-                                            <a href={userAllInfo.instagramUrl} target="_blank">
-                                                <img src={insta} alt="Instagram"/>
-                                            </a>
-                                        )}
-                                        {userAllInfo?.twitterUrl && (
-                                            <a href={userAllInfo.twitterUrl} target="_blank">
-                                                <img src={x} alt="Twitter"/>
-                                            </a>
-                                        )}
-                                        {userAllInfo?.facebookUrl && (
-                                            <a href={userAllInfo.facebookUrl} target="_blank">
-                                                <img src={fb} alt="Facebook"/>
-                                            </a>
-                                        )}
-                                        {userAllInfo?.vkUrl && (
-                                            <a href={userAllInfo.vkUrl} target="_blank">
-                                                <img src={vk} alt="VK"/>
-                                            </a>
-                                        )}
+                                <div className='userContent'>
+                                    <div className="avatar">
+                                        <img
+                                            src={
+                                                userAllInfo?.image?.url ? userAllInfo.image?.url : avatar
+                                            }
+                                            alt="user"
+                                        />
+                                    </div>
+                                    <div className="userName">
+                                        <h1>{`${userAllInfo?.fullName.split(" ")[0]} ${
+                                            userAllInfo?.fullName.split(" ").length !== 1
+                                                ? userAllInfo?.fullName.split(" ")[1]
+                                                : ""
+                                        }`}</h1>
+
                                     </div>
                                 </div>
-                            </div>
-
-                            <div
-                                onClick={() => setProfilePage("ProfileEdit")}
-                                className="userInfoEdit"
-                            >
-                                <div className="svgBackground">
-                                    <img src={edit} alt="edit"/>
+                                <div className="socialLinks">
+                                    {userAllInfo?.instagramUrl && (
+                                        <a href={userAllInfo.instagramUrl} target="_blank">
+                                            <img src={insta} alt="Instagram"/>
+                                        </a>
+                                    )}
+                                    {userAllInfo?.twitterUrl && (
+                                        <a href={userAllInfo.twitterUrl} target="_blank">
+                                            <img src={x} alt="Twitter"/>
+                                        </a>
+                                    )}
+                                    {userAllInfo?.facebookUrl && (
+                                        <a href={userAllInfo.facebookUrl} target="_blank">
+                                            <img src={fb} alt="Facebook"/>
+                                        </a>
+                                    )}
+                                    {userAllInfo?.vkUrl && (
+                                        <a href={userAllInfo.vkUrl} target="_blank">
+                                            <img src={vk} alt="VK"/>
+                                        </a>
+                                    )}
                                 </div>
-                                <span>Редактировать профиль</span>
                             </div>
                         </div>
+
                         <div className="userOwnInfo">
                             {formattedDate && (
                                 <div className="mainProfileUserInfos">
@@ -189,6 +184,15 @@ const MainProfileNew = ({ setProfilePage }) => {
                                 </div>
                             )}
                         </div>
+                        <div
+                            onClick={() => setProfilePage("ProfileEdit")}
+                            className="userInfoEdit"
+                        >
+                            <div className="svgBackground">
+                                <img src={edit} alt="edit"/>
+                            </div>
+                            <span>Редактировать профиль</span>
+                        </div>
                     </div>
                 </div>
             ) : (
@@ -200,7 +204,7 @@ const MainProfileNew = ({ setProfilePage }) => {
                 </div>
             )}
 
-            <ProfileSlider products={profileProducts} info="Briefcase" />
+            <ProfileSlider products={profileProducts} info="Briefcase"/>
         </Suspense>
     );
 };

@@ -1,0 +1,100 @@
+@media (max-width: 1199.98px) {
+  .userInfo {
+    min-height: 277px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .mainInfo {
+    .userOwnInfo {
+      min-height: 277px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-left: 69px;
+    }
+
+    .mainProfileUserInfos {
+      height: 49px;
+      margin-bottom: 0;
+    }
+
+    .userInfoEdit {
+      width: 257px;
+    }
+
+    .user {
+      .userName {
+        height: auto;
+      }
+      .avatar {
+        width: 80px;
+        height: 80px;
+      }
+      .userName h1 {
+        font-size: 14px;
+        width: min-content;
+      }
+      .socialLinks {
+        position: static;
+        margin-top: 24px;
+      }
+    }
+  }
+
+  .mainProfileTitle {
+    h1 {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 767.99px) {
+  .mainProfile {
+    padding: 0 15px;
+
+    .mainInfo {
+      display: flex;
+      flex-direction: column;
+      padding: 15px 15px;
+      border: 2px solid rgba(46, 147, 239, 0.3);
+      border-radius: 25px;
+
+      .userOwnInfo {
+        order: 2;
+        margin: 22px 0 41px;
+      }
+
+      .userInfoEdit {
+        order: 3;
+        margin-top: 16px;
+        position: relative;
+        top: 0;
+      }
+
+      .user {
+        order: 1;
+      }
+    }
+  }
+  .userInfo {
+    min-height: auto;
+
+    .userContent {
+      align-items: center;
+    }
+  }
+  .mainProfileTitle {
+    h1 {
+      font-size: 18px;
+    }
+  }
+}
+@media (max-width: 576.98px) {
+  .mainInfo {
+    .userInfoEdit {
+      width: 100%;
+    }
+  }
+}

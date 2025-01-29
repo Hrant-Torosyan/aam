@@ -21,12 +21,12 @@ export default function LineChart({
 
 		let labelsArr =
 			selectValue === "MONTHLY"
-				? balanceChartData?.lab.map((item) => {
+				? balanceChartData?.lab?.map((item) => {
 						return item.getDate();
 				  })
 				: selectValue === "WEEKLY"
 				? balanceChartData?.lab
-				: balanceChartData?.mainData.map((item) => item.month);
+				: balanceChartData?.mainData?.map((item) => item.month);
 
 		const myChartRef = chartRef.current.getContext("2d");
 		chartInstance.current = new Chart(myChartRef, {
@@ -39,7 +39,7 @@ export default function LineChart({
 						data:
 							selectValue === "MONTHLY" || selectValue === "WEEKLY"
 								? balanceChartData?.data
-								: balanceChartData?.mainData.map((item) => item.average),
+								: balanceChartData?.mainData?.map((item) => item.average),
 						borderColor: color || "rgb(48, 170, 235)",
 						fill: {
 							target: "origin",

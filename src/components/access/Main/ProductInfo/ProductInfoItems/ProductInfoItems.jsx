@@ -82,7 +82,7 @@ const ProductInfoItems = ({ mainData }) => {
 							onClick={() => {
 								if (mainData.presentation !== null) {
 									const dummyLink = document.createElement("a");
-									dummyLink.href = mainData.presentation.url;
+									dummyLink.href = mainData?.presentation?.url;
 									dummyLink.setAttribute("target", "_blank");
 									dummyLink.download = mainData.presentation.name;
 									document.body.appendChild(dummyLink);
