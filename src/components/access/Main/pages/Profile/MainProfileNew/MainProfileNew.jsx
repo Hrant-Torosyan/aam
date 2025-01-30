@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { GetProfileCareer, GetUerInfo, GetProfit } from "../../../../../../api/profile";
 import { MarketProducts } from "../../../../../../api/market";
+import ProfileSlider from "../../../ProfileSlider/ProfileSlider";
 
 import avatar from '../../../../../images/avatar.png';
 import edit from '../../../../../svg/edit.svg';
@@ -8,17 +9,20 @@ import insta from '../../../../../svg/insta.svg';
 import x from '../../../../../svg/х.svg';
 import fb from '../../../../../svg/fb.svg';
 import vk from '../../../../../svg/vk.svg';
-import ProfileSlider from "../profileSlider/profileSlider";
+
+
 import "./MainProfileNew.scss";
 import "./MainProfileNewResponsive.scss";
 
-const MainProfileNew = ({ setProfilePage }) => {
+const MainProfileNew = ({ setProfilePage, products }) => {
     const [userAllInfo, setUserAllInfo] = useState(null);
     const [formattedDate, setFormattedDate] = useState(null);
     const [profileProducts, setProfileProducts] = useState([]);
     const [amount, setAmount] = useState(0);
     const [careerInfo, setCareerInfo] = useState(0);
     const [filter, setFilter] = useState("all");
+
+    console.log(products, 'products')
 
     useEffect(() => {
         GetProfileCareer().then((res) => {
@@ -53,6 +57,7 @@ const MainProfileNew = ({ setProfilePage }) => {
         });
     }, [filter]);
 
+    console.log(profileProducts, 'profileProducts')
 
     return (
         <Suspense
@@ -204,7 +209,7 @@ const MainProfileNew = ({ setProfilePage }) => {
                 </div>
             )}
 
-            <ProfileSlider products={profileProducts} info="Briefcase"/>
+            <ProfileSlider products={profileProducts} info={"Info"}/>
         </Suspense>
     );
 };

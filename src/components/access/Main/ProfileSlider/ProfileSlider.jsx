@@ -1,16 +1,19 @@
 import React from "react";
 import Slider from "react-slick";
 
-import Products from "../../../Products/Products";
-import leftArrow from "../../../../../svg/leftArrow.svg";
-import rightArrow from "../../../../../svg/rightArrow.svg";
+import Products from "../Products/Products";
+import leftArrow from "../../../svg/leftArrow.svg";
+import rightArrow from "../../../svg/rightArrow.svg";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./profileSlider.scss";
-import "./profileSliderResponssive.scss";
+import "./ProfileSlider.scss";
+import "./ProfileSliderResponssive.scss";
 
 const ProfileSlider = ({ products = [], info }) => {
+    console.log(products, 'Products');
+    console.log(info, 'info')
+
     const CustomPrevArrow = ({ onClick }) => (
         <button className="customArrow prevArrow" onClick={onClick}>
             <img src={leftArrow} alt="Previous" />
@@ -65,7 +68,7 @@ const ProfileSlider = ({ products = [], info }) => {
                     slidesToShow: 1.5,
                     centerMode: false,
                     variableWidth: false,
-                }
+                },
             },
             {
                 breakpoint: 470,
@@ -114,7 +117,7 @@ const ProfileSlider = ({ products = [], info }) => {
                     {products.length > 0 ? (
                         products.map((prod, index) => (
                             <div key={index} className="slideItem">
-                                <Products products={[prod]} info={info} />
+                                <Products info={'Info'} products={[prod]} />
                             </div>
                         ))
                     ) : (

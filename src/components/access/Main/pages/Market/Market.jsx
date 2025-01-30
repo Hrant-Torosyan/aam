@@ -11,7 +11,7 @@ const Market = () => {
 	const [filter, setFilter] = useState("all");
 	const [categories, setCategories] = useState(null);
 	const [searchInp, setSearchInp] = useState("");
-	const [selectedType, setSelectedType] = useState("all"); // State for selectedType
+	const [selectedType, setSelectedType] = useState("all");
 	let mainCntx = useContext(MainContext);
 
 	useEffect(() => {
@@ -21,18 +21,16 @@ const Market = () => {
 			}
 		});
 	}, []);
-
 	useEffect(() => {
 		MarketProducts(filter, searchInp, selectedType).then((res) => {
 			setProducts(res.content);
 		});
-	}, [filter, searchInp, selectedType]); // Add selectedType to dependency array
+	}, [filter, searchInp, selectedType]);
 
-	// Handle type change (FUND, ASSET, all)
+
 	const handleTypeChange = (type) => {
-		setSelectedType(type); // Update the selectedType state
+		setSelectedType(type);
 	};
-
 	return (
 		<Suspense
 			fallback={
@@ -56,7 +54,6 @@ const Market = () => {
 								<Buttons categories={categories} filter={filter} setFilter={setFilter} />
 							)}
 
-							{/* Type Switcher UI */}
 							<div className="typeSwitcher">
 								<button
 									onClick={() => handleTypeChange("FUND")}
