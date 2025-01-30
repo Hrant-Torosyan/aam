@@ -30,7 +30,6 @@ export const MarketProducts = async (category, search, type) => {
 		});
 
 		const data = await res.json();
-		console.log(bodyData, "data"); // Check if 'type' is passed correctly
 		return data;
 	} catch (error) {
 		console.error("Error fetching products:", error);

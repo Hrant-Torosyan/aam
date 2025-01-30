@@ -4,7 +4,6 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import { createContext, lazy, useState } from "react";
 import LayoutRoot from "../components/access/Layouts/LayoutRoot";
 import Layout from "../components/access/Layouts/Layout";
-import Profile from "../components/access/Main/pages/Profile/Profile";
 
 const MainLogin = lazy(() => import("../components/loginRegister/MainLogin"));
 const Analytics = lazy(() => import("../components/access/Main/pages/Analytics/Analytics"));
@@ -12,6 +11,7 @@ const Market = lazy(() => import("../components/access/Main/pages/Market/Market"
 const Briefcase = lazy(() => import("../components/access/Main/pages/Briefcase/Briefcase"));
 const Wallet = lazy(() => import("../components/access/Main/pages/Wallet/Wallet"));
 const Career = lazy(() => import("../components/access/Main/pages/Career/Career"));
+const Profile =  lazy(() => import("../components/access/Main/pages/Profile/Profile"));
 
 export const MainContext = createContext();
 const App = () => {
@@ -50,7 +50,7 @@ const App = () => {
 						<Route path={"/briefcase"} element={<Briefcase />} />
 						<Route path={"/wallet"} element={<Wallet />} />
 						<Route path={"/career"} element={<Career />} />
-						<Route path={"/profile"} element={<Profile />} classname='profileRoute' />
+						<Route path={"/profile"} element={<Profile />} />
 					</Route>
 				</Routes>
 			</Router>
