@@ -7,6 +7,9 @@
 		font-weight: bold;
 		margin: 100px auto;
 	}
+	.slick-slider {
+		width: 100%;
+	}
 	.product {
 		cursor: pointer;
 		position: relative;
@@ -17,6 +20,9 @@
 		overflow: hidden;
 		width: calc(33.3333% - 14px);
 		position: relative;
+		&.productFull {
+			width: 100%;
+		}
 		&:hover {
 			.buttonStyle {
 				button {
@@ -51,11 +57,11 @@
 			padding: 20px;
 			> h3 {
 				margin-top: 10px;
- 				text-align: left;
- 				font-size: 14px;
+				text-align: left;
+				font-size: 14px;
 				font-weight: 600;
 				line-height: 14px;
-				color: #0E1A32;
+				color: #0e1a32;
 			}
 			.direction {
 				display: flex;
@@ -117,7 +123,7 @@
 						line-height: 16.8px;
 					}
 					span {
-						color: #0E1A32;
+						color: #0e1a32;
 						font-size: 18px;
 						font-weight: 600;
 						line-height: 18px;

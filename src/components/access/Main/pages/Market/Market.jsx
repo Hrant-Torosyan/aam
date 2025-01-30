@@ -27,7 +27,6 @@ const Market = () => {
 		});
 	}, [filter, searchInp, selectedType]);
 
-
 	const handleTypeChange = (type) => {
 		setSelectedType(type);
 	};
