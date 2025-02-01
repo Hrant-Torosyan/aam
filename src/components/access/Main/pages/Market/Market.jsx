@@ -12,6 +12,7 @@ const Market = () => {
 	const [categories, setCategories] = useState(null);
 	const [searchInp, setSearchInp] = useState("");
 	const [selectedType, setSelectedType] = useState("all");
+	const [hasInteracted, setHasInteracted] = useState(false);
 	let mainCntx = useContext(MainContext);
 
 	useEffect(() => {
@@ -21,6 +22,7 @@ const Market = () => {
 			}
 		});
 	}, []);
+
 	useEffect(() => {
 		MarketProducts(filter, searchInp, selectedType).then((res) => {
 			setProducts(res.content);
@@ -29,7 +31,9 @@ const Market = () => {
 
 	const handleTypeChange = (type) => {
 		setSelectedType(type);
+		setHasInteracted(true);
 	};
+
 	return (
 		<Suspense
 			fallback={
@@ -45,34 +49,31 @@ const Market = () => {
 				<div className="market">
 					{!mainCntx.hiddenHeader && (
 						<>
-							<div className="marketTitle">
-								<h1>Маркет</h1>
+							<div className="filterBlock">
+								<div className="marketTitle">
+									<h1>Маркет</h1>
+								</div>
+								<div className="switcher">
+									<button
+										onClick={() => handleTypeChange("ASSET")}
+										className={
+											!hasInteracted || selectedType === "ASSET" ? "active" : ""
+										}
+									>
+										Активы
+									</button>
+									<button
+										onClick={() => handleTypeChange("FUND")}
+										className={selectedType === "FUND" ? "active" : ""}
+									>
+										Фонды
+									</button>
+								</div>
+								<Search searchInp={searchInp} setSearchInp={setSearchInp} />
 							</div>
-							<Search searchInp={searchInp} setSearchInp={setSearchInp} />
 							{categories && !mainCntx.hiddenHeader && (
 								<Buttons categories={categories} filter={filter} setFilter={setFilter} />
 							)}
-
-							<div className="typeSwitcher">
-								<button
-									onClick={() => handleTypeChange("FUND")}
-									className={selectedType === "FUND" ? "active" : ""}
-								>
-									FUND
-								</button>
-								<button
-									onClick={() => handleTypeChange("ASSET")}
-									className={selectedType === "ASSET" ? "active" : ""}
-								>
-									ASSET
-								</button>
-								<button
-									onClick={() => handleTypeChange("all")}
-									className={selectedType === "all" ? "active" : ""}
-								>
-									All
-								</button>
-							</div>
 						</>
 					)}
 					<Products info={"Market"} products={products} />

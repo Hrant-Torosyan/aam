@@ -8,8 +8,6 @@ import "./ProfileSlider.scss";
 import "./ProfileSliderResponssive.scss";
 
 const ProfileSlider = ({ products = [], info }) => {
-	console.log(products, "Products");
-	console.log(info, "info");
 
 	return (
 		<div className="profileSliderWrapper">

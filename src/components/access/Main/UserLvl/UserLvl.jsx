@@ -1,11 +1,39 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./UserLvl.scss";
 import Diagram from "../Diagram/Diagram";
+import {CareerLevels} from "../../../../api/career";
 const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
+
+	const [careerData, setCareerData] = useState({
+		referralLinkedUserCount: 0,
+		registeredUserCount: 0,
+		investedCount: 0,
+		referralEarnedAmount: 0,
+		referralProfitAmount: 0,
+	});
+
+	useEffect(() => {
+		const fetchCareerData = async () => {
+			try {
+				const res = await CareerLevels();
+				if (res) {
+					setCareerData(res);
+				} else {
+					console.error("No career data received");
+				}
+			} catch (error) {
+				console.error("Error fetching career data:", error);
+			}
+		};
+
+		fetchCareerData();
+	}, []);
+
+
 	return (
 		<div className="userLvl">
 			<div className="userLvlTitle">
-				<Diagram percentage={50} />
+				<Diagram percentage={50}/>
 				<h1>Твой уровень: {levelValue}</h1>
 			</div>
 			<div className="userLvlInfoContainer">
@@ -55,7 +83,7 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 						</svg>
 						<p>Перешли по ссылке</p>
 					</div>
-					<h4>45</h4>
+					<h4>{careerData.referralLinkedUserCount}</h4>
 				</div>
 				<div className="userLvlInfo">
 					<div className="userLvlInfoName">
@@ -104,7 +132,7 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 
 						<p>Зарегистрировано партнеров</p>
 					</div>
-					<h4>45</h4>
+					<h4>{careerData.registeredUserCount}</h4>
 				</div>
 				<div className="userLvlInfo">
 					<div className="userLvlInfoName">
@@ -211,7 +239,7 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 
 						<p>Количество партнеров</p>
 					</div>
-					<h4>45</h4>
+					<h4>{careerData.investedCount}</h4>
 				</div>
 
 				<div className="userLvlInfo">
@@ -250,7 +278,7 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 
 						<p>Объем продаж партнеров</p>
 					</div>
-					<h4>45</h4>
+					<h4>{careerData.referralProfitAmount}</h4>
 				</div>
 				<div className="userLvlInfo">
 					<div className="userLvlInfoName">
@@ -314,7 +342,7 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 
 						<p>Заработано на комиссии</p>
 					</div>
-					<h4>45</h4>
+					<h4>{careerData.referralEarnedAmount}</h4>
 				</div>
 			</div>
 		</div>
