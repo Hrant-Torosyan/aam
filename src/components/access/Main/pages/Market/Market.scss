@@ -1,6 +1,7 @@
 .market {
 	.marketTitle {
-		margin-bottom: 40px;
+		width: 100%;
+		height: 45px;
 		h1 {
 			color: rgb(52, 142, 241);
 			font-family: "Unbounded", sans-serif;
@@ -11,9 +12,66 @@
 		}
 	}
 
-	.search {
+	.filterBlock {
+		min-height: 45px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 20px;
+		flex-wrap: wrap;
+
+		.switcher {
+			position: relative;
+			display: flex;
+			width: fit-content;
+
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				border-radius: 25px;
+				padding: 2px;
+				background: linear-gradient(158.2deg, rgb(44, 115, 243) -103.971%, rgb(48, 205, 231) 151.363%);
+				mask:
+								linear-gradient(#000 0 0) content-box,
+								linear-gradient(#000 0 0);
+				mask-composite: exclude;
+				z-index: 0;
+			}
+
+			button {
+				width: 152px;
+				background: transparent;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 25px;
+				padding: 10px 20px;
+				font-size: 14px;
+				background: linear-gradient(95.63deg, #2C73F3 -33.22%, #30CDE7 106.45%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				color: transparent;
+				border: none;
+				cursor: pointer;
+				transition: 0.3s;
+				z-index: 1;
+
+				&.active {
+					background: linear-gradient(95.63deg, #2C73F3 -33.22%, #30CDE7 106.45%);
+					color: #fff;
+					-webkit-background-clip: unset;
+					-webkit-text-fill-color: unset;
+				}
+			}
+		}
+	}
+
+	.search {
+		max-width: 562px;
+		width: 100%;
 		position: relative;
+
 		.inputStyle {
 			background: rgba(46, 147, 239, 0.3);
 			border-radius: 50px;
@@ -34,7 +92,7 @@
 				border: none;
 				border-radius: 30px;
 				background: rgb(255, 255, 255);
-				padding: 15px 27px;
+				padding: 10px 27px;
 				width: 100%;
 				outline: none;
 				font-size: 18px;
@@ -48,7 +106,7 @@
 			cursor: pointer;
 			display: flex;
 			align-items: center;
-			padding: 18px 27px;
+			padding: 11px 27px;
 			svg {
 				path {
 					fill: rgba(46, 147, 239, 0.3);
@@ -61,13 +119,28 @@
 @media (max-width: 575.98px) {
 	.market {
 		.marketTitle {
-			margin-bottom: 30px;
+			width: 50%;
+
 			h1 {
 				font-size: 24px;
 			}
 		}
 
+		.filterBlock {
+			.switcher {
+				width: 100%;
+
+				button {
+					width: 50%;
+				}
+			}
+		}
+
 		.search {
+			max-width: unset;
+			width: 100%;
+			margin-top: 28px;
+
 			.inputStyle {
 				input {
 					padding: 13px 18px;
@@ -84,16 +157,21 @@
 @media (min-width: 576px) and (max-width: 767.98px) {
 	.market {
 		.marketTitle {
-			margin-bottom: 30px;
+			width: 50%;
+
 			h1 {
 				font-size: 24px;
 			}
 		}
 
 		.search {
+			max-width: unset;
+			width: 100%;
+			margin-top: 28px;
+
 			.inputStyle {
 				input {
-					padding: 14px 27px;
+					padding: 10px 27px;
 					font-size: 16px;
 				}
 			}
@@ -104,16 +182,21 @@
 @media (min-width: 768px) and (max-width: 991.98px) {
 	.market {
 		.marketTitle {
-			margin-bottom: 30px;
+			width: 50%;
+
 			h1 {
 				font-size: 24px;
 			}
 		}
 
 		.search {
+			max-width: unset;
+			width: 100%;
+			margin-top: 28px;
+
 			.inputStyle {
 				input {
-					padding: 14px 27px;
+					padding: 10px 27px;
 					font-size: 16px;
 				}
 			}
@@ -124,16 +207,21 @@
 @media (min-width: 992px) and (max-width: 1199.98px) {
 	.market {
 		.marketTitle {
-			margin-bottom: 30px;
+			width: 50%;
+
 			h1 {
 				font-size: 24px;
 			}
 		}
 
 		.search {
+			max-width: unset;
+			width: 100%;
+			margin-top: 28px;
+
 			.inputStyle {
 				input {
-					padding: 14px 27px;
+					padding: 10px 27px;
 					font-size: 16px;
 				}
 			}

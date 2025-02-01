@@ -21,8 +21,6 @@ const MainProfileNew = ({ setProfilePage, products }) => {
 	const [careerInfo, setCareerInfo] = useState(0);
 	const [filter, setFilter] = useState("all");
 
-	console.log(products, "products");
-
 	useEffect(() => {
 		GetProfileCareer().then((res) => {
 			setCareerInfo(res);
@@ -54,8 +52,6 @@ const MainProfileNew = ({ setProfilePage, products }) => {
 			setProfileProducts(res.content);
 		});
 	}, [filter]);
-
-	console.log(profileProducts, "profileProducts");
 
 	return (
 		<Suspense
