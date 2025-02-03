@@ -1,10 +1,15 @@
 import React from "react";
+import "./AboutCompany.scss";
+import "./AboutCompanyResponsive.scss";
 
 const AboutCompany = ({ mainData }) => {
 	return (
-		<div className="aboutCompany prodInfoCard">
-			<h1>О компании</h1>
-			<p>{mainData.companyDescription}</p>
+		<div className="aboutCompany">
+			<h1>Описание:</h1>
+			<div className='aboutCompanyData'>
+				<img src={mainData.medias[0].url.url} />
+			    <p>{mainData.companyDescription}</p>
+			</div>
 		</div>
 	);
 };

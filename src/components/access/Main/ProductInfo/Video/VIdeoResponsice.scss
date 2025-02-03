@@ -1,0 +1,24 @@
+@media (max-width: 1199.98px) {
+  .video {
+    margin: 48px 0;
+    min-height: 442px;
+
+    .videoWrapper {
+      height: 45vh;
+      .videoName {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576.99px) {
+  .video {
+    margin: 48px 0;
+    min-height: 222px;
+
+    .videoWrapper {
+      height: 30vh;
+    }
+  }
+}

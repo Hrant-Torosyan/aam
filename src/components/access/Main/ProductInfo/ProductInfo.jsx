@@ -2,14 +2,19 @@ import React, { lazy, useEffect, useState } from "react";
 import "./ProductInfo.scss";
 import ProductSlider from "./ProductSlider/ProductSlider";
 import AboutCompany from "./AboutCompany/AboutCompany";
-import Mentions from "./Mentions/Mentions";
-import Indicators from "./Indicators/Indicators";
 import Team from "./Team/Team";
 import UserInfo from "./UserInfo/UserInfo";
 import Investors from "./Investors/Investors";
 import { GetProductInfo } from "../../../../api/productInfo";
 import PopUpProd from "./PopUpProd/PopUpProd";
 import IsSuccessful from "../IsSuccessful/IsSuccessful";
+import DetailsOfFund from "./DetailsOfFund/DetailsOfFund";
+import Presentation from "./Presentation/Presentation";
+import Video from "./Video/Video";
+import Documents from "./Documents/Documents";
+import Map from "./Map/Map";
+import { MarketProducts } from "../../../../api/market";
+import SimilarSlider from "./SimilarProjects/SimilarSlider";
 
 const ProductInfoItems = lazy(() => import("./ProductInfoItems/ProductInfoItems"));
 
@@ -18,12 +23,21 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 	const [popUpProd, setPopUpProd] = useState(false);
 	const [isOpenSc, setIsOpenSc] = useState(false);
 	const [successInfo, setSuccessInfo] = useState(true);
+	const [profileProducts, setProfileProducts] = useState([]);
+	const [filter, setFilter] = useState("all");
 
 	useEffect(() => {
 		if (prodId !== null) {
 			GetProductInfo(prodId).then((res) => setMainData(res));
 		}
 	}, [prodId]);
+
+	useEffect(() => {
+		MarketProducts(filter, "").then((res) => {
+			setProfileProducts(res.content);
+		});
+	}, [filter]);
+
 	return (
 		<>
 			{isOpenSc && (
@@ -45,7 +59,7 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 			)}
 
 			<div className="productInfo">
-				{mainData !== null ? (
+				{mainData !== null || profileProducts !== null ? (
 					<>
 						<div className="productInfoTitle">
 							<button onClick={() => setIsActiveProductInfo("")}>
@@ -80,13 +94,24 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 											setPopUpProd={setPopUpProd}
 											mainData={mainData}
 										/>
-										<ProductInfoItems mainData={mainData} />
-										<Investors prodId={prodId} mainData={mainData} />
 									</div>
+									<DetailsOfFund mainData={mainData} />
 									<AboutCompany mainData={mainData} />
-									<Mentions prodId={prodId} />
-									<Indicators mainData={mainData} />
+									{/*<Mentions prodId={prodId} />*/}
+									{/*<Indicators mainData={mainData} />*/}
+									<Presentation mainData={mainData} />
 									<Team content={mainData?.employeesContent} prodId={prodId} />
+									<Video mainData={mainData} />
+									<Documents mainData={mainData} />
+									<Map mainData={mainData} />
+									{mainData.type !== "ASSET" && <Investors prodId={prodId} mainData={mainData} />}
+
+									<SimilarSlider
+										products={profileProducts}
+										info={{
+											tags: mainData?.tags || [],
+										}}
+									/>
 								</div>
 								<div className="productInfoUserConent">
 									<UserInfo
@@ -94,8 +119,6 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 										setPopUpProd={setPopUpProd}
 										mainData={mainData}
 									/>
-									<ProductInfoItems mainData={mainData} />
-									<Investors prodId={prodId} mainData={mainData} />
 								</div>
 							</div>
 						)}

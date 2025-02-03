@@ -1,0 +1,25 @@
+@media (max-width: 1199.98px) {
+  .productSlider {
+    .productSliderThumbnails {
+      .arrow {
+        display: none;
+      }
+
+      .thumbnailsContainer {
+        width: 100%;
+        padding: 0;
+
+        img {
+          width: 153.6px;
+          height: 104px;
+        }
+      }
+    }
+  }
+
+
+}
+
+@media (max-width: 576.99px) {}
+
+@media (max-width: 400px) {}

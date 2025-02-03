@@ -1,42 +1,13 @@
 import React from "react";
 import "./ProductInfoItems.scss";
+import "./ProductInfoItemsResponsive.scss";
+
 const ProductInfoItems = ({ mainData }) => {
-	let dateFormat = new Date(+mainData?.companyFoundationDate);
-	let formData = `${dateFormat.getDate().toString().padStart(2, "0")}-${(dateFormat.getMonth() + 1)
-		.toString()
-		.padStart(2, "0")}-${dateFormat.getFullYear()}`;
 
 	return (
 		<div className="productInfoItems">
-			<div className="prodInfoCard">
-				<p>
-					Комиссия при покупке: <span>{mainData.purchaseCommission}%</span>
-				</p>
-				<p>
-					Комиссия с прибыли: <span>{mainData.profitCommission}%</span>
-				</p>
-				<p>
-					Комиссия за вывод: <span>{mainData.withdrawalCommission}%</span>
-				</p>
-				<p>
-					Комиссия за управление: <span>{mainData.managementCommission}%</span>
-				</p>
-			</div>
-			<div className="prodInfoCard">
-				<p>
-					Дата основания:
-					<span>{formData}</span>
-				</p>
-				<p>
-					Кол-во сотрудников: <span>{mainData.companyEmployeesCount}</span>
-				</p>
-				<p>
-					Прибыль за 2023 год: <span>23%</span>
-				</p>
-			</div>
-
 			{mainData?.presentation !== null && (
-				<div className="prodInfoCard">
+				<div className="prodInfoCardDownload">
 					<div className="download">
 						<svg
 							width="36"
@@ -53,7 +24,7 @@ const ProductInfoItems = ({ mainData }) => {
 								d="M28 10.1875H35.5L25.5 0.1875V7.6875C25.5 9.0625 26.625 10.1875 28 10.1875Z"
 								fill="#B0B7BD"
 							/>
-							<path d="M35.5 17.6875L28 10.1875H35.5V17.6875Z" fill="#CAD1D8" />
+							<path d="M35.5 17.6875L28 10.1875H35.5V17.6875Z" fill="#CAD1D8"/>
 							<path
 								d="M30.5 32.6875C30.5 33.375 29.9375 33.9375 29.25 33.9375H1.75C1.0625 33.9375 0.5 33.375 0.5 32.6875V20.1875C0.5 19.5 1.0625 18.9375 1.75 18.9375H29.25C29.9375 18.9375 30.5 19.5 30.5 20.1875V32.6875Z"
 								fill="#F15642"
@@ -75,7 +46,7 @@ const ProductInfoItems = ({ mainData }) => {
 								fill="#CAD1D8"
 							/>
 						</svg>
-						<p>Документ или отчет (Eng).pdf</p>
+						<p>{mainData?.presentation?.url?.name}</p>
 					</div>
 					<div className="buttonStyleToo">
 						<button
@@ -84,7 +55,7 @@ const ProductInfoItems = ({ mainData }) => {
 									const dummyLink = document.createElement("a");
 									dummyLink.href = mainData?.presentation?.url;
 									dummyLink.setAttribute("target", "_blank");
-									dummyLink.download = mainData.presentation.name;
+									dummyLink.download = mainData?.presentation?.url?.name;
 									document.body.appendChild(dummyLink);
 									dummyLink.click();
 									document.body.removeChild(dummyLink);

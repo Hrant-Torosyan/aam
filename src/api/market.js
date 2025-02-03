@@ -2,7 +2,7 @@ import {type} from "@testing-library/user-event/dist/type";
 
 const BASE_URL = "http://145.223.99.13:8080/api/rest/";
 
-export const MarketProducts = async (category, search, type) => {
+export const MarketProducts = async (category, search, type, tags=[]) => {
 	let bodyData;
 
 	if (search) {
@@ -10,6 +10,7 @@ export const MarketProducts = async (category, search, type) => {
 			title: search,
 			category: category === "all" ? null : category,
 			type: type === "all" ? null : type,
+			tags: tags.length > 0 ? tags : null,
 		};
 	} else {
 		bodyData = {

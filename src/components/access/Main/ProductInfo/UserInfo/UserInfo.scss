@@ -1,12 +1,26 @@
 .userInfo {
+	.mobileWrapper {
+		display: flex;
+		flex-direction: column;
+
+		.mobileWrapperInside {
+			flex-direction: column;
+		}
+	}
 	.userInfoImage {
 		display: flex;
 		align-items: center;
+		h3 {
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 21.94px;
+			color: #0E1A32;
+		}
 		img {
-			width: 83px;
-			height: 83px;
+			width: 64px;
+			height: 64px;
 			border-radius: 50%;
-			margin-right: 25px;
+			margin-right: 16px;
 		}
 		padding-bottom: 25px;
 		border-bottom: 2px solid rgb(192, 223, 250);
@@ -17,11 +31,10 @@
 		border-bottom: 2px solid rgb(192, 223, 250);
 		margin-bottom: 25px;
 		h4 {
-			color: rgb(99, 109, 128);
-			font-family: Montserrat;
-			font-size: 17px;
+			font-size: 16px;
 			font-weight: 300;
 			line-height: 23px;
+			color: #636D80;
 			margin-bottom: 25px;
 		}
 		.userInfoCreateList {
@@ -32,12 +45,22 @@
 
 			p {
 				color: rgb(29, 29, 32);
-				font-size: 17px;
+				font-size: 16px;
 				font-weight: 400;
-				line-height: 21.6px;
+				line-height: 16.64px;
+				text-decoration-skip-ink: none;
 				overflow: hidden;
-				white-space: nowrap;
 				text-overflow: ellipsis;
+
+				&:first-child {
+					color: #1D1D20B2;
+
+				}
+
+				&:last-child {
+					color: #171723;
+
+				}
 			}
 			a {
 				color: rgb(68, 183, 255);
@@ -45,6 +68,34 @@
 				font-weight: 400;
 				line-height: 16.64px;
 				text-decoration-line: underline;
+			}
+		}
+	}
+
+	.payments {
+		border-bottom: 2px solid rgb(192, 223, 250);
+		margin-bottom: 11px;
+		p {
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 21.06px;
+			letter-spacing: -0.01em;
+			color: #000000;
+			margin-bottom: 15px;
+		}
+		.userInfoCreateList {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 15px;
+
+			button {
+				padding: 5px 15px;
+				font-size: 16px;
+				font-weight: 600;
+				border-radius: 40px;
+				border: 1px solid rgba(0, 180, 210, 0.3);
+				color: rgba(52, 142, 241, 1);
 			}
 		}
 	}
@@ -72,6 +123,17 @@
 			}
 		}
 	}
+	.hastagsWrapper {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 40px;
+		p {
+			font-size: 14px;
+			font-weight: 400;
+			color: #0E1A3266;
+			margin-bottom: 8px;
+		}
+	}
 	.hashtags {
 		display: flex;
 		flex-wrap: wrap;
@@ -79,7 +141,7 @@
 			margin-top: 5px;
 			padding: 5px 15px;
 			border: 1px solid rgb(0, 180, 210);
-			border-radius: 10px;
+			border-radius: 40px;
 			color: rgb(0, 180, 210);
 			margin-right: 5px;
 		}
@@ -93,7 +155,7 @@
 			rgb(44, 115, 243) -103.971%,
 			rgb(48, 205, 231) 151.363%
 		);
-		margin-top: 80px;
+		margin-top: 34px;
 		button {
 			cursor: pointer;
 			width: 100%;
@@ -127,9 +189,128 @@
 			}
 		}
 	}
+
+	.prodInfoCardWrapper {
+		margin-top: 25px;
+		width: 315px;
+
+		h2 {
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 21.94px;
+			color: #000000;
+			margin-bottom: 16px;
+		}
+		.download {
+			display: flex;
+			align-items: center;
+			p {
+				margin: 0;
+				margin-left: 25px;
+			}
+			margin-bottom: 40px;
+		}
+		.buttonStyleToo {
+			overflow: hidden;
+			border-radius: 15px;
+			padding: 2px;
+			background: linear-gradient(158.2deg, rgb(44, 115, 243) -103.971%, rgb(48, 205, 231) 151.363%);
+			button,
+			div {
+				cursor: pointer;
+				width: 100%;
+				transition: 0.5s;
+				padding: 9px;
+				border-radius: 13px;
+				background: white;
+				span {
+					background: linear-gradient(236.49deg, rgb(34, 100, 220), rgb(0, 180, 210));
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+					color: transparent;
+					font-size: 18px;
+					transition: 0.5s;
+					font-weight: 600;
+					line-height: 120%;
+					text-align: center;
+				}
+			}
+			&:hover {
+				button,
+				div {
+					background: transparent;
+					span {
+						background: none;
+						-webkit-background-clip: border-box;
+						background-clip: border-box;
+						-webkit-text-fill-color: initial;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+	p {
+		&:first-child {
+			margin: 0;
+		}
+		span {
+			font-weight: bold;
+		}
+	}
 }
 @media (max-width: 575.98px) {
 	.userInfo {
+		> div {
+			border: none !important;
+			padding: 0 !important;
+		}
+		.mobileWrapper {
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			border-bottom: 2px solid rgb(192, 223, 250);
+			padding-bottom: 24px;
+			margin-top: 24px;
+		}
+
+		.infoCreate {
+			padding-bottom: 0;
+		}
+		.payments {
+			border-bottom: none;
+
+			.userInfoCreateList {
+				button {
+					font-size: 14px;
+				}
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.prodInfoCardWrapper {
+			margin-top: 0;
+			h2 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 14px;
+				margin-top: 4px;
+			}
+		}
+
+		.hastagsWrapper {
+			margin-bottom: 24px;
+		}
+
+		.userInfoPrice {
+			border-bottom: none;
+		}
+
 		.userInfoImage {
 			h3 {
 				font-size: 12px;
@@ -145,17 +326,18 @@
 		.userInfoCreate {
 			padding-bottom: 10px;
 			margin-bottom: 10px;
+			width: 100%;
 			h4 {
 				font-size: 12px;
 				margin-bottom: 15px;
 			}
 			.userInfoCreateList {
-				margin-top: 2px;
+
 				p {
-					font-size: 9px;
+					font-size: 12px;
 				}
 				a {
-					font-size: 9px;
+					font-size: 12px;
 				}
 			}
 		}
@@ -201,6 +383,43 @@
 
 @media (min-width: 576px) and (max-width: 767.98px) {
 	.userInfo {
+		> div {
+			border: none !important;
+			padding: 0 !important;
+		}
+		.mobileWrapper {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			border-bottom: 2px solid rgb(192, 223, 250);
+			padding-bottom: 24px;
+			margin-top: 24px;
+		}
+
+		.infoCreate {
+			padding-bottom: 0;
+			flex-direction: column;
+		}
+		.payments {
+			border-bottom: none;
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.prodInfoCardWrapper {
+			h2 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.userInfoPrice {
+			border-bottom: none;
+		}
 		.userInfoImage {
 			h3 {
 				font-size: 15px;
@@ -216,12 +435,16 @@
 		.userInfoCreate {
 			padding-bottom: 15px;
 			margin-bottom: 15px;
+			width: 100%;
 			h4 {
 				font-size: 15px;
 				margin-bottom: 15px;
 			}
 			.userInfoCreateList {
 				margin-top: 8px;
+				button {
+					font-size: 14px;
+				}
 				p {
 					font-size: 14px;
 				}
@@ -271,7 +494,44 @@
 
 @media (min-width: 768px) and (max-width: 991.98px) {
 	.userInfo {
+		> div {
+			border: none !important;
+			padding: 0 !important;
+		}
+		.mobileWrapper {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			border-bottom: 2px solid rgb(192, 223, 250);
+			padding-bottom: 24px;
+			margin-top: 24px;
+		}
+
+		.infoCreate {
+			padding-bottom: 0;
+		}
+		.payments {
+			border-bottom: none;
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.prodInfoCardWrapper {
+			h2 {
+				font-size: 14px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.userInfoPrice {
+			border-bottom: none;
+		}
 		.userInfoImage {
+			border-bottom: 0;
 			h3 {
 				font-size: 15px;
 			}
@@ -286,12 +546,17 @@
 		.userInfoCreate {
 			padding-bottom: 15px;
 			margin-bottom: 15px;
+			border-bottom: none;
+			width: 40%;
 			h4 {
-				font-size: 15px;
+				font-size: 14px;
 				margin-bottom: 15px;
 			}
 			.userInfoCreateList {
 				margin-top: 8px;
+				button {
+					font-size: 14px;
+				}
 				p {
 					font-size: 14px;
 				}
@@ -341,6 +606,29 @@
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
 	.userInfo {
+		> div {
+			border: none !important;
+			padding: 0 !important;
+		}
+		.mobileWrapper {
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			border-bottom: 2px solid rgb(192, 223, 250);
+			padding-bottom: 24px;
+			margin-top: 24px;
+		}
+
+		.prodInfoCardWrapper {
+			h2 {
+				font-size: 14px;
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+
 		.userInfoImage {
 			h3 {
 				font-size: 15px;
@@ -356,12 +644,16 @@
 		.userInfoCreate {
 			padding-bottom: 15px;
 			margin-bottom: 15px;
+			width: 100%;
 			h4 {
 				font-size: 15px;
 				margin-bottom: 15px;
 			}
 			.userInfoCreateList {
 				margin-top: 8px;
+				button {
+					font-size: 14px;
+				}
 				p {
 					font-size: 14px;
 				}

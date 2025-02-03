@@ -1,0 +1,48 @@
+@media (max-width: 1199.98px) {
+  .detailsOfFundWrapper {
+    margin: 48px 0;
+    h2 {
+      font-size: 18px;
+      margin: 0 0 24px
+    }
+    .detailsOfFund {
+
+      .details {
+        p {
+          font-size: 12px;
+        }
+
+        strong {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576.99px) {
+  .detailsOfFundWrapper {
+    h2 {
+      font-size: 16px;
+    }
+    .detailsOfFund {
+      flex-direction: column;
+
+      .details {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 13px;
+
+        p {
+          width: 50%;
+        }
+
+        strong {
+          margin-left: 53px;
+        }
+      }
+    }
+  }
+}

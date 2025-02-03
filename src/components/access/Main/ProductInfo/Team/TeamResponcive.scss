@@ -1,0 +1,36 @@
+@media (max-width: 1199.98px) {
+  .team {
+    h2 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 576.99px) {
+  .team {
+    h2 {
+      font-size: 16px;
+    }
+  }
+
+  .teamItems {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    scrollbar-width: none;
+  }
+
+  .teamItem {
+    margin-right: 15px;
+  }
+
+  .seeMore {
+    display: none;
+  }
+}

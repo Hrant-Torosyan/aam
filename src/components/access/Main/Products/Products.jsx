@@ -111,7 +111,6 @@ const Products = ({ products, info, type = "LIST" }) => {
 		event.target.onerror = null;
 		event.target.src = "https://flagsapi.com/RU/flat/64.png";
 	};
-
 	return (
 		<>
 			{mainCntx.hiddenHeader && (

@@ -1,0 +1,29 @@
+.detailsOfFundWrapper {
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    margin: 64px 0 24px;
+  }
+  .detailsOfFund {
+    display: flex;
+    flex-wrap: wrap;
+
+    .details {
+      width: 50%;
+      color: #000000;
+      margin-bottom: 16px;
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+
+      strong {
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}

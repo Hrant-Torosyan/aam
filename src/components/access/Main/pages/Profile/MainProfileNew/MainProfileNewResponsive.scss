@@ -1,5 +1,5 @@
 @media (max-width: 1199.98px) {
-  .userInfo {
+  .userInfoWrapper {
     min-height: 277px;
     height: 100%;
     display: flex;
@@ -78,7 +78,7 @@
       }
     }
   }
-  .userInfo {
+  .userInfoWrapper {
     min-height: auto;
 
     .userContent {

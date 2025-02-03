@@ -7,7 +7,7 @@ import { GetProfileCareer, GetProfit } from "../../../../../api/profile";
 const Career = () => {
 	const [copied, setCopied] = useState(false);
 	const [amount, setAmount] = useState(0);
-	const [careerInfo, setCareerInfo] = useState({ referral: "sasasasa" });
+	const [careerInfo, setCareerInfo] = useState({ referral: "" });
 
 	// useEffect(() => {
 	// 	GetProfit().then((res) => {
