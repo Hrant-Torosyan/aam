@@ -1,0 +1,41 @@
+@media (max-width: 1199.98px) {
+  .aboutCompany {
+    h1 {
+      font-size: 18px;
+    }
+
+    .aboutCompanyData {
+
+      p {
+        font-size: 14px;
+      }
+
+      img {
+        width: 348px;
+        height: 284px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576.99px) {
+  .aboutCompany {
+    h1 {
+      font-size: 16px;
+    }
+    .aboutCompanyData {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 14px;
+      }
+
+      img {
+        max-width: unset;
+        width: 100%;
+        height: 294px;
+      }
+    }
+  }
+}

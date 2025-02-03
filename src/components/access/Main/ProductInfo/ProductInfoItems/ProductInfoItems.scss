@@ -1,20 +1,33 @@
 .productInfoItems {
-	.prodInfoCard {
-		margin-top: 25px !important;
+	.prodInfoCardDownload {
+		width: 198px;
+		height: 194px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border-radius: 25px;
+		border: 1px;
+		background: linear-gradient(95.63deg, #2C73F3 -33.22%, #30CDE7 106.45%);
+		padding: 29px 20px 16px;
+		margin-bottom: 16px;
+		margin-right: 16px;
+
 		.download {
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			p {
-				margin: 0;
-				margin-left: 25px;
+				font-size: 14.34px;
+				font-weight: 400;
+				line-height: 25.2px;
+				text-align: center;
+				color: #FFFFFF;
 			}
-			margin-bottom: 40px;
 		}
 		.buttonStyleToo {
 			overflow: hidden;
-			border-radius: 15px;
 			padding: 2px;
-			background: linear-gradient(158.2deg, rgb(44, 115, 243) -103.971%, rgb(48, 205, 231) 151.363%);
 			button,
 			div {
 				cursor: pointer;
@@ -22,31 +35,15 @@
 				transition: 0.5s;
 				padding: 9px;
 				border-radius: 13px;
-				background: white;
+				color: #D8EAFF;
 				span {
-					background: linear-gradient(236.49deg, rgb(34, 100, 220), rgb(0, 180, 210));
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
-					background-clip: text;
-					color: transparent;
-					font-size: 18px;
-					transition: 0.5s;
-					font-weight: 600;
-					line-height: 120%;
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 20px;
+					letter-spacing: -0.001em;
 					text-align: center;
-				}
-			}
-			&:hover {
-				button,
-				div {
-					background: transparent;
-					span {
-						background: none;
-						-webkit-background-clip: border-box;
-						background-clip: border-box;
-						-webkit-text-fill-color: initial;
-						color: white;
-					}
+					text-underline-position: from-font;
+					text-decoration-skip-ink: none;
 				}
 			}
 		}

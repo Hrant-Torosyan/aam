@@ -1,93 +1,65 @@
 import React, { useState } from "react";
+
+import leftArrow from "../../../../svg/leftArrow.svg";
+import rightArrow from "../../../../svg/rightArrow.svg";
+
 import "./ProductSlider.scss";
+import "./ProductSliderResponsive.scss";
 
 const ProductSlider = ({ mainData }) => {
-	const [slideImg, setSlideImg] = useState(0);
+	const [activeIndex, setActiveIndex] = useState(0);
+
+	const handlePrevious = () => {
+		setActiveIndex((prevIndex) =>
+			prevIndex === 0 ? mainData.medias.length - 1 : prevIndex - 1
+		);
+	};
+
+	const handleNext = () => {
+		setActiveIndex((prevIndex) =>
+			prevIndex === mainData.medias.length - 1 ? 0 : prevIndex + 1
+		);
+	};
+
 	return (
 		mainData.medias && (
-			<div className="productSlider prodInfoCard">
-				<div
-					className={
-						mainData.medias.length > 1 ? "productSliderPrew" : "productSliderPrew fluid"
-					}
-				>
-					{mainData.medias.length > 1 && (
-						<div
-							onClick={() => {
-								if (slideImg === 0) {
-									setSlideImg(mainData.medias.length - 1);
-								} else {
-									setSlideImg(slideImg - 1);
-								}
-							}}
-							className="btns left"
-						>
-							<svg
-								width="7"
-								height="12"
-								viewBox="0 0 7 12"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M6 1L1 6L6 11"
-									stroke="white"
-									strokeWidth="1.5"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-								/>
-							</svg>
-						</div>
-					)}
-
-					<img
-						src={mainData.medias[slideImg]?.url.url}
-						alt={mainData.medias[slideImg]?.url.name}
-					/>
-					{mainData.medias.length > 1 && (
-						<div
-							onClick={() => {
-								if (slideImg === mainData.medias.length - 1) {
-									setSlideImg(0);
-								} else {
-									setSlideImg(slideImg + 1);
-								}
-							}}
-							className="btns right"
-						>
-							<svg
-								width="7"
-								height="12"
-								viewBox="0 0 7 12"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M1 11L6 6L1 1"
-									stroke="white"
-									strokeWidth="1.5"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-								/>
-							</svg>
-						</div>
+			<div className="productSlider">
+				<div className="productSliderActive">
+					{mainData.medias[activeIndex].type === "video" ? (
+						<video controls>
+							<source
+								src={mainData.medias[activeIndex]?.url.url}
+								type="video/mp4"
+							/>
+							Your browser does not support the video tag.
+						</video>
+					) : (
+						<img
+							src={mainData.medias[activeIndex]?.url.url}
+							alt={mainData.medias[activeIndex]?.url.name}
+						/>
 					)}
 				</div>
 
-				{mainData.medias.length > 1 && (
-					<div className="productSliderItems">
-						{mainData.medias.map((item, key) => (
-							<div key={key}>
-								<img
-									className={slideImg === key ? "active" : ""}
-									onClick={() => setSlideImg(key)}
-									src={item?.url?.url}
-									alt={item?.url?.name}
-								/>
-							</div>
+				<div className="productSliderThumbnails">
+					<button className="arrow left" onClick={handlePrevious}>
+						<img src={leftArrow} alt="Previous" />
+					</button>
+					<div className="thumbnailsContainer">
+						{mainData.medias.map((item, index) => (
+							<img
+								key={index}
+								className={activeIndex === index ? "active" : ""}
+								onClick={() => setActiveIndex(index)}
+								src={item?.url?.url}
+								alt={item?.url?.name}
+							/>
 						))}
 					</div>
-				)}
+					<button className="arrow right" onClick={handleNext}>
+						<img src={rightArrow} alt="Next" />
+					</button>
+				</div>
 			</div>
 		)
 	);

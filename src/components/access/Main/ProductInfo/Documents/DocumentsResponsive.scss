@@ -1,0 +1,44 @@
+@media (max-width: 1199.98px) {
+  .documents {
+    h2 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 795.99px) {
+  .documents {
+    h2 {
+      font-size: 16px;
+    }
+    .documentsCardDownload {
+      width: 159px;
+      margin-right: 16px;
+    }
+    .documentsDownload {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 10px 0;
+      max-height: 250px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .documentsButtons {
+      justify-content: center;
+      margin-top: 0;
+      .seeMore {
+        display: none;
+      }
+    }
+  }
+}
