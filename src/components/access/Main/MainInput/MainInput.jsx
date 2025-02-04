@@ -66,12 +66,7 @@ const MainInput = ({
 					value={sumValue}
 					type="text"
 				/>
-				{min && max && (
-					<span className="minMax">
-						{parseFloat(min.toString().replace(/[^\d.-]/g, "")).toLocaleString()} -{" "}
-						{parseFloat(max.toString().replace(/[^\d.-]/g, "")).toLocaleString()}
-					</span>
-				)}
+
 			</div>
 		</div>
 	);

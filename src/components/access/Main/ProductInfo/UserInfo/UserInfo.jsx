@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserInfo.scss";
 
-const UserInfo = ({ mainData, setPopUpProd }) => {
+const UserInfo = ({ mainData, setPopUpProdNew }) => {
 	return (
 		<div className="userInfo">
 			<div className="prodInfoCard">
@@ -100,7 +100,7 @@ const UserInfo = ({ mainData, setPopUpProd }) => {
 					<div className="buttonStyle">
 						<button
 							onClick={() => {
-								setPopUpProd("start");
+								setPopUpProdNew("start");
 							}}
 						>
 							<span>Инвестировать</span>
@@ -109,7 +109,7 @@ const UserInfo = ({ mainData, setPopUpProd }) => {
 					<div className="buttonStyle">
 						<button
 							onClick={() => {
-								setPopUpProd("start");
+								setPopUpProdNew("start");
 							}}
 						>
 							<span>Купить</span>
