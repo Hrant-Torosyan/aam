@@ -61,6 +61,15 @@
     letter-spacing: -0.001em;
     color: #6F6F6F;
     margin: 24px 0 32px;
+
+    .typeSum {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: -0.001em;
+      color: #000000;
+      margin-bottom: 16px;
+    }
   }
 
   .confirmLabel {
@@ -82,12 +91,12 @@
       color: #212529;
       width: 90%;
     }
-
-    .confirmText.error {
-      color: #FF0000;
-    }
   }
-
+  .error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+  }
   .documentsDownload {
     .documentsCardDownload {
       .download {
@@ -195,11 +204,21 @@
         letter-spacing: -0.001em;
         margin-top: 24px;
         color: #00B4D2;
+        margin-bottom: 23px;
       }
 
     }
   }
-
+  .errorText {
+    display: block;
+    margin: 0 0 16px;
+  }
+  .removeWhenError {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.001em;
+  }
   .popUpProdContentInfo {
     display: flex;
     justify-content: space-between;

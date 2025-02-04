@@ -23,7 +23,6 @@ const PopUpProd = ({ popUpProd, setPopUpProd, mainData, setSuccessInfo, setIsOpe
 	let amountValueHelper =
 		selectValue === "Поквартальные" ? 3 : selectValue === "Полугодовые" ? 6 : 1;
 
-	console.log(mainData, 'mainData')
 	return (
 		<div className="popUpProd">
 			<div className="popUpProdBlock">

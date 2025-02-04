@@ -20,15 +20,15 @@ const Header = () => {
 	const [isOpenSc, setIsOpenSc] = useState(false);
 	const [successInfo, setSuccessInfo] = useState(true);
 
-	// useEffect(() => {
-	// 	GetUerInfo().then((res) => {
-	// 		if (!res.status) {
-	// 			setuserData(res);
-	// 		} else {
-	// 			logout();
-	// 		}
-	// 	});
-	// }, [headerStyle]);
+	useEffect(() => {
+		GetUerInfo().then((res) => {
+			if (!res.status) {
+				setuserData(res);
+			} else {
+				logout();
+			}
+		});
+	}, [headerStyle]);
 
 	return (
 		<header>
@@ -425,13 +425,13 @@ const Header = () => {
 				</div>
 			</div>
 			<div className="headerTop">
-				{/* <Notification
+				<Notification
 					setNotification={setNotification}
 					notification={notification}
 					setIsActiveSelectHeader={setIsActiveSelectHeader}
 					setIsOpenSc={setIsOpenSc}
 					setSuccessInfo={setSuccessInfo}
-				/> */}
+				/>
 				<SelectHeader
 					userData={userData}
 					setNotification={setNotification}
