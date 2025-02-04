@@ -2,6 +2,7 @@ import React from "react";
 import "./UserInfo.scss";
 
 const UserInfo = ({ mainData, setPopUpProdNew }) => {
+	console.log(mainData, 'mainData')
 	return (
 		<div className="userInfo">
 			<div className="prodInfoCard">
@@ -60,11 +61,34 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 							<div className="payments">
 								<div className="userInfoCreateList">
 									<p>Выплаты:</p>
-									<button>{mainData.paymentPeriods[0]}</button>
+									<button>
+										{
+											mainData.paymentPeriods && mainData.paymentPeriods.length > 0 ? (
+												(() => {
+													const period = mainData.paymentPeriods[0];
+													switch (period) {
+														case "MONTHLY":
+															return "Ежемесячные";
+														case "QUARTERLY":
+															return "Поквартальные";
+														case "SEMI_ANNUAL":
+															return "Полугодовые";
+														default:
+															return null;
+													}
+												})()
+											) : null
+										}
+									</button>
 								</div>
-								<p>
-									Срок инвестирования: <strong>{mainData.term}</strong>
-								</p>
+								<div className="userInfoCreateList">
+									<p>Проценты годовые:</p>
+									<button>{mainData.profitCommission}%</button>
+								</div>
+								<div className="userInfoCreateList">
+									<p>Срок инвестирования:</p>
+									<button>{mainData.term}%</button>
+								</div>
 							</div>
 						}
 					</div>
