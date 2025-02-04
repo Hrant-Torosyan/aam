@@ -6,8 +6,8 @@ import "./Video.scss";
 import "./VIdeoResponsice.scss";
 
 const Video = ({ mainData }) => {
-    const videoUrl = mainData?.medias[1]?.url?.url;
-    const videoName = mainData?.medias[1]?.url?.name;
+    const videoUrl = mainData?.mediaVideo.url;
+    const videoName = mainData?.mediaVideo.name;
     const videoRef = useRef(null);
 
     const handlePlay = () => {
