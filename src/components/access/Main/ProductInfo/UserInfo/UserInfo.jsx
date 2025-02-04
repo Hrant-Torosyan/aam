@@ -60,12 +60,10 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 							<div className="payments">
 								<div className="userInfoCreateList">
 									<p>Выплаты:</p>
-									<button>Квартальные</button>
+									<button>{mainData.paymentPeriods[0]}</button>
 								</div>
 								<p>
-									Выплаты есть<br/>
-									Срок инвестирования на какое время<br/>
-									И проценты годовые
+									Срок инвестирования: <strong>{mainData.term}</strong>
 								</p>
 							</div>
 						}
