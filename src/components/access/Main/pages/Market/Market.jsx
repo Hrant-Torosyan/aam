@@ -11,7 +11,7 @@ const Market = () => {
 	const [filter, setFilter] = useState("all");
 	const [categories, setCategories] = useState(null);
 	const [searchInp, setSearchInp] = useState("");
-	const [selectedType, setSelectedType] = useState("all");
+	const [selectedType, setSelectedType] = useState("ASSET");
 	const [hasInteracted, setHasInteracted] = useState(false);
 	let mainCntx = useContext(MainContext);
 

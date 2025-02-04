@@ -25,20 +25,10 @@ const ProductSlider = ({ mainData }) => {
 		mainData.mediaImages && (
 			<div className="productSlider">
 				<div className="productSliderActive">
-					{mainData.mediaVideo && activeIndex === mainData.mediaImages.length ? (
-						<video controls>
-							<source
-								src={mainData.mediaVideo.url}
-								type="video/mp4"
-							/>
-							Your browser does not support the video tag.
-						</video>
-					) : (
-						<img
-							src={mainData.mediaImages[activeIndex].url}
-							alt={mainData.mediaImages[activeIndex].name}
-						/>
-					)}
+					<img
+						src={mainData.mediaImages[activeIndex].url}
+						alt={mainData.mediaImages[activeIndex].name}
+					/>
 				</div>
 
 				<div className="productSliderThumbnails">
@@ -56,14 +46,6 @@ const ProductSlider = ({ mainData }) => {
 								alt={item.name}
 							/>
 						))}
-						{mainData.mediaVideo && (
-							<img
-								className={activeIndex === mainData.mediaImages.length ? "active" : ""}
-								onClick={() => setActiveIndex(mainData.mediaImages.length)}
-								src={mainData.mediaVideo.url}
-								alt={mainData.mediaVideo.name}
-							/>
-						)}
 					</div>
 
 					<button className="arrow right" onClick={handleNext}>
