@@ -114,7 +114,12 @@ const Products = ({ products, info, type = "LIST" }) => {
 	return (
 		<>
 			{mainCntx.hiddenHeader && (
-				<ProductInfo prodId={prodId} setIsActiveProductInfo={mainCntx.setHiddenHeader} />
+				<ProductInfo
+					prodId={prodId}
+					setIsActiveProductInfo={mainCntx.setHiddenHeader}
+					handleImageError={handleImageError}
+					setProdId={setProdId}
+				/>
 			)}
 			<div className={mainCntx.hiddenHeader ? "products hidden" : "products"}>
 				{type === "LIST" ? (

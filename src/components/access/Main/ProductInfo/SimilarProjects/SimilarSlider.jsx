@@ -1,22 +1,143 @@
-import React from "react";
-
+import React, { useContext } from "react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./SimilarSlider.scss";
 import "./SimilarSliderResponsive.scss";
-import Products from "../../Products/Products";
+import Slider from "react-slick";
+import Product from "../../Product/Product";
+import { MainContext } from "../../../../../app/App";
+import leftArrow from "../../../../svg/leftArrow.svg";
+import rightArrow from "../../../../svg/rightArrow.svg";
 
-const SimilarSlider = ({ products = [], info }) => {
-
-    return (
-        <div className="profileSliderWrapper">
-            <div className="profileSlider">
-                <h1 className="sliderTitle">Похожие проекты</h1>
-                <Products info={"Info"} type="SLIDER" products={products} />
-            </div>
-        </div>
-    );
+const CustomPrevArrow = ({ onClick }) => (
+	<button className="customArrow prevArrow" onClick={onClick}>
+		<img src={leftArrow} alt="Previous" />
+	</button>
+);
+const CustomNextArrow = ({ onClick }) => (
+	<button className="customArrow nextArrow" onClick={onClick}>
+		<img src={rightArrow} alt="Next" />
+	</button>
+);
+const settings = {
+	dots: false,
+	infinite: false,
+	speed: 500,
+	slidesToScroll: 1,
+	arrows: true,
+	prevArrow: <CustomPrevArrow />,
+	nextArrow: <CustomNextArrow />,
+	centerMode: false,
+	variableWidth: true,
+	responsive: [
+		{
+			breakpoint: 1200,
+			settings: {
+				arrows: false,
+			},
+		},
+		{
+			breakpoint: 768,
+			settings: {
+				arrows: false,
+				slidesToShow: 2.5,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+		{
+			breakpoint: 670,
+			settings: {
+				arrows: false,
+				slidesToShow: 1.5,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+		{
+			breakpoint: 576,
+			settings: {
+				arrows: false,
+				slidesToShow: 1.5,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+		{
+			breakpoint: 470,
+			settings: {
+				arrows: false,
+				slidesToShow: 1.2,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+		{
+			breakpoint: 410,
+			settings: {
+				arrows: false,
+				slidesToShow: 1.2,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+		{
+			breakpoint: 375,
+			settings: {
+				arrows: false,
+				slidesToShow: 1.2,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+		{
+			breakpoint: 360,
+			settings: {
+				arrows: false,
+				slidesToShow: 1.1,
+				centerMode: false,
+				variableWidth: false,
+			},
+		},
+	],
+};
+const SimilarSlider = ({ products = [], info, prodId, setProdId, handleImageError }) => {
+	const mainCntx = useContext(MainContext);
+	const handleClick = (id) => {
+		setProdId(id);
+		window.scrollTo({ top: 0 });
+	};
+	const filteredProducts = products.filter((p) => p.projectId !== prodId);
+	console.log(filteredProducts);
+	return (
+		<div className="profileSliderWrapper">
+			<div className="profileSlider">
+				<h1 className="sliderTitle">Похожие проекты</h1>
+				<Slider {...settings}>
+					{filteredProducts.length > 0 ? (
+						filteredProducts.map((prod, index) => (
+							<div key={index} className="slideItem">
+								<Product
+									fullWidth={true}
+									key={index}
+									prod={prod}
+									info={info}
+									setProdId={handleClick}
+									handleImageError={handleImageError}
+									setHiddenHeader={mainCntx.setHiddenHeader}
+								/>
+							</div>
+						))
+					) : (
+						<div className="noProductsMessage">
+							<p>No products available</p>
+						</div>
+					)}
+				</Slider>
+			</div>
+		</div>
+	);
 };
 
 export default SimilarSlider;

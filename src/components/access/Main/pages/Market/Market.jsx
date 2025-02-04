@@ -56,9 +56,7 @@ const Market = () => {
 								<div className="switcher">
 									<button
 										onClick={() => handleTypeChange("ASSET")}
-										className={
-											!hasInteracted || selectedType === "ASSET" ? "active" : ""
-										}
+										className={!hasInteracted || selectedType === "ASSET" ? "active" : ""}
 									>
 										Активы
 									</button>

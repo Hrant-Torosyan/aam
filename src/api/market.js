@@ -1,8 +1,8 @@
-import {type} from "@testing-library/user-event/dist/type";
+import { type } from "@testing-library/user-event/dist/type";
 
 const BASE_URL = "http://145.223.99.13:8080/api/rest/";
 
-export const MarketProducts = async (category, search, type, tags=[]) => {
+export const MarketProducts = async (category, search, type, tags = []) => {
 	let bodyData;
 
 	if (search) {
@@ -28,6 +28,26 @@ export const MarketProducts = async (category, search, type, tags=[]) => {
 				Authorization: `Bearer ${JSON.parse(localStorage.getItem("userAuth")).token}`,
 			},
 			body: JSON.stringify(bodyData),
+		});
+
+		const data = await res.json();
+		return data;
+	} catch (error) {
+		console.error("Error fetching products:", error);
+	}
+};
+export const FilterByTags = async (tags = []) => {
+	try {
+		const res = await fetch(BASE_URL + "projects/list", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${JSON.parse(localStorage.getItem("userAuth")).token}`,
+			},
+			body: JSON.stringify({
+				tags: tags,
+			}),
 		});
 
 		const data = await res.json();

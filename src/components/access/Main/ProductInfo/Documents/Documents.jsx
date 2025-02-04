@@ -94,13 +94,13 @@ const Documents = ({ mainData }) => {
                 )}
             </div>
             <div className="documentsButtons">
-                {allowButtons && (
+                {/* {allowButtons && (
                     <div className="PresentationWrapper">
                         <div className="downloadAll">
                             <span>Скачать все</span>
                         </div>
                     </div>
-                )}
+                )} */}
                 {allowButtons && !isMobile && visibleCount < mainData.documents.length && (
                     <div className="seeMore" onClick={handleShowMore}>
                         <span>Посмотреть еще</span>

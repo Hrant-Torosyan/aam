@@ -13,28 +13,31 @@ import Presentation from "./Presentation/Presentation";
 import Video from "./Video/Video";
 import Documents from "./Documents/Documents";
 import Map from "./Map/Map";
-import { MarketProducts } from "../../../../api/market";
+import { FilterByTags, MarketProducts } from "../../../../api/market";
 import SimilarSlider from "./SimilarProjects/SimilarSlider";
 import PopUpProdNew from "./PopupProdNew/PopupProdNew";
 
 const ProductInfoItems = lazy(() => import("./ProductInfoItems/ProductInfoItems"));
 
-const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
+const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageError }) => {
 	const [mainData, setMainData] = useState(null);
 	const [popUpProdNew, setPopUpProdNew] = useState(false);
 	const [isOpenSc, setIsOpenSc] = useState(false);
 	const [successInfo, setSuccessInfo] = useState(true);
 	const [profileProducts, setProfileProducts] = useState([]);
-	const [filter, setFilter] = useState("all");
-
+	const [filter, setFilter] = useState([]);
+	console.log(mainData);
 	useEffect(() => {
 		if (prodId !== null) {
-			GetProductInfo(prodId).then((res) => setMainData(res));
+			GetProductInfo(prodId).then((res) => {
+				setMainData(res);
+				setFilter(res.tags);
+			});
 		}
 	}, [prodId]);
 
 	useEffect(() => {
-		MarketProducts(filter, "").then((res) => {
+		FilterByTags(filter).then((res) => {
 			setProfileProducts(res.content);
 		});
 	}, [filter]);
@@ -105,9 +108,15 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 									<Video mainData={mainData} />
 									<Documents mainData={mainData} />
 									<Map mainData={mainData} />
-									{mainData.type !== "ASSET" && <Investors prodId={prodId} mainData={mainData} />}
+									{mainData.type !== "ASSET" && (
+										<Investors prodId={prodId} mainData={mainData} />
+									)}
 
 									<SimilarSlider
+										handleImageError={handleImageError}
+										setProdId={setProdId}
+										prodId={prodId}
+										setMainData={setMainData}
 										products={profileProducts}
 										info={{
 											tags: mainData?.tags || [],
