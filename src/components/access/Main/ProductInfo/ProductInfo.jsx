@@ -15,12 +15,13 @@ import Documents from "./Documents/Documents";
 import Map from "./Map/Map";
 import { MarketProducts } from "../../../../api/market";
 import SimilarSlider from "./SimilarProjects/SimilarSlider";
+import PopUpProdNew from "./PopupProdNew/PopupProdNew";
 
 const ProductInfoItems = lazy(() => import("./ProductInfoItems/ProductInfoItems"));
 
 const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 	const [mainData, setMainData] = useState(null);
-	const [popUpProd, setPopUpProd] = useState(false);
+	const [popUpProdNew, setPopUpProdNew] = useState(false);
 	const [isOpenSc, setIsOpenSc] = useState(false);
 	const [successInfo, setSuccessInfo] = useState(true);
 	const [profileProducts, setProfileProducts] = useState([]);
@@ -42,19 +43,19 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 		<>
 			{isOpenSc && (
 				<IsSuccessful
-					setIsOpenTransfer={setPopUpProd}
+					setIsOpenTransfer={setPopUpProdNew}
 					info={successInfo}
 					delay={5000}
 					setIsOpen={setIsOpenSc}
 				/>
 			)}
-			{popUpProd && mainData && (
-				<PopUpProd
+			{popUpProdNew && mainData && (
+				<PopUpProdNew
 					setIsOpenSc={setIsOpenSc}
 					setSuccessInfo={setSuccessInfo}
 					mainData={mainData}
-					setPopUpProd={setPopUpProd}
-					popUpProd={popUpProd}
+					setPopUpProdNew={setPopUpProdNew}
+					popUpProdNew={popUpProdNew}
 				/>
 			)}
 
@@ -90,8 +91,8 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 									<ProductSlider mainData={mainData} />
 									<div className="productInfoUserConent contentMobile">
 										<UserInfo
-											popUpProd={popUpProd}
-											setPopUpProd={setPopUpProd}
+											popUpProdNew={popUpProdNew}
+											setPopUpProdNew={setPopUpProdNew}
 											mainData={mainData}
 										/>
 									</div>
@@ -115,8 +116,8 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId }) => {
 								</div>
 								<div className="productInfoUserConent">
 									<UserInfo
-										popUpProd={popUpProd}
-										setPopUpProd={setPopUpProd}
+										popUpProdNew={popUpProdNew}
+										setPopUpProdNew={setPopUpProdNew}
 										mainData={mainData}
 									/>
 								</div>
