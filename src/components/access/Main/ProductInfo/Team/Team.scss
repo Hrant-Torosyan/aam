@@ -6,17 +6,18 @@
 	}
 
 	.teamItems {
-		width: 90%;
+		width: 100%;
 		margin: 0 auto;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 		.teamItem {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			margin-top: 45px;
-			width: calc(50% - 20px);
+			width: 151px;
+			margin-right: 16px;
 			img {
 				width: 80px;
 				height: 80px;
@@ -30,6 +31,8 @@
 					font-weight: 600;
 					line-height: 19.5px;
 					color: #0E1A32;
+					white-space: wrap;
+					word-break: break-all;
 				}
 			}
 		}
