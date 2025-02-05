@@ -64,11 +64,11 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 				.map((item) => {
 					switch (item) {
 						case "MONTHLY":
-							return "Ежемесячные";
+							return "MONTHLY";
 						case "QUARTERLY":
-							return "Поквартальные";
+							return "QUARTERLY";
 						case "SEMI_ANNUAL":
-							return "Полугодовые";
+							return "SEMI_ANNUAL";
 						default:
 							return null;
 					}
