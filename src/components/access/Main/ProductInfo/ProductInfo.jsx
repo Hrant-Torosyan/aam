@@ -26,7 +26,6 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageErr
 	const [successInfo, setSuccessInfo] = useState(true);
 	const [profileProducts, setProfileProducts] = useState([]);
 	const [filter, setFilter] = useState([]);
-	console.log(mainData);
 	useEffect(() => {
 		if (prodId !== null) {
 			GetProductInfo(prodId).then((res) => {
@@ -111,17 +110,18 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageErr
 									{mainData.type !== "ASSET" && (
 										<Investors prodId={prodId} mainData={mainData} />
 									)}
-
-									<SimilarSlider
-										handleImageError={handleImageError}
-										setProdId={setProdId}
-										prodId={prodId}
-										setMainData={setMainData}
-										products={profileProducts}
-										info={{
-											tags: mainData?.tags || [],
-										}}
-									/>
+									{Boolean(profileProducts?.length) && (
+										<SimilarSlider
+											handleImageError={handleImageError}
+											setProdId={setProdId}
+											prodId={prodId}
+											setMainData={setMainData}
+											products={profileProducts}
+											info={{
+												tags: mainData?.tags || [],
+											}}
+										/>
+									)}
 								</div>
 								<div className="productInfoUserConent">
 									<UserInfo

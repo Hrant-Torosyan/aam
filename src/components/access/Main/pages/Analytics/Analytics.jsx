@@ -244,11 +244,11 @@ const Analytics = () => {
 						<div className="doughnutChart">
 							<div className="doughnutChartTitle">Структура портфеля:</div>
 							<DoughnutChart refresh={refresh} colorsArr={colorsArr} count={null} />
-							{/* <ProdItems
+							<ProdItems
 								colorsArr={colorsArr}
 								count={3}
 								setPortfolioPopUp={setPortfolioPopUp}
-							/> */}
+							/>
 						</div>
 
 						{portfolioPopUp ? (

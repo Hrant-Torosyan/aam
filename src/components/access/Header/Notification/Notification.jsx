@@ -71,7 +71,6 @@ const Notification = ({
 						setSuccessInfo(true);
 					}
 					glData.setCheckPay(Math.random() * 333);
-					console.log(JSON.parse(message.body));
 					setNotificationInfo(JSON.parse(message.body).notificationId);
 				}
 			);
@@ -150,7 +149,6 @@ const Notification = ({
 				{notifications?.totalElements > 3 && (
 					<button
 						onClick={() => {
-							console.log(limitNotification);
 							if (limitNotification.pageSize !== undefined) {
 								setLimitNotification({});
 							} else {

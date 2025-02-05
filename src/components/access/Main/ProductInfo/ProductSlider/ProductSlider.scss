@@ -77,7 +77,7 @@
 	}
 }
 
-.popup {
+.popupSlider {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -104,7 +104,6 @@
 		border-radius: 20px;
 		padding: 20px;
 		overflow: hidden;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 		animation: slideUp 0.3s ease-out;
 
 		.popupArrow {
@@ -135,10 +134,9 @@
 
 		.popupImage {
 			width: 90%;
-			max-height: 80vh;
+			max-height: 100%;
 			object-fit: contain;
 			border-radius: 12px;
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 		}
 
 		.closePopup {

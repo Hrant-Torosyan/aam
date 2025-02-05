@@ -135,7 +135,7 @@ const Products = ({ products, info, type = "LIST" }) => {
 							/>
 						))
 					) : (
-						<div className="notProd">_</div>
+						<div className="notProd">Пока что пусто</div>
 					)
 				) : (
 					<Slider {...settings}>

@@ -1,7 +1,7 @@
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
-import { createContext, lazy, useState } from "react";
+import { createContext, lazy, useEffect, useState } from "react";
 import LayoutRoot from "../components/access/Layouts/LayoutRoot";
 import Layout from "../components/access/Layouts/Layout";
 
@@ -11,7 +11,7 @@ const Market = lazy(() => import("../components/access/Main/pages/Market/Market"
 const Briefcase = lazy(() => import("../components/access/Main/pages/Briefcase/Briefcase"));
 const Wallet = lazy(() => import("../components/access/Main/pages/Wallet/Wallet"));
 const Career = lazy(() => import("../components/access/Main/pages/Career/Career"));
-const Profile =  lazy(() => import("../components/access/Main/pages/Profile/Profile"));
+const Profile = lazy(() => import("../components/access/Main/pages/Profile/Profile"));
 
 export const MainContext = createContext();
 const App = () => {
@@ -19,6 +19,18 @@ const App = () => {
 	const [imageInfo, setImageInfo] = useState(null);
 	const [checkWallet, setCheckWallet] = useState(false);
 	const [checkPay, setCheckPay] = useState(null);
+	useEffect(() => {
+		const handlePopState = () => {
+			setHiddenHeader("");
+		};
+
+		window.addEventListener("popstate", handlePopState);
+
+		return () => {
+			window.removeEventListener("popstate", handlePopState);
+		};
+	}, []);
+
 	return (
 		<MainContext.Provider
 			value={{

@@ -93,9 +93,9 @@ const Operations = ({ operationsArr, setShowOperationsList, showOperationsList, 
 			</div>
 			<div className="operationBlockContent">
 				{operationsArr?.transactionOperationsContent?.content?.length ? (
-					"operationBlocks"
+					operationBlocks
 				) : (
-					<h1 className="empty">_</h1>
+					<p className="empty">Пока что пусто</p>
 				)}
 			</div>
 

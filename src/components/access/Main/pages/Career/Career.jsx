@@ -7,16 +7,16 @@ import { GetProfileCareer, GetProfit } from "../../../../../api/profile";
 const Career = () => {
 	const [copied, setCopied] = useState(false);
 	const [amount, setAmount] = useState(0);
-	const [careerInfo, setCareerInfo] = useState({ referral: "" });
+	const [careerInfo, setCareerInfo] = useState(null);
 
-	// useEffect(() => {
-	// 	GetProfit().then((res) => {
-	// 		setAmount(res.amount);
-	// 	});
-	// 	GetProfileCareer().then((res) => {
-	// 		setCareerInfo(res);
-	// 	});
-	// }, []);
+	useEffect(() => {
+		GetProfit().then((res) => {
+			setAmount(res.amount);
+		});
+		GetProfileCareer().then((res) => {
+			setCareerInfo(res);
+		});
+	}, []);
 	const handleCopy = () => {
 		setCopied(true);
 		setTimeout(() => {
@@ -55,9 +55,9 @@ const Career = () => {
 									<p>Поделись своей реферальной ссылкой и начни зарабатывать!</p>
 									<div className={copied ? "careerLink linkActive" : "careerLink"}>
 										<div className="careerLinkItem">
-											<p>https://aamwwi.online/login?q={careerInfo.referral}</p>
+											<p>http://aams.life/login?q={careerInfo.referral}</p>
 											<CopyOnClick
-												text={`https://aamwwi.online/login?q=${careerInfo.referral}`}
+												text={`http://aams.life/login?q=${careerInfo.referral}`}
 											>
 												<button onClick={handleCopy}>
 													{copied ? (

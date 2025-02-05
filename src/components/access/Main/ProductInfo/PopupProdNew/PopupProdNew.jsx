@@ -38,8 +38,14 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 			newErrors.checkboxError = "Необходимо согласиться с условиями.";
 		}
 
-		if (formattedSum < mainData.minPrice || formattedSum > mainData.maxPrice) {
-			newErrors.rangeError = "Введенная сумма превышает максимально допустимую. Пожалуйста, введите сумму, которая не больше " + mainData.maxPrice;		}
+		if (
+			mainData.type === "ASSET" &&
+			(formattedSum < mainData.minPrice || formattedSum > mainData.maxPrice)
+		) {
+			newErrors.rangeError =
+				"Введенная сумма превышает максимально допустимую. Пожалуйста, введите сумму, которая не больше " +
+				mainData.maxPrice;
+		}
 
 		const parsedInvestmentAmount = parseFloat(mainData.investmentAmount);
 		if (formattedSum > parsedInvestmentAmount) {
@@ -51,7 +57,6 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 	};
 
 	const investmentAmount = walletsData?.investmentAccount || 0;
-	console.log(investmentAmount, 'investmentAmount');
 
 	const handleConfirmClick = async () => {
 		if (investmentAmount <= 0) {
@@ -83,23 +88,24 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 				profitCommission: mainData.profitCommission,
 				withdrawalCommission: mainData.withdrawalCommission,
 				managementCommission: mainData.managementCommission,
-				sharesCount: 1,
 			};
 
 			if (mainData.type === "ASSET") {
 				requestData.period = period;
+				requestData.amount = +sumValue.replace(/\s/g, "");
 				requestData.term = mainData.term;
+			} else {
+				requestData.amount = mainData.price;
 			}
 
-			try {
-				await AddBriefcaseProducts(mainData.projectId, requestData);
-
-				setSuccessInfo("Инвестиция успешно оформлена!");
-				setIsOpenSc(true);
-				setPopUpProdNew(false);
-			} catch (error) {
-				setErrors({ rangeError: "Что-то пошло не так" });
+			const res = await AddBriefcaseProducts(mainData.projectId, requestData);
+			if (res.status === 200) {
+				setSuccessInfo(true);
+			} else {
+				setSuccessInfo(false);
 			}
+			setIsOpenSc(true);
+			setPopUpProdNew(false);
 		}
 	};
 
@@ -109,7 +115,13 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 				<div className="popUpProdHeader">
 					<p>Согласие и ввод суммы</p>
 					<button onClick={() => setPopUpProdNew(false)}>
-						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg
+							width="30"
+							height="30"
+							viewBox="0 0 30 30"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
 							<path
 								d="M20.8366 9.17188L9.16992 20.8386M9.16995 9.17188L20.8366 20.8386"
 								stroke="#00B4D2"
@@ -130,7 +142,9 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 									<h2 style={{ color: errors.balanceError ? "#FF0000" : "#00B4D2" }}>
 										${investmentAmount}
 									</h2>
-									{errors.balanceError && <span className="error">{errors.balanceError}</span>}
+									{errors.balanceError && (
+										<span className="error">{errors.balanceError}</span>
+									)}
 								</div>
 								<img src={bannerLogo} alt="bannerLogo" />
 							</div>
@@ -139,8 +153,8 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 								<h3 className="sumExample">
 									от {mainData.minPrice.toLocaleString()}&nbsp;
 									<span className={`removeWhenError ${errors.rangeError ? "error" : ""}`}>
-                    - до {mainData.maxPrice.toLocaleString()}
-                  </span>
+										- до {mainData.maxPrice.toLocaleString()}
+									</span>
 								</h3>
 							) : (
 								<h3 className="sumExample">
@@ -170,7 +184,8 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 									Комиссия при покупке: <span>{mainData.purchaseCommission}%</span>
 								</p>
 								<p>
-									Комиссия при продаже актива: <span>{mainData.withdrawalCommission}%</span>
+									Комиссия при продаже актива:{" "}
+									<span>{mainData.withdrawalCommission}%</span>
 								</p>
 								<p>
 									Комиссия за управление: <span>{mainData.managementCommission}%</span>
@@ -204,12 +219,19 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 
 							<div className="confirm">
 								<label className="confirmLabel">
-								<span
-									className={`confirmText ${errors.checkboxError ? "error" : ""}`}
-									style={{color: isChecked ? "#000" : (errors.checkboxError ? "#FF0000" : "#212529")}}
-								>
-				  						Я подтверждаю, что ознакомлен(а) с условиями и соглашением о предоставлении услуг,
-									    а также с рисками, связанными с инвестициями в активы, и согласен(согласна) с ними.
+									<span
+										className={`confirmText ${errors.checkboxError ? "error" : ""}`}
+										style={{
+											color: isChecked
+												? "#000"
+												: errors.checkboxError
+												? "#FF0000"
+												: "#212529",
+										}}
+									>
+										Я подтверждаю, что ознакомлен(а) с условиями и соглашением о
+										предоставлении услуг, а также с рисками, связанными с инвестициями в
+										активы, и согласен(согласна) с ними.
 									</span>
 									<input
 										type="checkbox"

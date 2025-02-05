@@ -109,7 +109,7 @@ const SimilarSlider = ({ products = [], info, prodId, setProdId, handleImageErro
 		window.scrollTo({ top: 0 });
 	};
 	const filteredProducts = products.filter((p) => p.projectId !== prodId);
-	console.log(filteredProducts);
+	if (!filteredProducts.length) return null;
 	return (
 		<div className="profileSliderWrapper">
 			<div className="profileSlider">
@@ -131,7 +131,7 @@ const SimilarSlider = ({ products = [], info, prodId, setProdId, handleImageErro
 						))
 					) : (
 						<div className="noProductsMessage">
-							<p>No products available</p>
+							<p>_</p>
 						</div>
 					)}
 				</Slider>

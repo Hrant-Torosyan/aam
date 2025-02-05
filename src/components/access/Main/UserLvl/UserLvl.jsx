@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./UserLvl.scss";
 import Diagram from "../Diagram/Diagram";
-import {CareerLevels} from "../../../../api/career";
+import { CareerLevels } from "../../../../api/career";
 const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
-
 	const [careerData, setCareerData] = useState({
 		referralLinkedUserCount: 0,
 		registeredUserCount: 0,
@@ -11,7 +10,6 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 		referralEarnedAmount: 0,
 		referralProfitAmount: 0,
 	});
-
 	useEffect(() => {
 		const fetchCareerData = async () => {
 			try {
@@ -29,11 +27,10 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 		fetchCareerData();
 	}, []);
 
-
 	return (
 		<div className="userLvl">
 			<div className="userLvlTitle">
-				<Diagram percentage={50}/>
+				<Diagram percentage={50} />
 				<h1>Твой уровень: {levelValue}</h1>
 			</div>
 			<div className="userLvlInfoContainer">

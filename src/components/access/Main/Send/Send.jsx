@@ -233,9 +233,6 @@ const Send = ({ setIsOpenSned, walletsData, setSuccessInfo, setIsOpenSc }) => {
 										setError("Заполните поле");
 										return;
 									}
-									console.log(sumAmout);
-									console.log(user);
-									console.log(sendInfo);
 									if (user) {
 										SetSendUser({
 											outerUserId: sendInfo,
@@ -258,7 +255,6 @@ const Send = ({ setIsOpenSned, walletsData, setSuccessInfo, setIsOpenSc }) => {
 											amount: sumAmout,
 											address: sendInfo,
 										}).then((res) => {
-											console.log(res);
 											if (res.success) {
 												setIsOpenSned(false);
 												setSuccessInfo(true);

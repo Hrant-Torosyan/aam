@@ -78,7 +78,7 @@ const ProductSlider = ({ mainData }) => {
 			</div>
 
 			{popupVisible && (
-				<div className="popup" onClick={closePopup}>
+				<div className="popupSlider" onClick={closePopup}>
 					<div className="popupContent" onClick={(e) => e.stopPropagation()}>
 						<button className="popupArrow left" onClick={handlePopupPrevious}>
 							<img src={leftArrow} alt="Previous" />

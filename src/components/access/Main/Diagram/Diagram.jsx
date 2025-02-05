@@ -5,7 +5,7 @@ const Diagram = ({ percentage }) => {
 	const circumference = 2 * Math.PI * radius;
 	const offset = circumference - (percentage / 100) * circumference;
 	return (
-		<div className={`progress`}>
+		<div className={`progressLvl`}>
 			<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" className="progressRing">
 				<circle className="progressRingCircleBg" cx="100" cy="100" r={radius} />
 				<circle
