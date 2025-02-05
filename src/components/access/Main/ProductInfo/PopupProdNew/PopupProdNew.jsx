@@ -39,7 +39,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 		}
 
 		if (
-			mainData.type === "ASSET" &&
+			mainData.type !== "ASSET" &&
 			(formattedSum < mainData.minPrice || formattedSum > mainData.maxPrice)
 		) {
 			newErrors.rangeError =
@@ -90,7 +90,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 				managementCommission: mainData.managementCommission,
 			};
 
-			if (mainData.type === "ASSET") {
+			if (mainData.type !== "ASSET") {
 				requestData.period = period;
 				requestData.amount = +sumValue.replace(/\s/g, "");
 				requestData.term = mainData.term;
@@ -149,7 +149,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 								<img src={bannerLogo} alt="bannerLogo" />
 							</div>
 
-							{mainData.type === "ASSET" ? (
+							{mainData.type !== "ASSET" ? (
 								<h3 className="sumExample">
 									от {mainData.minPrice.toLocaleString()}&nbsp;
 									<span className={`removeWhenError ${errors.rangeError ? "error" : ""}`}>
@@ -163,7 +163,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 								</h3>
 							)}
 
-							{mainData.type === "ASSET" && (
+							{mainData.type !== "ASSET" && (
 								<MainInput
 									error={errors.rangeError}
 									setError={setErrors}
@@ -245,7 +245,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 
 							<div className="buttonStyleTooNew">
 								<button onClick={handleConfirmClick}>
-									<span>{mainData.type === "ASSET" ? "Инвестировать" : "Оплатить"}</span>
+									<span>{mainData.type !== "ASSET" ? "Оплатить" : "Инвестировать"}</span>
 								</button>
 							</div>
 						</>
