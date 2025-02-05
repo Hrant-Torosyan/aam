@@ -56,7 +56,7 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 								</div>
 							}
 						</div>
-						{mainData?.type === "ASSET" &&
+						{mainData?.type !== "ASSET" &&
 							<div className="payments">
 								<div className="userInfoCreateList">
 									<p>Выплаты:</p>
