@@ -2,7 +2,6 @@ import React from "react";
 import "./UserInfo.scss";
 
 const UserInfo = ({ mainData, setPopUpProdNew }) => {
-	console.log(mainData, 'mainData')
 	return (
 		<div className="userInfo">
 			<div className="prodInfoCard">

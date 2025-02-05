@@ -3,10 +3,11 @@ import "./ProductInfoItems.scss";
 import "./ProductInfoItemsResponsive.scss";
 
 const ProductInfoItems = ({ mainData }) => {
+	console.log(mainData, 'mainData'); // Log the data to make sure it's correct
 
 	return (
 		<div className="productInfoItems">
-			{mainData?.presentation !== null && (
+			{mainData !== null && (
 				<div className="prodInfoCardDownload">
 					<div className="download">
 						<svg
@@ -46,16 +47,18 @@ const ProductInfoItems = ({ mainData }) => {
 								fill="#CAD1D8"
 							/>
 						</svg>
-						<p>{mainData?.presentation?.url?.name}</p>
+						<p>
+							<span>{mainData?.name}</span>
+						</p>
 					</div>
 					<div className="buttonStyleToo">
 						<button
 							onClick={() => {
-								if (mainData.presentation !== null) {
+								if (mainData !== null && mainData.url) {
 									const dummyLink = document.createElement("a");
-									dummyLink.href = mainData?.presentation?.url;
+									dummyLink.href = mainData.url.url;
 									dummyLink.setAttribute("target", "_blank");
-									dummyLink.download = mainData?.presentation?.url?.name;
+									dummyLink.download = mainData.name || "download";
 									document.body.appendChild(dummyLink);
 									dummyLink.click();
 									document.body.removeChild(dummyLink);

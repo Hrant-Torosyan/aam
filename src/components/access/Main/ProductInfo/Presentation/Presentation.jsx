@@ -15,6 +15,10 @@ const Presentation = ({ mainData }) => {
 		setVisibleCount(mainData.presentations.length);
 	};
 
+	const handleHideAll = () => {
+		setVisibleCount(3);
+	};
+
 	const handleDownloadAll = () => {
 		mainData.presentations.forEach((presentation) => {
 			if (presentation.url && presentation.url.url) {
@@ -51,22 +55,30 @@ const Presentation = ({ mainData }) => {
 						<ProductInfoItems key={index} mainData={presentation} />
 					)
 				)}
-				{/* {allowButtons && !isMobile && (
+				{allowButtons && !isMobile && (
 					<div className="downloadAll show" onClick={handleDownloadAll}>
 						<span>Скачать все</span>
 					</div>
-				)} */}
+				)}
 			</div>
 			<div className="presentationButtons">
-				{/* {allowButtons && (
-					<div className="downloadAll hide" onClick={handleDownloadAll}>
-						<span>Скачать все</span>
-					</div>
-				)} */}
 				{allowButtons && visibleCount < mainData.presentations.length && !isMobile && (
 					<div className="seeMore" onClick={handleShowMore}>
 						<span>Посмотреть ещё</span>
 						<img src={arrowDown} alt="See more presentations" />
+					</div>
+				)}
+
+				{allowButtons && visibleCount === mainData.presentations.length && !isMobile && (
+					<div className="hideAll" onClick={handleHideAll}>
+						<span>Скрыть все</span>
+						<img className="hideArrow" src={arrowDown} alt="Hide presentations" />
+					</div>
+				)}
+
+				{allowButtons && (
+					<div className="downloadAll hide" onClick={handleDownloadAll}>
+						<span>Скачать все</span>
 					</div>
 				)}
 			</div>

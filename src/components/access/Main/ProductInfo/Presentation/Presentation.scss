@@ -10,7 +10,7 @@
   .hide {
     display: none !important;
   }
-  .seeMore {
+  .seeMore, .hideAll {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,6 +28,10 @@
     img {
       width: 17px;
       height: 12px;
+    }
+
+    .hideArrow {
+      transform: rotate(180deg);
     }
   }
   .PresentationWrapper {

@@ -8,7 +8,11 @@ const Documents = ({ mainData }) => {
     const allowButtons = mainData.documents.length > 1;
 
     const handleShowMore = () => {
-        setVisibleCount((prevCount) => prevCount + 3);
+        setVisibleCount(mainData.documents.length); // Show all documents
+    };
+
+    const handleHideAll = () => {
+        setVisibleCount(5); // Reset to initial 5
     };
 
     const visibleDocuments = mainData.documents.slice(0, visibleCount);
@@ -71,7 +75,7 @@ const Documents = ({ mainData }) => {
                                             fill="#CAD1D8"
                                         />
                                     </svg>
-                                    <p>{doc?.url?.name}</p>
+                                    <p>{doc?.name}</p>
                                 </div>
                                 <div className="buttonStyleToo">
                                     <button
@@ -94,16 +98,21 @@ const Documents = ({ mainData }) => {
                 )}
             </div>
             <div className="documentsButtons">
-                {/* {allowButtons && (
+                {allowButtons && (
                     <div className="PresentationWrapper">
                         <div className="downloadAll">
                             <span>Скачать все</span>
                         </div>
                     </div>
-                )} */}
+                )}
                 {allowButtons && !isMobile && visibleCount < mainData.documents.length && (
                     <div className="seeMore" onClick={handleShowMore}>
-                        <span>Посмотреть еще</span>
+                        <span>Посмотреть все</span>
+                    </div>
+                )}
+                {allowButtons && !isMobile && visibleCount > 5 && (
+                    <div className="hideAll" onClick={handleHideAll}>
+                        <span>Скрыть все</span>
                     </div>
                 )}
             </div>
