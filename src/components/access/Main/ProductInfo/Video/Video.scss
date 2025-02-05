@@ -14,7 +14,6 @@
     border-radius: 25px;
     overflow: hidden;
 
-
     .videoName {
       width: 100%;
       position: absolute;
@@ -43,7 +42,9 @@
       cursor: pointer;
       padding: 0;
       z-index: 1;
-      transition: transform 0.3s ease;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 1s ease-out, visibility 2s ease;
       color: #FFFFFF;
 
       &:hover {
