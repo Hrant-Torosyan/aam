@@ -199,13 +199,6 @@ const Header = () => {
 					<ul>
 						<li>
 							<NavLink
-								onClick={() => {
-									if (activeNavLink === "/") {
-										setActiveNavLink("/market");
-									} else {
-										setActiveNavLink("/");
-									}
-								}}
 								to={activeNavLink === "/" ? "/market" : "/"}
 							>
 								<svg
@@ -231,13 +224,6 @@ const Header = () => {
 								</svg>
 							</NavLink>
 							<NavLink
-								onClick={() => {
-									if (activeNavLink === "/briefcase") {
-										setActiveNavLink("/market");
-									} else {
-										setActiveNavLink("/briefcase");
-									}
-								}}
 								to={activeNavLink === "/briefcase" ? "/market" : "/briefcase"}
 							>
 								<svg
@@ -341,13 +327,6 @@ const Header = () => {
 						</li>
 						<li>
 							<NavLink
-								onClick={() => {
-									if (activeNavLink === "/wallet") {
-										setActiveNavLink("/market");
-									} else {
-										setActiveNavLink("/wallet");
-									}
-								}}
 								to={activeNavLink === "/wallet" ? "/market" : "/wallet"}
 							>
 								<svg
@@ -387,13 +366,6 @@ const Header = () => {
 								</svg>
 							</NavLink>
 							<NavLink
-								onClick={() => {
-									if (activeNavLink === "/career") {
-										setActiveNavLink("/market");
-									} else {
-										setActiveNavLink("/career");
-									}
-								}}
 								to={activeNavLink === "/career" ? "/market" : "/career"}
 							>
 								<svg

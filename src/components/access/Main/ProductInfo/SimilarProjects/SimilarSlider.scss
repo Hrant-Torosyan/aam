@@ -17,7 +17,7 @@
 		width: calc(33.3333% - 14px);
 		position: relative;
 		&.productFull {
-			width: 96%;
+			width: 280px;
 		}
 		&:hover {
 			.buttonStyle {
@@ -46,7 +46,7 @@
 				border: 3px solid #fff;
 			}
 			> img {
-				height: 230px;
+				height: 146px;
 			}
 		}
 		.productContent {

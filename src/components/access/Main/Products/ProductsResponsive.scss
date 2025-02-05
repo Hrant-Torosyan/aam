@@ -2,7 +2,7 @@
 	.products {
 		margin-top: 10px;
 		.product {
-			width: calc(33.3333% - 14px);
+			width: 280px;
 			margin-top: 20px;
 			.productImage {
 				.productImageUser {
@@ -11,9 +11,6 @@
 					width: 68px;
 					height: 68px;
 					border: 2px solid #fff;
-				}
-				> img {
-					height: 200px;
 				}
 			}
 			.productContent {

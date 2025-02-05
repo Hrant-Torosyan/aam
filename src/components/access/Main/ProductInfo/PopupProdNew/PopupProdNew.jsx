@@ -204,14 +204,13 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 
 							<div className="confirm">
 								<label className="confirmLabel">
-                  <span
-					  className={`confirmText ${errors.checkboxError ? "error" : ""}`}
-					  style={isChecked || !errors.checkboxError ? {} : { color: "#FF0000" }}
-				  >
-                    Я подтверждаю, что ознакомлен(а) с условиями и соглашением о
-                    предоставлении услуг, а также с рисками, связанными с инвестициями в
-                    активы, и согласен(согласна) с ними.
-                  </span>
+								<span
+									className={`confirmText ${errors.checkboxError ? "error" : ""}`}
+									style={{color: isChecked ? "#000" : (errors.checkboxError ? "#FF0000" : "#212529")}}
+								>
+				  						Я подтверждаю, что ознакомлен(а) с условиями и соглашением о предоставлении услуг,
+									    а также с рисками, связанными с инвестициями в активы, и согласен(согласна) с ними.
+									</span>
 									<input
 										type="checkbox"
 										name="confirm"
