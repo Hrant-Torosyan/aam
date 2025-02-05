@@ -99,7 +99,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 			}
 
 			const res = await AddBriefcaseProducts(mainData.projectId, requestData);
-			if (res.status === 200) {
+			if (res?.success) {
 				setSuccessInfo(true);
 			} else {
 				setSuccessInfo(false);
@@ -159,7 +159,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 							) : (
 								<h3 className="sumExample">
 									<p className="typeSum">Сумма:</p>
-									<span>{mainData.maxPrice.toLocaleString()}</span>
+									<span>{mainData.price.toLocaleString()} $</span>
 								</h3>
 							)}
 
@@ -245,7 +245,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 
 							<div className="buttonStyleTooNew">
 								<button onClick={handleConfirmClick}>
-									<span>{mainData.type !== "ASSET" ? "Оплатить" : "Инвестировать"}</span>
+									<span>{mainData.type === "ASSET" ? "Оплатить" : "Инвестировать"}</span>
 								</button>
 							</div>
 						</>

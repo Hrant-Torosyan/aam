@@ -4,6 +4,7 @@ const Diagram = ({ percentage }) => {
 	const radius = 90;
 	const circumference = 2 * Math.PI * radius;
 	const offset = circumference - (percentage / 100) * circumference;
+
 	return (
 		<div className={`progressLvl`}>
 			<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet" className="progressRing">
@@ -17,7 +18,7 @@ const Diagram = ({ percentage }) => {
 					strokeDashoffset={offset}
 				/>
 				<text x="50%" y="58%" className="progressRingTextPercentage" textAnchor="middle">
-					{percentage}
+					{percentage}%
 				</text>
 			</svg>
 		</div>

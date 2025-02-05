@@ -30,7 +30,11 @@ const UserLvl = ({ levelValue, nextLevelUserCount, nextLevelInvestAmount }) => {
 	return (
 		<div className="userLvl">
 			<div className="userLvlTitle">
-				<Diagram percentage={50} />
+				<Diagram
+					percentage={
+						levelValue === 0 ? 0 : levelValue === 1 ? "35" : levelValue === 2 ? "70" : 100
+					}
+				/>
 				<h1>Твой уровень: {levelValue}</h1>
 			</div>
 			<div className="userLvlInfoContainer">

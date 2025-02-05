@@ -16,12 +16,12 @@ const Market = () => {
 	let mainCntx = useContext(MainContext);
 
 	useEffect(() => {
-		MarketCategories().then((res) => {
+		MarketCategories(selectedType).then((res) => {
 			if (res?.categories?.length) {
 				setCategories(res.categories);
 			}
 		});
-	}, []);
+	}, [selectedType]);
 
 	useEffect(() => {
 		MarketProducts(filter, searchInp, selectedType).then((res) => {

@@ -57,9 +57,9 @@ export const FilterByTags = async (tags = []) => {
 	}
 };
 
-export const MarketCategories = async () => {
+export const MarketCategories = async (selectedType) => {
 	try {
-		const res = await fetch(BASE_URL + "projects/categories", {
+		const res = await fetch(BASE_URL + `projects/categories?projectType=${selectedType}`, {
 			method: "GET",
 			headers: {
 				Accept: "application/json",

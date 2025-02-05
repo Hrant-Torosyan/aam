@@ -186,8 +186,22 @@ const OperationPopUp = ({ setIsactive, operationId }) => {
 													: ""
 										  }`}
 								</p>
-								<div className={operationData.status === "DONE" ? "done" : "progress"}>
-									<span>В процессе</span>
+								<div
+									className={
+										operationData.status === "DONE"
+											? "done"
+											: operationData.status === "IN_PROCESS"
+											? "progress"
+											: "failed"
+									}
+								>
+									<span>
+										{operationData.status === "DONE"
+											? "Выполнено"
+											: operationData.status === "IN_PROCESS"
+											? "В процессе"
+											: "Неуспешно"}
+									</span>
 								</div>
 							</div>
 							<div className="operationPopUpTitle">

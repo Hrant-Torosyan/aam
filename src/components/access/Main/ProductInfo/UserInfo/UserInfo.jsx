@@ -6,7 +6,7 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 		<div className="userInfo">
 			<div className="prodInfoCard">
 				<div className="userInfoImage">
-					<img src={mainData.ceoImage?.url} alt=""/>
+					<img src={mainData.ceoImage?.url} alt="" />
 					<h3>
 						{mainData.ceoFirstname} {mainData.ceoLastname}
 					</h3>
@@ -38,32 +38,31 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 
 					<div className="mobileWrapperInside">
 						<div className="userInfoPrice">
-
-							{mainData?.type === 'ASSET' ?
+							{mainData?.type !== "ASSET" ? (
 								<>
 									<div className="userInfoPriceItem">
 										<span>Цена</span>
-										<p>от ${mainData.price}</p>
+										<p>от ${mainData.minPrice}</p>
 									</div>
 									<div className="userInfoPriceItem">
 										<span>Мин. сумма</span>
-										<p>до ${mainData.minPrice}</p>
+										<p>до ${mainData.maxPrice}</p>
 									</div>
-								</> :
+								</>
+							) : (
 								<div className="userInfoPriceItem">
 									<span>Цена</span>
 									<p>${mainData.price}</p>
 								</div>
-							}
+							)}
 						</div>
-						{mainData?.type !== "ASSET" &&
+						{mainData?.type !== "ASSET" && (
 							<div className="payments">
 								<div className="userInfoCreateList">
 									<p>Выплаты:</p>
 									<button>
-										{
-											mainData.paymentPeriods && mainData.paymentPeriods.length > 0 ? (
-												(() => {
+										{mainData.paymentPeriods && mainData.paymentPeriods.length > 0
+											? (() => {
 													const period = mainData.paymentPeriods[0];
 													switch (period) {
 														case "MONTHLY":
@@ -75,9 +74,8 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 														default:
 															return null;
 													}
-												})()
-											) : null
-										}
+											  })()
+											: null}
 									</button>
 								</div>
 								<div className="userInfoCreateList">
@@ -86,10 +84,10 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 								</div>
 								<div className="userInfoCreateList">
 									<p>Срок инвестирования:</p>
-									<button>{mainData.term}%</button>
+									<button>{mainData.term}</button>
 								</div>
 							</div>
-						}
+						)}
 					</div>
 				</div>
 
@@ -117,7 +115,7 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 						</p>
 					</div>
 				</div>
-				{mainData?.type === 'ASSET' ?
+				{mainData?.type !== "ASSET" ? (
 					<div className="buttonStyle">
 						<button
 							onClick={() => {
@@ -126,7 +124,8 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 						>
 							<span>Инвестировать</span>
 						</button>
-					</div> :
+					</div>
+				) : (
 					<div className="buttonStyle">
 						<button
 							onClick={() => {
@@ -136,7 +135,7 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 							<span>Купить</span>
 						</button>
 					</div>
-				}
+				)}
 			</div>
 		</div>
 	);
