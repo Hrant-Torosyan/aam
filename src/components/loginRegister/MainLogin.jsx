@@ -4,21 +4,22 @@ import "./MainLoginResposive.scss";
 import LoginPage from "./LoginPage/LoginPage";
 import ResetPassword from "./ResetPassword/ResetPassword";
 import RegisterPage from "./RegisterPage/RegisterPage";
+import { useSearchParams } from "react-router-dom";
 const generateLinkedUserId = () => {
 	return `user_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
 };
-const BASE_URL = "http://145.223.99.13:8080/api/rest/projects";
+const BASE_URL = "http://145.223.99.13:8080";
 
 const MainLogin = () => {
-	const urlParams = new URLSearchParams(window.location.search);
-	const referralCode = urlParams.get("q");
-	const [page, setPage] = useState(referralCode ? "register" : "login");
+	const [searchParams, setSearchParams] = useSearchParams();
+	let innerQ = searchParams.get("q");
 
+	const [page, setPage] = useState(innerQ ? "register" : "login");
 	useEffect(() => {
-		if (referralCode) {
+		if (innerQ) {
 			const storedReferral = localStorage.getItem("referral_sent");
 
-			if (storedReferral !== referralCode) {
+			if (storedReferral !== innerQ) {
 				const linkedUserId = generateLinkedUserId();
 
 				fetch(BASE_URL + "/api/rest/referral/linked/users/add", {
@@ -27,18 +28,18 @@ const MainLogin = () => {
 						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({
-						referral: referralCode,
+						referral: innerQ,
 						linkedUserId,
 					}),
 				})
 					.then((response) => response.json())
 					.then((data) => {
-						localStorage.setItem("referral_sent", referralCode);
+						localStorage.setItem("referral_sent", innerQ);
 					})
 					.catch((error) => console.error("Error sending referral:", error));
 			}
 		}
-	}, [referralCode]);
+	}, [innerQ]);
 	return (
 		<div className="mainLogin">
 			<div className="mainLoginHeader">

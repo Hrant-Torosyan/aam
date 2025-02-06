@@ -29,6 +29,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 	const handleShowMore = () => {
 		setVisibleCount(mainData.documents.length);
 	};
+	const investmentAmount = walletsData?.investmentAccount || 0;
 
 	const validateForm = () => {
 		const newErrors = {};
@@ -51,12 +52,13 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 		if (formattedSum > parsedInvestmentAmount) {
 			newErrors.balanceError = "Недостаточно средств для инвестиции.";
 		}
+		if (mainData.type === "ASSET" && mainData.maxPrice > investmentAmount) {
+			newErrors.balanceError = "Недостаточно средств для инвестиции.";
+		}
 
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
 	};
-
-	const investmentAmount = walletsData?.investmentAccount || 0;
 
 	const handleConfirmClick = async () => {
 		if (investmentAmount <= 0) {
@@ -95,7 +97,9 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 				requestData.amount = +sumValue.replace(/\s/g, "");
 				requestData.term = mainData.term;
 			} else {
-				requestData.amount = mainData.price;
+				requestData.amount = mainData.maxPrice;
+				requestData.period = period;
+				requestData.term = mainData.term;
 			}
 
 			const res = await AddBriefcaseProducts(mainData.projectId, requestData);
@@ -159,7 +163,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 							) : (
 								<h3 className="sumExample">
 									<p className="typeSum">Сумма:</p>
-									<span>{mainData.price.toLocaleString()} $</span>
+									<span>{mainData.maxPrice.toLocaleString()} $</span>
 								</h3>
 							)}
 

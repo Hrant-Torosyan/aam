@@ -52,7 +52,7 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 							) : (
 								<div className="userInfoPriceItem">
 									<span>Цена</span>
-									<p>${mainData.price}</p>
+									<p>${mainData.maxPrice}</p>
 								</div>
 							)}
 						</div>
