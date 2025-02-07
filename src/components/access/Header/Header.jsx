@@ -37,7 +37,7 @@ const Header = () => {
 
 	return (
 		<header>
-			{isOpenSc && <IsSuccessful info={successInfo} delay={5000} setIsOpen={setIsOpenSc} />}
+			{isOpenSc && <IsSuccessful info={successInfo} delay={1000} setIsOpen={setIsOpenSc} />}
 			<div className={headerStyle.hiddenHeader ? "headerLeft hidden" : "headerLeft"}>
 				<div className="headerLeftLogo">
 					<img src="./images/Logo.png" alt="Logo" />

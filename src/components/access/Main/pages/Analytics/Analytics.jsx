@@ -121,7 +121,7 @@ const Analytics = () => {
 						<IsSuccessful
 							setIsOpenTransfer={setIsOpenTransfer}
 							info={successInfo}
-							delay={5000}
+							delay={1000}
 							setIsOpen={setIsOpenSc}
 						/>
 					)}

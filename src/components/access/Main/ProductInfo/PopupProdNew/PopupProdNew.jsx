@@ -5,6 +5,7 @@ import { AddBriefcaseProducts } from "../../../../../api/briefcase";
 import bannerLogo from "../../../../svg/bannerLogo.svg";
 import pdfImg from "../../../../svg/pdf.svg";
 import { Wallets } from "../../../../../api/analytics";
+import arrowDown from "../../../../svg/arrowDown.svg";
 
 const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo, setIsOpenSc }) => {
 	const [sumValue, setSumValue] = useState("");
@@ -12,13 +13,14 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 	const [visibleCount, setVisibleCount] = useState(2);
 	const [isChecked, setIsChecked] = useState(false);
 	const [walletsData, setWalletsData] = useState([]);
+	const [showMore, setShowMore] = useState(false);
 
 	const fetchWalletData = async () => {
 		try {
 			const res = await Wallets();
 			setWalletsData(res);
 		} catch (error) {
-			console.error("Error fetching wallets data:", error);
+			console.error("Error", error);
 		}
 	};
 
@@ -27,8 +29,10 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 	}, []);
 
 	const handleShowMore = () => {
-		setVisibleCount(mainData.documents.length);
+		setShowMore(!showMore);
+		setVisibleCount(showMore ? 2 : mainData.conditionDocuments.length);
 	};
+
 	const investmentAmount = walletsData?.investmentAccount || 0;
 
 	const validateForm = () => {
@@ -201,21 +205,42 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 								<span>Ознакомьтесь и подтвердите условия</span>
 
 								<div className="documentsDownload">
-									{mainData?.documents?.length > 0 && (
+									{mainData?.conditionDocuments?.length > 0 && (
 										<>
-											{mainData.documents.slice(0, visibleCount).map((doc, index) => (
+											{mainData.conditionDocuments.slice(0, visibleCount).map((doc, index) => (
 												<div key={index} className="documentsCardDownload">
 													<div className="download">
-														<img src={pdfImg} alt="pdfImg" />
+														<img src={pdfImg} alt="pdfImg"/>
 														<p>{doc?.url?.name}</p>
+														<button
+															className='documentsDownload'
+															onClick={() => {
+																if (doc?.url?.url) {
+																	const dummyLink = document.createElement("a");
+																	dummyLink.href = doc.url.url;
+																	dummyLink.setAttribute("target", "_blank");
+																	dummyLink.download = doc.url.name || "download";
+																	document.body.appendChild(dummyLink);
+																	dummyLink.click();
+																	document.body.removeChild(dummyLink);
+																} else {
+																	console.error("Документ поврежден");
+																}
+															}}
+														>
+															<span>Скачать</span>
+														</button>
 													</div>
 												</div>
 											))}
-											{visibleCount < mainData.documents.length && (
-												<div className="seeMore" onClick={handleShowMore}>
-													<span>Посмотреть еще</span>
-												</div>
-											)}
+											<div className="seeMore" onClick={handleShowMore}>
+												<span>{showMore ? "Скрыть" : "Посмотреть еще"}</span>
+												<img
+													src={arrowDown}
+													 alt="toggle"
+													 className={showMore ? "rotated" : ""}
+												/>
+											</div>
 										</>
 									)}
 								</div>
@@ -229,8 +254,8 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 											color: isChecked
 												? "#000"
 												: errors.checkboxError
-												? "#FF0000"
-												: "#212529",
+													? "#FF0000"
+													: "#212529",
 										}}
 									>
 										Я подтверждаю, что ознакомлен(а) с условиями и соглашением о

@@ -3,7 +3,6 @@ import "./ProductInfoItems.scss";
 import "./ProductInfoItemsResponsive.scss";
 
 const ProductInfoItems = ({ mainData }) => {
-	console.log(mainData, 'mainData'); // Log the data to make sure it's correct
 
 	return (
 		<div className="productInfoItems">

@@ -47,7 +47,7 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageErr
 				<IsSuccessful
 					setIsOpenTransfer={setPopUpProdNew}
 					info={successInfo}
-					delay={5000}
+					delay={1000}
 					setIsOpen={setIsOpenSc}
 				/>
 			)}

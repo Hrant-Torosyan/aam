@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import logo from "../../../svg/logo.svg";
+import {GetProductInfo} from "../../../../api/productInfo";
 
 const Product = ({
 	prod,
@@ -8,7 +9,10 @@ const Product = ({
 	handleImageError,
 	setHiddenHeader,
 	fullWidth = false,
+					 projectId,
 }) => {
+	const [mainData, setMainData] = useState(null);
+
 	const handleClick = () => {
 		if (info === "Briefcase") {
 			setProdId(prod.id);
@@ -18,13 +22,24 @@ const Product = ({
 		setHiddenHeader("hidden");
 	};
 
+	useEffect(() => {
+		if (prod.projectId !== null) {
+			GetProductInfo(prod.projectId).then((res) => {
+				setMainData(res);
+			});
+		}
+	}, [prod.projectId]);
+
+	console.log(mainData, 'mainData')
+
 	return (
 		<div onClick={handleClick} className={`product ${fullWidth ? "productFull" : ""}`}>
 			{prod.active !== undefined &&
 				(prod.active ? (
 					<div className="isAvailable">
 						<div className="dote"></div>
-						Актив
+						{mainData?.type === "ASSET" ? "Актив" : "Проект"}
+
 					</div>
 				) : (
 					<div className="isAvailable">Не доступно</div>
@@ -53,7 +68,7 @@ const Product = ({
 				<div className="priceList">
 					<div className="price">
 						<p>Цена</p>
-						<span>${prod.price}</span>
+						<span>${prod.minPrice}</span>
 					</div>
 				</div>
 			</div>

@@ -274,7 +274,7 @@ const ProfileEdit = ({ setProfilePage }) => {
 								</div>
 
 								<div className="profileEditInput">
-									<p>Twitter</p>
+									<p>X</p>
 									<div className="inputStyle">
 										<input
 											type="text"

@@ -1,89 +1,149 @@
 import React, { useState, useRef, useEffect } from "react";
+import ReactPlayer from "react-player";
 
 import play from "../../../../svg/play.svg";
 import pause from "../../../../svg/pause.svg";
 
 import "./Video.scss";
-import "./VIdeoResponsice.scss";
+import "./VIdeoResponsive.scss";
 
 const Video = ({ mainData }) => {
-	const videoUrl = mainData?.mediaVideo.url;
-	const videoName = mainData?.mediaVideo.name;
-	const videoRef = useRef(null);
+	const videoUrl = mainData?.mediaVideo?.url;
+	const videoName = mainData?.mediaVideo?.name;
+	const playerRef = useRef(null);
+	const timeoutRef = useRef(null);
+	const isSeekingRef = useRef(false);
+	const wasPlayingBeforeSeekRef = useRef(false);
 
 	const [isPlaying, setIsPlaying] = useState(false);
-	const [showPauseButton, setShowPauseButton] = useState(true);
-	const timeoutRef = useRef(null);
+	const [showButton, setShowButton] = useState(true);
+	const [isPauseIcon, setIsPauseIcon] = useState(false);
 
-	const handlePlayPause = () => {
-		if (videoRef.current) {
-			if (isPlaying) {
-				videoRef.current.pause();
-			} else {
-				videoRef.current.play();
+	useEffect(() => {
+		const preventScroll = (e) => {
+			if (e.key === " " && e.target === document.body) {
+				e.preventDefault();
 			}
-			setIsPlaying(!isPlaying);
+		};
 
-			setShowPauseButton(true);
+		window.addEventListener("keydown", preventScroll);
+		return () => window.removeEventListener("keydown", preventScroll);
+	}, []);
 
+	useEffect(() => {
+		window.addEventListener("keydown", handleKeyDown);
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isPlaying]);
+
+	useEffect(() => {
+		setShowButton(true);
+		setIsPlaying(false);
+		setIsPauseIcon(false);
+	}, [videoUrl]);
+
+	useEffect(() => {
+		return () => {
 			if (timeoutRef.current) {
 				clearTimeout(timeoutRef.current);
 			}
-			timeoutRef.current = setTimeout(() => {
-				setShowPauseButton(false);
-			}, 1000);
-		}
-	};
+		};
+	}, []);
 
-	const handleVideoClick = () => {
-		if (isPlaying) {
-			videoRef.current.pause();
-			setIsPlaying(false);
-			setShowPauseButton(true);
-		} else {
-			videoRef.current.play();
-			setIsPlaying(true);
-			setShowPauseButton(true);
-		}
-
-		if (timeoutRef.current) {
-			clearTimeout(timeoutRef.current);
-		}
+	const showButtonTemporarily = () => {
+		setShowButton(true);
+		clearTimeout(timeoutRef.current);
 		timeoutRef.current = setTimeout(() => {
-			setShowPauseButton(false);
-		}, 1000);
+			setShowButton(false);
+		}, 700);
 	};
 
-	useEffect(() => {
-		if (!isPlaying) {
-			setShowPauseButton(true);
+	const handlePlayPause = () => {
+		const newPlayingState = !isPlaying;
+		setIsPlaying(newPlayingState);
+		setIsPauseIcon(!newPlayingState);
+		showButtonTemporarily();
+		isSeekingRef.current = false;
+		wasPlayingBeforeSeekRef.current = false;
+	};
+
+	const handleVideoClick = (e) => {
+		e.preventDefault();
+		if (!isSeekingRef.current) {
+			handlePlayPause();
 		}
-	}, [isPlaying]);
+	};
+
+	const handleKeyDown = (event) => {
+		if (event.key === " " || event.key === "Enter") {
+			event.preventDefault();
+			handlePlayPause();
+		}
+	};
+
+	const handleSeekStart = () => {
+		isSeekingRef.current = true;
+		wasPlayingBeforeSeekRef.current = isPlaying;
+		setIsPlaying(false);
+		setIsPauseIcon(true);
+	};
+
+	const handleSeekEnd = () => {
+		setTimeout(() => {
+			isSeekingRef.current = false;
+			setIsPlaying(wasPlayingBeforeSeekRef.current);
+			setIsPauseIcon(!wasPlayingBeforeSeekRef.current);
+			showButtonTemporarily();
+		}, 50);
+	};
+
+	const handleProgress = () => {
+		if (isSeekingRef.current) {
+			setIsPauseIcon(true);
+		}
+	};
 
 	return (
 		<div className="video">
-			<div className="videoWrapper" onClick={handleVideoClick}>
+			<div
+				className="videoWrapper"
+				onClick={handleVideoClick}
+			>
 				{videoUrl ? (
 					<>
-						<video ref={videoRef} src={videoUrl} preload="metadata" controls={false} />
-						<button
-							className="playButton"
-							onClick={handlePlayPause}
-							style={{
-								opacity: isPlaying ? 0 : 1,
-								visibility: isPlaying ? "hidden" : "visible",
-							}}
-						>
-							<img
-								className="playIcon"
-								src={isPlaying ? pause : play}
-								alt={isPlaying ? "pause" : "play"}
-							/>
-						</button>
+						<ReactPlayer
+							ref={playerRef}
+							url={videoUrl}
+							playing={isPlaying}
+							controls={true}
+							width="100%"
+							height="100%"
+							onSeekMouseDown={handleSeekStart}
+							onSeekMouseUp={handleSeekEnd}
+							onProgress={handleProgress}
+						/>
+
+						{showButton && (
+							<button
+								className="playButton"
+								onClick={(e) => {
+									e.stopPropagation();
+									handlePlayPause();
+								}}
+							>
+								<img
+									className="playIcon"
+									src={isPauseIcon ? pause : play}
+									alt={isPauseIcon ? "pause" : "play"}
+								/>
+							</button>
+						)}
+
 						<p className="videoName">{videoName}</p>
 					</>
 				) : (
-					<p className="noVideo">Video not available</p>
+					<p className="noVideo">Видео недоступно</p>
 				)}
 			</div>
 		</div>

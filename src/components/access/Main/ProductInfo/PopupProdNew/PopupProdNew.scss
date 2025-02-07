@@ -52,6 +52,36 @@
 .popUpProdContent {
 	padding: 40px;
 
+	.documentsDownload {
+		margin-left: 16px;
+
+		.seeMore {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 36px;
+			cursor: pointer;
+
+			span {
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 20px;
+				letter-spacing: -0.001em;
+				color: #96C5F9;
+				margin-right: 10px;
+			}
+
+			img {
+				width: 17px;
+				height: 12px;
+			}
+
+			.rotated {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
 	.sumExample {
 		font-size: 24px;
 		color: #6f6f6f;
