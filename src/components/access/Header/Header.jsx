@@ -17,7 +17,6 @@ import bag from "../../svg/bag.svg";
 const Header = () => {
 	const location = useLocation();
 	let headerStyle = useContext(MainContext);
-	const [activeNavLink, setActiveNavLink] = useState(location.pathname);
 	const [notification, setNotification] = useState(false);
 	const [isActiveSelectHeader, setIsActiveSelectHeader] = useState(false);
 	const [userData, setuserData] = useState("");
@@ -37,7 +36,7 @@ const Header = () => {
 
 	return (
 		<header>
-			{isOpenSc && <IsSuccessful info={successInfo} delay={1000} setIsOpen={setIsOpenSc} />}
+			{isOpenSc && <IsSuccessful info={successInfo} delay={5000} setIsOpen={setIsOpenSc} />}
 			<div className={headerStyle.hiddenHeader ? "headerLeft hidden" : "headerLeft"}>
 				<div className="headerLeftLogo">
 					<img src="./images/Logo.png" alt="Logo" />

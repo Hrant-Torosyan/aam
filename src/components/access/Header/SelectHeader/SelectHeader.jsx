@@ -7,7 +7,6 @@ const SelectHeader = ({
 	setIsActiveSelectHeader,
 	setNotification,
 	isActiveSelectHeader,
-	setActiveNavLink,
 	userData,
 }) => {
 	return (
@@ -26,7 +25,7 @@ const SelectHeader = ({
 				<p>{userData && userData.fullName.split(" ")[0]}</p>
 				<img src="./images/angle.png" alt="" />
 				<div className="selectItem">
-					<NavLink onClick={() => setActiveNavLink("/profile")} to={"/profile"}>
+					<NavLink to={"/profile"}>
 						<svg
 							width="28"
 							height="28"

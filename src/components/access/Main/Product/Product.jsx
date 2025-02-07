@@ -30,8 +30,6 @@ const Product = ({
 		}
 	}, [prod.projectId]);
 
-	console.log(mainData, 'mainData')
-
 	return (
 		<div onClick={handleClick} className={`product ${fullWidth ? "productFull" : ""}`}>
 			{prod.active !== undefined &&
