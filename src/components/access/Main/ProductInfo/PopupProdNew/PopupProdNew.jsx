@@ -233,14 +233,15 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 													</div>
 												</div>
 											))}
-											<div className="seeMore" onClick={handleShowMore}>
-												<span>{showMore ? "Скрыть" : "Посмотреть еще"}</span>
-												<img
-													src={arrowDown}
-													 alt="toggle"
-													 className={showMore ? "rotated" : ""}
-												/>
-											</div>
+											{mainData.conditionDocuments?.length > 2 &&
+												<div className="seeMore" onClick={handleShowMore}>
+													<span>{showMore ? "Скрыть" : "Посмотреть еще"}</span>
+													<img
+														src={arrowDown}
+														alt="toggle"
+														className={showMore ? "rotated" : ""}
+													/>
+												</div>}
 										</>
 									)}
 								</div>
