@@ -1,18 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import pin from '../../../../svg/map.svg';
+import fullscreen from  '../../../../svg/fullscreen.svg';
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import "./Map.scss";
 import "./MapResponsive.scss";
 
-const Map = () => {
+const Map = ({ mainData }) => {
+    const [mapLoaded, setMapLoaded] = useState(true);
+
+    useEffect(() => {
+        const mapContainer = document.getElementById("map");
+
+        if (!mainData?.locationLatitude || !mainData?.locationLongitude || !mapContainer) {
+            console.error("Invalid location data or map container.");
+            setMapLoaded(false);
+            return;
+        }
+
+        setMapLoaded(true);
+
+        if (mapContainer._leaflet_id) {
+            mapContainer._leaflet_id = null;
+        }
+
+        const map = L.map("map").setView([mainData.locationLatitude, mainData.locationLongitude], 13);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        L.marker([mainData.locationLatitude, mainData.locationLongitude], {
+            icon: L.icon({
+                iconUrl: pin,
+                iconSize: [30, 30],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -40],
+            }),
+        }).addTo(map);
+
+        const fullscreenControl = L.control({ position: "topright" });
+        fullscreenControl.onAdd = function () {
+            const button = L.DomUtil.create("button", "leaflet-bar");
+            const img = L.DomUtil.create("img", "", button);
+            img.src = fullscreen;
+            img.alt = "Fullscreen";
+            img.style.width = "20px";
+            img.style.height = "20px";
+
+            button.onclick = () => {
+                const mapContainer = map.getContainer();
+                if (!document.fullscreenElement) {
+                    mapContainer.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            };
+            return button;
+        };
+        fullscreenControl.addTo(map);
+
+        return () => {
+            map.remove();
+        };
+    }, [mainData]);
+
+    if (!mapLoaded) {
+        return (
+            <div className="map">
+                <h1>Расположение</h1>
+                <p>Map data is not available.</p>
+            </div>
+        );
+    }
+
     return (
         <div className="map">
             <h1>Расположение</h1>
             <div className="mapContainer prodInfoCard">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577332.5668041334!2d36.72620128208206!3d55.581033488481154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2sMoscow%2C%20Russia!5e0!3m2!1sen!2sam!4v1738462452108!5m2!1sen!2sam"
-                    width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Google Map of Moscow"
-                ></iframe>
+                <div id="map" style={{ height: "100%", width: "100%" }}></div>
             </div>
         </div>
     );

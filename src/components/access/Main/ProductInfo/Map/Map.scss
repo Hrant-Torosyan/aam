@@ -16,5 +16,10 @@
 		max-width: 65%;
 		width: 100%;
 		height: 388px;
+
+
+		.leaflet-control-attribution {
+			display: none;
+		}
 	}
 }
