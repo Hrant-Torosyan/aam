@@ -7,8 +7,8 @@ const AboutCompany = ({ mainData }) => {
 		<div className="aboutCompany">
 			<h1>Описание:</h1>
 			<div className="aboutCompanyData">
-				<img src={mainData?.mediaImages[0].url} />
-				<p>{mainData.companyDescription}</p>
+				<img alt="about" src={mainData?.mediaImages[0].url.url} />
+				<p>{mainData.financialIndicatorContent}</p>
 			</div>
 		</div>
 	);

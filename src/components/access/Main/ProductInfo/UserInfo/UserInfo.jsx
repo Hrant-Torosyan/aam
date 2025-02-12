@@ -1,20 +1,23 @@
 import React from "react";
 import "./UserInfo.scss";
+import { formatNumber } from "../../../../../utils/formatNumber";
 
 const UserInfo = ({ mainData, setPopUpProdNew }) => {
 	return (
 		<div className="userInfo">
 			<div className="prodInfoCard">
 				<div className="userInfoImage">
-					<img src={mainData.ceoImage?.url} alt="" />
-					<h3>
-						{mainData.ceoFirstname} {mainData.ceoLastname}
-					</h3>
+					<img src={mainData.companyLogo?.url} alt="" />
+					<h3>{mainData.companyName}</h3>
 				</div>
 
 				<div className="mobileWrapper infoCreate">
 					<div className="userInfoCreate">
 						<h4>Создан: 21.03.2024</h4>
+						<div className="userInfoCreateList">
+							<p>Типы проекта:</p>
+							<p>{mainData?.productType}</p>
+						</div>
 						<div className="userInfoCreateList">
 							<p>Страна:</p>
 							<p>{mainData.country}</p>
@@ -42,17 +45,17 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 								<>
 									<div className="userInfoPriceItem">
 										<span>Цена</span>
-										<p>от ${mainData.minPrice}</p>
+										<p>от ${formatNumber(mainData.minPrice)}</p>
 									</div>
 									<div className="userInfoPriceItem">
 										<span>Мин. сумма</span>
-										<p>до ${mainData.maxPrice}</p>
+										<p>до ${formatNumber(mainData.maxPrice)}</p>
 									</div>
 								</>
 							) : (
 								<div className="userInfoPriceItem">
 									<span>Цена</span>
-									<p>${mainData.maxPrice}</p>
+									<p>${formatNumber(mainData.maxPrice)}</p>
 								</div>
 							)}
 						</div>
@@ -108,7 +111,7 @@ const UserInfo = ({ mainData, setPopUpProdNew }) => {
 							Комиссия при покупке: <span>{mainData.purchaseCommission}%</span>
 						</p>
 						<p>
-							Комиссия при продаже актива: <span>{mainData.withdrawalCommission}%</span>
+							Комиссия при продаже актива: <span>{mainData.profitCommission}%</span>
 						</p>
 						<p>
 							Комиссия за управление: <span>{mainData.managementCommission}%</span>

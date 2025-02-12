@@ -55,11 +55,11 @@ const Presentation = ({ mainData }) => {
 						<ProductInfoItems key={index} mainData={presentation} />
 					)
 				)}
-				{allowButtons && !isMobile && (
+				{/* {allowButtons && !isMobile && (
 					<div className="downloadAll show" onClick={handleDownloadAll}>
 						<span>Скачать все</span>
 					</div>
-				)}
+				)} */}
 			</div>
 			<div className="presentationButtons">
 				{allowButtons && visibleCount < mainData.presentations.length && !isMobile && (
@@ -76,11 +76,11 @@ const Presentation = ({ mainData }) => {
 					</div>
 				)}
 
-				{allowButtons && (
+				{/* {allowButtons && (
 					<div className="downloadAll hide" onClick={handleDownloadAll}>
 						<span>Скачать все</span>
 					</div>
-				)}
+				)} */}
 			</div>
 		</div>
 	);

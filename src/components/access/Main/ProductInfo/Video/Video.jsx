@@ -8,7 +8,7 @@ import "./Video.scss";
 import "./VIdeoResponsive.scss";
 
 const Video = ({ mainData }) => {
-	const videoUrl = mainData?.mediaVideo?.url;
+	const videoUrl = mainData?.mediaVideo?.url.url;
 	const videoName = mainData?.mediaVideo?.name;
 	const playerRef = useRef(null);
 	const timeoutRef = useRef(null);
@@ -105,12 +105,9 @@ const Video = ({ mainData }) => {
 	};
 
 	return (
-		<div className="video">
-			<div
-				className="videoWrapper"
-				onClick={handleVideoClick}
-			>
-				{videoUrl ? (
+		videoUrl && (
+			<div className="video">
+				<div className="videoWrapper" onClick={handleVideoClick}>
 					<>
 						<ReactPlayer
 							ref={playerRef}
@@ -142,11 +139,9 @@ const Video = ({ mainData }) => {
 
 						<p className="videoName">{videoName}</p>
 					</>
-				) : (
-					<p className="noVideo">Видео недоступно</p>
-				)}
+				</div>
 			</div>
-		</div>
+		)
 	);
 };
 

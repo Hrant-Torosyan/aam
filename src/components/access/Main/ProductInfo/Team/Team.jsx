@@ -6,7 +6,7 @@ import arrowDown from "../../../../svg/arrowDown.svg";
 import "./Team.scss";
 import "./TeamResponcive.scss";
 
-const Team = ({ prodId }) => {
+const Team = ({ prodId, ceoPosition, ceoLastname, ceoFirstname, ceoImage }) => {
 	const [mainData, setMainData] = useState(null);
 	const [visibleCount, setVisibleCount] = useState(5);
 
@@ -24,11 +24,21 @@ const Team = ({ prodId }) => {
 		<div className="team prodInfoCard">
 			<h2>Команда проекта:</h2>
 			<div className="teamItems">
+				<div className="teamItem">
+					<img src={ceoImage ? ceoImage : "./images/avatar.png"} alt="people" />
+					<div className="teamItemInfo">
+						<p>{ceoPosition}</p>
+						<h3>
+							{ceoFirstname} {ceoLastname}
+						</h3>
+					</div>
+				</div>
 				{mainData &&
 					mainData.content.slice(0, visibleCount).map((item, key) => (
 						<div key={key} className="teamItem">
 							<img src={item.image ? item.image.url : "./images/avatar.png"} alt="people" />
 							<div className="teamItemInfo">
+								<p>{item.position}</p>
 								<h3>{item.fullName}</h3>
 							</div>
 						</div>

@@ -6,6 +6,7 @@ import bannerLogo from "../../../../svg/bannerLogo.svg";
 import pdfImg from "../../../../svg/pdf.svg";
 import { Wallets } from "../../../../../api/analytics";
 import arrowDown from "../../../../svg/arrowDown.svg";
+import { formatNumber } from "../../../../../utils/formatNumber";
 
 const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo, setIsOpenSc }) => {
 	const [sumValue, setSumValue] = useState("");
@@ -148,7 +149,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 								<div className="bannerLogo">
 									<p>Доступный баланс</p>
 									<h2 style={{ color: errors.balanceError ? "#FF0000" : "#00B4D2" }}>
-										${investmentAmount}
+										${formatNumber(investmentAmount)}
 									</h2>
 									{errors.balanceError && (
 										<span className="error">{errors.balanceError}</span>
@@ -192,8 +193,7 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 									Комиссия при покупке: <span>{mainData.purchaseCommission}%</span>
 								</p>
 								<p>
-									Комиссия при продаже актива:{" "}
-									<span>{mainData.withdrawalCommission}%</span>
+									Комиссия при продаже актива: <span>{mainData.profitCommission}%</span>
 								</p>
 								<p>
 									Комиссия за управление: <span>{mainData.managementCommission}%</span>
@@ -207,33 +207,36 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 								<div className="documentsDownload">
 									{mainData?.conditionDocuments?.length > 0 && (
 										<>
-											{mainData.conditionDocuments.slice(0, visibleCount).map((doc, index) => (
-												<div key={index} className="documentsCardDownload">
-													<div className="download">
-														<img src={pdfImg} alt="pdfImg"/>
-														<p>{doc?.url?.name}</p>
-														<button
-															className='documentsDownload'
-															onClick={() => {
-																if (doc?.url?.url) {
-																	const dummyLink = document.createElement("a");
-																	dummyLink.href = doc.url.url;
-																	dummyLink.setAttribute("target", "_blank");
-																	dummyLink.download = doc.url.name || "download";
-																	document.body.appendChild(dummyLink);
-																	dummyLink.click();
-																	document.body.removeChild(dummyLink);
-																} else {
-																	console.error("Документ поврежден");
-																}
-															}}
-														>
-															<span>Скачать</span>
-														</button>
+											{mainData.conditionDocuments
+												.slice(0, visibleCount)
+												.map((doc, index) => (
+													<div key={index} className="documentsCardDownload">
+														<div className="download">
+															<img src={pdfImg} alt="pdfImg" />
+															<p>{doc?.name}</p>
+															<button
+																className="documentsDownload"
+																onClick={() => {
+																	if (doc?.url?.url) {
+																		const dummyLink = document.createElement("a");
+																		dummyLink.href = doc.url.url;
+																		dummyLink.setAttribute("target", "_blank");
+																		dummyLink.download =
+																			doc.url.name || "download";
+																		document.body.appendChild(dummyLink);
+																		dummyLink.click();
+																		document.body.removeChild(dummyLink);
+																	} else {
+																		console.error("Документ поврежден");
+																	}
+																}}
+															>
+																<span>Скачать</span>
+															</button>
+														</div>
 													</div>
-												</div>
-											))}
-											{mainData.conditionDocuments?.length > 2 &&
+												))}
+											{mainData.conditionDocuments?.length > 2 && (
 												<div className="seeMore" onClick={handleShowMore}>
 													<span>{showMore ? "Скрыть" : "Посмотреть еще"}</span>
 													<img
@@ -241,7 +244,8 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 														alt="toggle"
 														className={showMore ? "rotated" : ""}
 													/>
-												</div>}
+												</div>
+											)}
 										</>
 									)}
 								</div>
@@ -255,8 +259,8 @@ const PopUpProdNew = ({ popUpProdNew, setPopUpProdNew, mainData, setSuccessInfo,
 											color: isChecked
 												? "#000"
 												: errors.checkboxError
-													? "#FF0000"
-													: "#212529",
+												? "#FF0000"
+												: "#212529",
 										}}
 									>
 										Я подтверждаю, что ознакомлен(а) с условиями и соглашением о

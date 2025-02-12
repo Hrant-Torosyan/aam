@@ -14,7 +14,7 @@
 			font-size: 18px;
 			font-weight: 600;
 			line-height: 21.94px;
-			color: #0E1A32;
+			color: #0e1a32;
 		}
 		img {
 			width: 64px;
@@ -34,7 +34,7 @@
 			font-size: 16px;
 			font-weight: 300;
 			line-height: 23px;
-			color: #636D80;
+			color: #636d80;
 			margin-bottom: 25px;
 		}
 		.userInfoCreateList {
@@ -51,21 +51,23 @@
 				text-decoration-skip-ink: none;
 				overflow: hidden;
 				text-overflow: ellipsis;
+				width: 50%;
+				text-align: left;
 
 				&:first-child {
-					color: #1D1D20B2;
-
+					color: #1d1d20b2;
 				}
 
 				&:last-child {
 					color: #171723;
-
 				}
 			}
 			a {
 				color: rgb(68, 183, 255);
 				font-size: 16px;
 				font-weight: 400;
+				width: 50%;
+				text-align: left;
 				line-height: 16.64px;
 				text-decoration-line: underline;
 			}
@@ -130,7 +132,7 @@
 		p {
 			font-size: 14px;
 			font-weight: 400;
-			color: #0E1A3266;
+			color: #0e1a3266;
 			margin-bottom: 8px;
 		}
 	}
@@ -214,7 +216,11 @@
 			overflow: hidden;
 			border-radius: 15px;
 			padding: 2px;
-			background: linear-gradient(158.2deg, rgb(44, 115, 243) -103.971%, rgb(48, 205, 231) 151.363%);
+			background: linear-gradient(
+				158.2deg,
+				rgb(44, 115, 243) -103.971%,
+				rgb(48, 205, 231) 151.363%
+			);
 			button,
 			div {
 				cursor: pointer;
@@ -332,7 +338,6 @@
 				margin-bottom: 15px;
 			}
 			.userInfoCreateList {
-
 				p {
 					font-size: 12px;
 				}

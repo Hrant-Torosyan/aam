@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-	GetProfileProducts,
-} from "../../../../../api/profile";
+import { GetProfileProducts } from "../../../../../api/profile";
 
 import { GetProductInvestores } from "../../../../../api/productInfo";
 import arrowDown from "../../../../svg/arrowDown.svg";
@@ -29,8 +27,8 @@ const Investors = ({ prodId }) => {
 			let queryBody = showInvestorsData
 				? null
 				: {
-					pageSize: visibleCount,
-				};
+						pageSize: visibleCount,
+				  };
 			GetProductInvestores(prodId, queryBody).then((res) => setInvestorsData(res));
 		}
 	}, [prodId, showInvestorsData, visibleCount]);
@@ -56,10 +54,7 @@ const Investors = ({ prodId }) => {
 	let investors = visibleInvestors?.length ? (
 		visibleInvestors.map((item, key) => (
 			<div key={key} className="investorsItem">
-				<img
-					src={item.image === null ? "./images/avatar.png" : item.image.url}
-					alt=""
-				/>
+				<img src={item.image === null ? "./images/avatar.png" : item.image.url} alt="" />
 				<h3>{item.fullName}</h3>
 			</div>
 		))
@@ -68,26 +63,32 @@ const Investors = ({ prodId }) => {
 	);
 
 	return (
-		<div className="investors prodInfoCard">
-			<div className="cardTitle">
-				<h2>Инвесторы</h2>
-				<p>{investorsData?.totalElements}</p>
-			</div>
-			<div className="investorsItems">
-				{investors}
-				{investorsData?.totalElements > visibleCount && !isMobile && (
-					<div className="seeMore" onClick={handleShowMore}>
-						<span>Посмотреть еще</span>
-						<img src={arrowDown} alt="arrowDown" />
+		visibleInvestors?.length > 0 && (
+			<div className="investors prodInfoCard">
+				<div className="cardTitle">
+					<h2>Инвесторы</h2>
+					<p>{investorsData?.totalElements}</p>
+				</div>
+				<div className="investorsItems">
+					{investors}
+					{investorsData?.totalElements > visibleCount && !isMobile && (
+						<div className="seeMore" onClick={handleShowMore}>
+							<span>Посмотреть еще</span>
+							<img src={arrowDown} alt="arrowDown" />
+						</div>
+					)}
+				</div>
+				{investorsData?.totalElements > visibleCount && isMobile && (
+					<div className="seeMore" onClick={() => setShowInvestorsData(!showInvestorsData)}>
+						<span>
+							{!showInvestorsData
+								? "и еще " + (investorsData?.totalElements - visibleCount) + " инвесторов"
+								: "скрыть"}
+						</span>
 					</div>
 				)}
 			</div>
-			{investorsData?.totalElements > visibleCount && isMobile && (
-				<div className="seeMore" onClick={() => setShowInvestorsData(!showInvestorsData)}>
-					<span>{!showInvestorsData ? "и еще " + (investorsData?.totalElements - visibleCount) + " инвесторов" : "скрыть"}</span>
-				</div>
-			)}
-		</div>
+		)
 	);
 };
 

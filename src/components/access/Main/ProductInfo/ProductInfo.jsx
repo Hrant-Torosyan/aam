@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductInfo.scss";
 import ProductSlider from "./ProductSlider/ProductSlider";
 import AboutCompany from "./AboutCompany/AboutCompany";
@@ -6,18 +6,15 @@ import Team from "./Team/Team";
 import UserInfo from "./UserInfo/UserInfo";
 import Investors from "./Investors/Investors";
 import { GetProductInfo } from "../../../../api/productInfo";
-import PopUpProd from "./PopUpProd/PopUpProd";
 import IsSuccessful from "../IsSuccessful/IsSuccessful";
 import DetailsOfFund from "./DetailsOfFund/DetailsOfFund";
 import Presentation from "./Presentation/Presentation";
 import Video from "./Video/Video";
 import Documents from "./Documents/Documents";
 import Map from "./Map/Map";
-import { FilterByTags, MarketProducts } from "../../../../api/market";
+import { FilterByTags } from "../../../../api/market";
 import SimilarSlider from "./SimilarProjects/SimilarSlider";
 import PopUpProdNew from "./PopupProdNew/PopupProdNew";
-
-const ProductInfoItems = lazy(() => import("./ProductInfoItems/ProductInfoItems"));
 
 const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageError }) => {
 	const [mainData, setMainData] = useState(null);
@@ -40,7 +37,6 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageErr
 			setProfileProducts(res.content);
 		});
 	}, [filter]);
-
 	return (
 		<>
 			{isOpenSc && (
@@ -83,7 +79,7 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageErr
 								</svg>
 								<span>Назад</span>
 							</button>
-							<h1>{mainData && mainData.companyName}</h1>
+							<h1>{mainData && mainData.title}</h1>
 							<div className="percent">+{mainData && mainData.profit}%</div>
 						</div>
 
@@ -103,7 +99,14 @@ const ProductInfo = ({ setIsActiveProductInfo, prodId, setProdId, handleImageErr
 									{/*<Mentions prodId={prodId} />*/}
 									{/*<Indicators mainData={mainData} />*/}
 									<Presentation mainData={mainData} />
-									<Team content={mainData?.employeesContent} prodId={prodId} />
+									<Team
+										ceoPosition={mainData?.ceoPosition}
+										ceoLastname={mainData?.ceoLastname}
+										ceoFirstname={mainData?.ceoFirstname}
+										ceoImage={mainData?.ceoImage?.url}
+										content={mainData?.employeesContent}
+										prodId={prodId}
+									/>
 									<Video mainData={mainData} />
 									<Documents mainData={mainData} />
 									<Map mainData={mainData} />

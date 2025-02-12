@@ -3,7 +3,6 @@ import "./ProductInfoItems.scss";
 import "./ProductInfoItemsResponsive.scss";
 
 const ProductInfoItems = ({ mainData }) => {
-
 	return (
 		<div className="productInfoItems">
 			{mainData !== null && (
@@ -24,7 +23,7 @@ const ProductInfoItems = ({ mainData }) => {
 								d="M28 10.1875H35.5L25.5 0.1875V7.6875C25.5 9.0625 26.625 10.1875 28 10.1875Z"
 								fill="#B0B7BD"
 							/>
-							<path d="M35.5 17.6875L28 10.1875H35.5V17.6875Z" fill="#CAD1D8"/>
+							<path d="M35.5 17.6875L28 10.1875H35.5V17.6875Z" fill="#CAD1D8" />
 							<path
 								d="M30.5 32.6875C30.5 33.375 29.9375 33.9375 29.25 33.9375H1.75C1.0625 33.9375 0.5 33.375 0.5 32.6875V20.1875C0.5 19.5 1.0625 18.9375 1.75 18.9375H29.25C29.9375 18.9375 30.5 19.5 30.5 20.1875V32.6875Z"
 								fill="#F15642"
@@ -53,7 +52,7 @@ const ProductInfoItems = ({ mainData }) => {
 					<div className="buttonStyleToo">
 						<button
 							onClick={() => {
-								if (mainData !== null && mainData.url) {
+								if (mainData !== null && mainData?.url?.url) {
 									const dummyLink = document.createElement("a");
 									dummyLink.href = mainData.url.url;
 									dummyLink.setAttribute("target", "_blank");

@@ -48,7 +48,7 @@ const ProductSlider = ({ mainData }) => {
 			<div className="productSlider">
 				<div className="productSliderActive">
 					<img
-						src={mainData.mediaImages[activeIndex].url}
+						src={mainData.mediaImages[activeIndex].url.url}
 						alt={mainData.mediaImages[activeIndex].name}
 						onClick={openPopup}
 					/>
@@ -65,7 +65,7 @@ const ProductSlider = ({ mainData }) => {
 								key={index}
 								className={activeIndex === index ? "active" : ""}
 								onClick={() => setActiveIndex(index)}
-								src={item.url}
+								src={item.url.url}
 								alt={item.name}
 							/>
 						))}
@@ -85,7 +85,7 @@ const ProductSlider = ({ mainData }) => {
 						</button>
 
 						<img
-							src={mainData.mediaImages[popupIndex].url}
+							src={mainData.mediaImages[popupIndex].url.url}
 							alt={mainData.mediaImages[popupIndex].name}
 							className="popupImage"
 						/>
