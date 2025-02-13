@@ -2,14 +2,17 @@
 	display: flex;
 	margin-top: 30px;
 	flex-wrap: wrap;
+
 	.notProd {
 		font-size: 20px;
 		color: grey;
 		margin: 100px auto;
 	}
+
 	.slick-slider {
 		width: 100%;
 	}
+
 	.product {
 		cursor: pointer;
 		position: relative;
@@ -20,9 +23,11 @@
 		overflow: hidden;
 		width: calc(33.3333% - 14px);
 		position: relative;
+
 		&.productFull {
 			width: 280px;
 		}
+
 		&:hover {
 			.buttonStyle {
 				button {
@@ -37,8 +42,10 @@
 				}
 			}
 		}
+
 		.productImage {
 			position: relative;
+
 			.productImageUser {
 				position: absolute;
 				right: 20px;
@@ -52,12 +59,15 @@
 				overflow: hidden;
 				border: 3px solid #fff;
 			}
+
 			> img {
 				height: 146px;
 			}
 		}
+
 		.productContent {
 			padding: 20px;
+
 			> h3 {
 				margin-top: 10px;
 				text-align: left;
@@ -66,11 +76,13 @@
 				line-height: 14px;
 				color: #0e1a32;
 			}
+
 			.direction {
 				display: flex;
 				justify-content: space-between;
 				align-items: flex-start;
 				flex-direction: column;
+
 				h2 {
 					color: rgba(29, 29, 32, 0.7);
 					font-size: 14px;
@@ -83,6 +95,7 @@
 					text-overflow: ellipsis;
 					padding-right: 20px;
 					margin-top: 8px;
+
 					span {
 						font-size: 16px;
 						font-weight: 400;
@@ -90,23 +103,26 @@
 						color: #171723;
 					}
 				}
+
 				.directionImg {
 					display: flex;
 					align-items: center;
+
 					img {
 						width: 45px;
 						height: 25px;
-
 						border-radius: 10px;
 						margin-right: 5px;
 					}
 				}
 			}
+
 			.hashtags {
 				display: flex;
 				flex-wrap: wrap;
 				margin-top: 20px;
 				gap: 5px;
+
 				.hashtag {
 					padding: 5px 15px;
 					border: 1px solid rgb(0, 180, 210);
@@ -114,17 +130,21 @@
 					color: rgb(0, 180, 210);
 				}
 			}
+
 			.priceList {
 				display: flex;
 				margin: 8px 0 4px;
+
 				.price {
 					margin-right: 30px;
+
 					p {
 						color: rgba(14, 26, 50, 0.4);
 						font-size: 12px;
 						font-weight: 400;
 						line-height: 16.8px;
 					}
+
 					span {
 						color: #0e1a32;
 						font-size: 18px;
@@ -140,17 +160,19 @@
 				background: red;
 				padding: 2px;
 				background: linear-gradient(
-					158.2deg,
-					rgb(44, 115, 243) -103.971%,
-					rgb(48, 205, 231) 151.363%
+												158.2deg,
+												rgb(44, 115, 243) -103.971%,
+												rgb(48, 205, 231) 151.363%
 				);
 				margin-top: 20px;
+
 				button {
 					width: 100%;
 					transition: 0.5s;
 					padding: 15px;
 					border-radius: 18px;
 					background: white;
+
 					span {
 						background: linear-gradient(236.49deg, rgb(34, 100, 220), rgb(0, 180, 210));
 						-webkit-background-clip: text;
@@ -166,6 +188,7 @@
 				}
 			}
 		}
+
 		.isAvailable {
 			position: absolute;
 			top: 20px;
@@ -182,6 +205,7 @@
 			text-align: left;
 			display: flex;
 			align-items: center;
+
 			.dote {
 				margin-right: 5px;
 				width: 9px;
@@ -191,7 +215,8 @@
 			}
 		}
 	}
+
+	&.hidden {
+		display: none;
+	}
 }
-//.products.hidden {
-//	display: none;
-//}

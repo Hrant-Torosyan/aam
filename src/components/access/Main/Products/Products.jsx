@@ -114,7 +114,7 @@ const Products = ({ products, info, type = "LIST" }) => {
 
 	return (
 		<>
-			{mainCntx.hiddenHeader && (
+			{mainCntx.hiddenHeader && prodId !== null && (
 				<ProductInfo
 					prodId={prodId}
 					setIsActiveProductInfo={mainCntx.setHiddenHeader}

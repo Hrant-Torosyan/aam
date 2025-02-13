@@ -31,7 +31,14 @@
 @media (max-width: 576.99px) {
   .profileSliderWrapper {
     border-radius: 0;
-
+    .product {
+      min-width: calc(100% - 0px) !important;
+      margin: 0 20px 0 0 !important;
+      padding: 0 !important;
+      &.productFull {
+        width: 245px;
+      }
+    }
     .profileSlider {
       .sliderTitle {
         padding: 12px;
@@ -41,12 +48,6 @@
         .products {
           margin-top: 0;
           margin-left: -34px;
-
-          .product {
-            min-width: calc(100% - 0px) !important;
-            margin: 0 20px !important;
-            padding: 0 !important;
-          }
         }
       }
     }
