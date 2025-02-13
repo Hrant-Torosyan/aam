@@ -122,6 +122,7 @@ const Products = ({ products, info, type = "LIST" }) => {
 					setProdId={setProdId}
 				/>
 			)}
+
 			<div className={mainCntx.hiddenHeader ? "products hidden" : "products"}>
 				{type === "LIST" ? (
 					products.length ? (
@@ -137,7 +138,7 @@ const Products = ({ products, info, type = "LIST" }) => {
 							/>
 						))
 					) : (
-						<div className="notProd">Пока что пусто</div>
+						<div className="notProd">Ваш портфель пока пуст. Начните инвестировать прямо сейчас!</div>
 					)
 				) : (
 					<Slider {...settings}>

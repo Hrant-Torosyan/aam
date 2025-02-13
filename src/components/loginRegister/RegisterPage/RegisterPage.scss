@@ -1,6 +1,31 @@
 .registerPage {
+	.prevBtn {
+		top: 40px;
+		left: 25px;
+		cursor: pointer;
+		border-radius: 50%;
+		position: absolute;
+		transition: 0.5s;
+		svg {
+			display: block;
+		}
+		&:hover {
+			background: rgb(214, 232, 252);
+		}
+	}
 	.errors {
 		top: 75px !important;
+	}
+	.inputStyle {
+		position: relative;
+
+		img {
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			right: 17px;
+			top: 12px;
+		}
 	}
 	.checkBox {
 		display: flex;
@@ -19,6 +44,8 @@
 			border-radius: 3.92px;
 			background: rgb(255, 255, 255);
 		}
+
+
 		.active {
 			display: flex;
 			align-items: center;

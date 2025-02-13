@@ -9,20 +9,24 @@ const URL_NOTIFICATIONS_READ = "notifications/read";
 
 export const signup = async (userData) => {
 	try {
+		const { repeatPassword, ...signupData } = userData;
+
 		const res = await fetch(BASE_URL + URL_SIGNUP, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(userData),
+			body: JSON.stringify(signupData), // Send only the necessary fields
 		});
 		const userAuth = await res.json();
 
-		userAuth.token && localStorage.setItem("userAuth", JSON.stringify(userAuth));
+		if (userAuth.token) {
+			localStorage.setItem("userAuth", JSON.stringify(userAuth));
+		}
 		return userAuth;
 	} catch (err) {
-		return "err.message";
+		return err.message;
 	}
 };
 
@@ -90,13 +94,20 @@ export const validateCode = async (data) => {
 
 export const resetPass = async (data) => {
 	try {
+		const { repeatPassword, ...resetData } = data;
+
+		const dataToSend = {
+			...resetData,
+			repeatPassword,
+		};
+
 		const res = await fetch(BASE_URL + URL_RESET, {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(data),
+			body: JSON.stringify(dataToSend),
 		});
 
 		return res.status;
@@ -104,6 +115,7 @@ export const resetPass = async (data) => {
 		return err.message;
 	}
 };
+
 
 export const GetNotifications = async (query = {}) => {
 	try {

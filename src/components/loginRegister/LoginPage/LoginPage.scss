@@ -1,4 +1,16 @@
 #loginPage {
+	.inputStyle {
+		position: relative;
+
+		img {
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			right: 17px;
+			top: 12px;
+		}
+	}
+
 	h2 {
 		color: rgb(77, 156, 243);
 		font-size: 19.25px;
