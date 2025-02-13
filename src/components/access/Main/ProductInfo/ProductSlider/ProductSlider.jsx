@@ -48,8 +48,8 @@ const ProductSlider = ({ mainData }) => {
 			<div className="productSlider">
 				<div className="productSliderActive">
 					<img
-						src={mainData.mediaImages[activeIndex].url.url}
-						alt={mainData.mediaImages[activeIndex].name}
+						src={mainData?.mediaImages[activeIndex]?.url?.url}
+						alt={mainData?.mediaImages[activeIndex]?.name}
 						onClick={openPopup}
 					/>
 				</div>

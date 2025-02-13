@@ -16,7 +16,7 @@
 			justify-content: center;
 			align-items: center;
 			margin-top: 45px;
-			width: 170px;
+			width: 110px;
 			text-align: center;
 			margin-right: 16px;
 			img {
@@ -27,13 +27,17 @@
 				margin-bottom: 8px;
 			}
 			.teamItemInfo {
+				p {
+					color: #747b87;
+					font-weight: 600;
+					font-size: 14px;
+					margin-bottom: 4px;
+				}
 				h3 {
 					font-size: 16px;
 					font-weight: 600;
 					line-height: 19.5px;
 					color: #0e1a32;
-					white-space: wrap;
-					word-break: break-all;
 				}
 			}
 		}

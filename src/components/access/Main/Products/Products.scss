@@ -6,6 +6,7 @@
 	.notProd {
 		font-size: 20px;
 		color: grey;
+		text-align: center;
 		margin: 100px auto;
 	}
 
@@ -140,6 +141,7 @@
 
 					p {
 						color: rgba(14, 26, 50, 0.4);
+						text-align: left;
 						font-size: 12px;
 						font-weight: 400;
 						line-height: 16.8px;
@@ -160,9 +162,9 @@
 				background: red;
 				padding: 2px;
 				background: linear-gradient(
-												158.2deg,
-												rgb(44, 115, 243) -103.971%,
-												rgb(48, 205, 231) 151.363%
+					158.2deg,
+					rgb(44, 115, 243) -103.971%,
+					rgb(48, 205, 231) 151.363%
 				);
 				margin-top: 20px;
 

@@ -29,7 +29,7 @@ const Team = ({ prodId, ceoPosition, ceoLastname, ceoFirstname, ceoImage }) => {
 					<div className="teamItemInfo">
 						<p>{ceoPosition}</p>
 						<h3>
-							{ceoFirstname} {ceoLastname}
+							<span>{ceoFirstname}</span> <span>{ceoLastname}</span>
 						</h3>
 					</div>
 				</div>

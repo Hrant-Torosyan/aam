@@ -49,7 +49,7 @@ const Product = ({
 			<div className="productContent">
 				<h3>{prod.title}</h3>
 				<div className="direction">
-					<h2>{mainData?.categories?.join(", ")}</h2>
+					<h2>{mainData?.productType}</h2>
 					<h2>
 						Страна: <span>{prod.country}</span>
 					</h2>
@@ -57,7 +57,7 @@ const Product = ({
 				<div className="hashtags">
 					{prod.tags.map((item, key) => (
 						<div key={key} className="hashtag">
-							# {item}
+							#{item}
 						</div>
 					))}
 				</div>

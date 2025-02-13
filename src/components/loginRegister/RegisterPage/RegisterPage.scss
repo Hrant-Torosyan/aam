@@ -23,8 +23,9 @@
 			width: 24px;
 			height: 24px;
 			position: absolute;
-			right: 17px;
-			top: 12px;
+			right: 25px;
+			top: 50%;
+			transform: translate(0, -50%);
 		}
 	}
 	.checkBox {
@@ -44,7 +45,6 @@
 			border-radius: 3.92px;
 			background: rgb(255, 255, 255);
 		}
-
 
 		.active {
 			display: flex;

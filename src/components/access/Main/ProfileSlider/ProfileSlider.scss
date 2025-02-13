@@ -6,10 +6,21 @@
 	margin-top: 53px;
 	overflow: hidden;
 	padding: 0 50px 47px;
-
+	.products .product.productFull {
+		width: 100% !important;
+	}
 	.profileSlider {
 		.product {
-			margin: 16px;
+			margin: 0;
+			.hashtags {
+				.hashtag {
+					padding: 5px 10px;
+					border: 1px solid rgb(0, 180, 210);
+					border-radius: 41px;
+					font-size: 13px;
+					color: rgb(0, 180, 210);
+				}
+			}
 		}
 		.sliderTitle {
 			font-size: 24px;
@@ -23,8 +34,12 @@
 		}
 
 		.slick-slide {
+			width: 330px !important;
 			display: flex;
 			justify-content: center;
+			> div {
+				width: 100%;
+			}
 		}
 
 		.slideItem {
@@ -34,9 +49,9 @@
 			text-align: center;
 			width: 100%;
 			margin: 0 auto;
+			padding: 8px;
 			border-radius: 8px;
 			box-sizing: border-box;
-
 			.products {
 				margin-top: 0;
 

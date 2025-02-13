@@ -1,4 +1,4 @@
-.profileSliderWrapper {
+.similarSliderWrapper {
 	width: 100%;
 	min-height: 509px;
 	background-color: #f4f7fe;
@@ -203,6 +203,7 @@
 		}
 
 		.slick-slide {
+			width: 100% !important;
 			display: flex;
 			justify-content: center;
 		}

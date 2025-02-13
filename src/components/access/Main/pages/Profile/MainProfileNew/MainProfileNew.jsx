@@ -3,7 +3,6 @@ import { GetProfileCareer, GetUerInfo, GetProfit } from "../../../../../../api/p
 import { MarketProducts } from "../../../../../../api/market";
 import ProfileSlider from "../../../ProfileSlider/ProfileSlider";
 
-import avatar from "../../../../../images/avatar.png";
 import edit from "../../../../../svg/edit.svg";
 import insta from "../../../../../svg/insta.svg";
 import x from "../../../../../svg/х.svg";
@@ -75,7 +74,11 @@ const MainProfileNew = ({ setProfilePage, products }) => {
 								<div className="userContent">
 									<div className="avatar">
 										<img
-											src={userAllInfo?.image?.url ? userAllInfo.image?.url : avatar}
+											src={
+												userAllInfo?.image?.url
+													? userAllInfo.image?.url
+													: "./images/avatar.png"
+											}
 											alt="user"
 										/>
 									</div>

@@ -111,7 +111,7 @@ const SimilarSlider = ({ products = [], info, prodId, setProdId, handleImageErro
 	const filteredProducts = products.filter((p) => p.projectId !== prodId);
 	if (!filteredProducts.length) return null;
 	return (
-		<div className="profileSliderWrapper">
+		<div className="similarSliderWrapper">
 			<div className="profileSlider">
 				<h1 className="sliderTitle">Похожие проекты</h1>
 				<Slider {...settings}>

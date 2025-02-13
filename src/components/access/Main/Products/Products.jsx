@@ -138,7 +138,11 @@ const Products = ({ products, info, type = "LIST" }) => {
 							/>
 						))
 					) : (
-						<div className="notProd">Ваш портфель пока пуст. Начните инвестировать прямо сейчас!</div>
+						<div className="notProd">
+							{info === "Briefcase"
+								? "Ваш портфель пока пуст. Начните инвестировать прямо сейчас!"
+								: "В магазине не найдена продуктов"}
+						</div>
 					)
 				) : (
 					<Slider {...settings}>
@@ -159,7 +163,9 @@ const Products = ({ products, info, type = "LIST" }) => {
 							))
 						) : (
 							<div className="noProductsMessage">
-								<p>No products available</p>
+								{info === "Briefcase"
+									? "Ваш портфель пока пуст. Начните инвестировать прямо сейчас!"
+									: "В магазине не найдена продуктов"}
 							</div>
 						)}
 					</Slider>
