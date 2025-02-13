@@ -233,7 +233,7 @@ const Analytics = () => {
 												.toString()
 												.replace(/[^\d.-]/g, "")
 									  ).toLocaleString()
-									: 0}
+									:  "-- ----"}
 							</p>
 						</div>
 						<LineChart

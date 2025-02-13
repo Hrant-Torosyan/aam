@@ -10,6 +10,7 @@ const ResetPassword = ({ setPage }) => {
 	const [enteredCode, setEnteredCode] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+	const [register, setRegister] = useState("");
 	return (
 		<ResetPassContext.Provider
 			value={{
@@ -23,6 +24,8 @@ const ResetPassword = ({ setPage }) => {
 				setNewPassword: setNewPassword,
 				confirmPassword: confirmPassword,
 				setConfirmPassword: setConfirmPassword,
+				register: register,
+				setRegister: setRegister,
 			}}
 		>
 			{step === 0 ? <Email /> : step === 1 ? <Code /> : <NewPassword />}

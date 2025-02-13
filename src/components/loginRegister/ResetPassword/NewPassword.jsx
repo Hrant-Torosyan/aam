@@ -4,13 +4,19 @@ import { useNavigate } from "react-router-dom";
 import { ResetPassContext } from "./ResetPassword";
 import { resetPass } from "../../../api/autorisation";
 
+import eye from "../../svg/eye.svg";
+import eyeHide from "../../svg/eyeHide.svg";
+
 const NewPassword = ({ setStep }) => {
 	const navigate = useNavigate();
 
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [showPassword, setShowPassword] = useState(false);  // State to toggle password visibility
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false);  // State for confirm password visibility
 
 	let passCont = useContext(ResetPassContext);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!passCont.newPassword.trim() || !passCont.confirmPassword.trim()) {
@@ -36,6 +42,7 @@ const NewPassword = ({ setStep }) => {
 			setLoading(true);
 		});
 	};
+
 	return (
 		<form onSubmit={handleSubmit} className="resetPassword">
 			{loading ? (
@@ -70,7 +77,7 @@ const NewPassword = ({ setStep }) => {
 						}
 					>
 						<input
-							type="password"
+							type={showPassword ? "text" : "password"} // Toggle between text and password
 							placeholder="Введите новый пароль"
 							value={passCont.newPassword}
 							onChange={(e) => {
@@ -79,6 +86,12 @@ const NewPassword = ({ setStep }) => {
 								}
 								passCont.setNewPassword(e.target.value);
 							}}
+						/>
+						<img
+							src={showPassword ? eye : eyeHide}
+							alt="eye icon"
+							className="eyeIcon"
+							onClick={() => setShowPassword(!showPassword)} // Toggle visibility on click
 						/>
 					</div>
 					<div
@@ -89,10 +102,16 @@ const NewPassword = ({ setStep }) => {
 						}
 					>
 						<input
-							type="password"
+							type={showConfirmPassword ? "text" : "password"} // Toggle between text and password
 							placeholder="Повторите пароль"
 							value={passCont.confirmPassword}
 							onChange={(e) => passCont.setConfirmPassword(e.target.value)}
+						/>
+						<img
+							src={showConfirmPassword ? eye : eyeHide}
+							alt="eye icon"
+							className="eyeIcon"
+							onClick={() => setShowConfirmPassword(!showConfirmPassword)} // Toggle visibility on click
 						/>
 					</div>
 					<div className="buttonStyle">

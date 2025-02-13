@@ -2,36 +2,52 @@ import React, { useContext, useState } from "react";
 import { RegisterContext } from "./RegisterPage";
 import { signup } from "../../../api/autorisation";
 import { useNavigate } from "react-router-dom";
+import eye from "../../svg/eye.svg";
+import eyeHide from "../../svg/eyeHide.svg";
 
 const MainRegister = () => {
-	let regCon = useContext(RegisterContext);
+	const regCon = useContext(RegisterContext);
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [showPassword, setShowPassword] = useState(false);
+	const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+	const [passwordsChecked, setPasswordsChecked] = useState(false);
 
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 	const navigate = useNavigate();
 
 	const handleRegister = (event) => {
 		event.preventDefault();
+
 		if (
 			!regCon.email.trim() ||
 			!regCon.password.trim() ||
 			!regCon.fullName.trim() ||
 			!regCon.confirmOne ||
-			!regCon.confirmTwo
+			!regCon.confirmTwo ||
+			!regCon.repeatPassword ||
+			!regCon.repeatPassword.trim()
 		) {
 			setError("Заполните поле");
 			return;
-		} else if (regCon.password.trim().length < 8) {
+		}
+		if (regCon.password.trim().length < 8) {
 			setError("Пароль должен быть не менее 7 символов");
 			return;
-		} else if (!emailRegex.test(regCon.email)) {
+		}
+		if (!emailRegex.test(regCon.email)) {
 			setError("Неправильный формат email");
 			return;
 		}
+		if (regCon.password !== regCon.repeatPassword) {
+			setError("Пароли не совпадают");
+			return;
+		}
+
+		setPasswordsChecked(true);
 
 		setLoading(false);
+
 		const urlParams = new URLSearchParams(window.location.search);
 		const referralCode = urlParams.get("q");
 
@@ -53,52 +69,59 @@ const MainRegister = () => {
 		});
 	};
 
+	const handleGoToLoginPage = () => {
+		regCon.setStep(1);
+	};
+
 	return (
 		<>
 			<form className="registerPage" onSubmit={handleRegister}>
+				<div onClick={handleGoToLoginPage} className="prevBtn">
+					<svg
+						width="34"
+						height="34"
+						viewBox="0 0 34 34"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M19.8333 9.91602L12.75 16.9993L19.8333 24.0827"
+							stroke="#0E1A32"
+							strokeWidth="1.5"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
+				</div>
 				{loading ? (
 					<>
 						<h1>Регистрация</h1>
 						<span className="errors">{error}</span>
 
-						<div onClick={() => regCon.setStep(0)} className="prevBtn">
-							<svg
-								width="34"
-								height="34"
-								viewBox="0 0 34 34"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M19.8333 9.91602L12.75 16.9993L19.8333 24.0827"
-									stroke="#0E1A32"
-									strokeWidth="1.5"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-								/>
-							</svg>
-						</div>
 						<div
 							className={regCon.fullName === "" && error ? "inputStyle error" : "inputStyle"}
 						>
 							<input
-								placeholder="ФИО"
+								placeholder="Имя"
 								type="text"
 								value={regCon.fullName}
-								onChange={(e) => regCon.setFullName(e.target.value)}
+								onChange={(e) => {
+									setError("");
+									regCon.setFullName(e.target.value);
+								}}
 							/>
 						</div>
+
 						<div
 							className={
-								error === "Неправильный формат email" ||
-								error === "Такой e-mail уже существует" ||
+								["Неправильный формат email", "Такой e-mail уже существует"].includes(error) ||
 								(regCon.email === "" && error)
 									? "inputStyle error"
 									: "inputStyle"
 							}
 						>
 							<input
-								placeholder="Email"
+								placeholder="Электронная почта"
 								type="text"
 								value={regCon.email}
 								onChange={(e) => {
@@ -109,26 +132,59 @@ const MainRegister = () => {
 								}}
 							/>
 						</div>
+
+						<div className={error.includes("Пароль") ? "inputStyle error" : "inputStyle"}>
+							<div className="passwordInput">
+								<input
+									placeholder="Пароль"
+									type={showPassword ? "text" : "password"}
+									value={regCon.password}
+									onChange={(e) => {
+										if (e.target.value.length >= 8) {
+											setError("");
+										}
+										regCon.setPassword(e.target.value);
+									}}
+								/>
+								<button
+									type="button"
+									className="togglePassword"
+									onClick={() => setShowPassword(!showPassword)}
+								>
+									<img
+										src={showPassword ? eye : eyeHide}
+										alt={showPassword ? "Скрыть" : "Показать"}
+									/>
+								</button>
+							</div>
+						</div>
+
 						<div
-							className={
-								error === "Пароль должен быть не менее 7 символов" ||
-								(regCon.password === "" && error)
-									? "inputStyle error"
-									: "inputStyle"
-							}
+							className={regCon.repeatPassword.trim() === "" && error === "Заполните поле" ? "inputStyle error" : "inputStyle"}
 						>
 							<input
-								placeholder="Пароль"
-								type="password"
-								value={regCon.password}
+								placeholder="Повторите пароль"
+								type={showRepeatPassword ? "text" : "password"}
+								value={regCon.repeatPassword}
 								onChange={(e) => {
-									if (e.target.value.length >= 7) {
+									if (e.target.value === regCon.password) {
 										setError("");
 									}
-									regCon.setPassword(e.target.value);
+									regCon.setRepeatPassword(e.target.value);
 								}}
 							/>
+							<button
+								type="button"
+								className="togglePassword"
+								onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+							>
+								<img
+									src={showRepeatPassword ? eye : eyeHide}
+									alt={showRepeatPassword ? "Скрыть" : "Показать"}
+								/>
+							</button>
 						</div>
+
 						<div
 							onClick={() => regCon.setConfirmOne(!regCon.confirmOne)}
 							className={

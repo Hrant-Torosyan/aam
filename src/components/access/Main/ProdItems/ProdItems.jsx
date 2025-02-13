@@ -40,7 +40,7 @@ const ProdItems = ({ setPortfolioPopUp, count, colorsArr }) => {
 			</div>
 		))
 	) : (
-		<p className="empty">Пока что пусто</p>
+		null
 	);
 	return (
 		<div className="doughnutChartItems">

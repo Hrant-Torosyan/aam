@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import "./LoginPage.scss";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../../api/autorisation";
+
+import eye from "../../svg/eye.svg";
+import eyeHide from "../../svg/eyeHide.svg";
+
 const LoginPage = ({ setPage }) => {
 	const navigate = useNavigate();
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [showPassword, setShowPassword] = useState(false);
 
 	const handleLogin = (event) => {
 		event.preventDefault();
@@ -16,6 +22,7 @@ const LoginPage = ({ setPage }) => {
 			setError("Заполните поле");
 			return;
 		}
+
 		setLoading(false);
 		login({
 			email: email,
@@ -28,6 +35,11 @@ const LoginPage = ({ setPage }) => {
 			}
 			setLoading(true);
 		});
+	};
+
+	// Fix for "Forgot Password" functionality
+	const handleForgotPassword = () => {
+		setPage("resetPassword");
 	};
 
 	return (
@@ -62,16 +74,28 @@ const LoginPage = ({ setPage }) => {
 									: "inputStyle"
 							}
 						>
-							<input
-								placeholder="Пароль"
-								type="password"
-								value={password}
-								onChange={(e) => {
-									setPassword(e.target.value);
-								}}
-							/>
+							<div className="passwordInput">
+								<input
+									placeholder="Пароль"
+									type={showPassword ? "text" : "password"}
+									value={password}
+									onChange={(e) => {
+										setPassword(e.target.value);
+									}}
+								/>
+								<button
+									type="button"
+									className="togglePassword"
+									onClick={() => setShowPassword(!showPassword)}
+								>
+									<img
+										src={showPassword ? eye : eyeHide}
+										alt={showPassword ? "Скрыть" : "Показать"}
+									/>
+								</button>
+							</div>
 						</div>
-						<p onClick={() => setPage("resetPassword")}>Забыли пароль?</p>
+						<p onClick={handleForgotPassword}>Забыли пароль?</p>
 						<div className="buttonStyle">
 							<button type="submit">
 								<span>Войти</span>
