@@ -335,6 +335,10 @@
 			.prodInfoCard {
 				margin-top: 24px;
 				padding: 20px;
+
+				>div {
+					border-radius: 10px;
+				}
 				> p {
 					font-size: 13px;
 				}
