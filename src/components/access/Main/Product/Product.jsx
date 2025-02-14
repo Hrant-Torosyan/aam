@@ -45,7 +45,6 @@ const Product = ({
 					<img src={mainData?.companyLogo?.url} alt="logo" />
 				</div>
 			</div>
-			{console.log(prod)}
 			<div className="productContent">
 				<h3>{prod.title}</h3>
 				<div className="direction">

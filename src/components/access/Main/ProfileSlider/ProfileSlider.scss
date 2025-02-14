@@ -6,9 +6,6 @@
 	margin-top: 53px;
 	overflow: hidden;
 	padding: 0 50px 47px;
-	.products .product.productFull {
-		width: 100% !important;
-	}
 	.profileSlider {
 		.product {
 			margin: 0;
@@ -34,7 +31,6 @@
 		}
 
 		.slick-slide {
-			width: 330px !important;
 			display: flex;
 			justify-content: center;
 			> div {

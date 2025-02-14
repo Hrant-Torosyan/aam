@@ -17,7 +17,7 @@
 		width: calc(33.3333% - 14px);
 		position: relative;
 		&.productFull {
-			width: 280px;
+			width: 280px !important;
 		}
 		&:hover {
 			.buttonStyle {
@@ -200,12 +200,16 @@
 
 		.slick-list {
 			overflow: hidden;
+
+			 .slick-track {
+				 width: 100% !important;
+			 }
+
 		}
 
 		.slick-slide {
-			width: 100% !important;
 			display: flex;
-			justify-content: center;
+			justify-content: flex-start;
 		}
 
 		.slideItem {

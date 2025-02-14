@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import leftArrow from "../../../../svg/leftArrow.svg";
 import rightArrow from "../../../../svg/rightArrow.svg";
 import closeIcon from "../../../../svg/close.svg";
@@ -11,57 +11,48 @@ import Slider from "react-slick";
 const ProductSlider = ({ mainData }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [popupVisible, setPopupVisible] = useState(false);
-	const [isDesktop, setIsDesktop] = useState(true);
 	const sliderRef = useRef(null);
 
-	useEffect(() => {
-		const handleResize = () => {
-			setIsDesktop(window.innerWidth > 1199.98);
-		};
-
-		handleResize();
-		window.addEventListener("resize", handleResize);
-
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
-
 	const settings = {
-		infinite: true,
-		centerMode: false,
-		slidesToShow: isDesktop ? 5 : 1,
+		dots: false,
+		infinite: false,
 		speed: 500,
-		arrows: true,
-		swipe: true,
-		touchMove: true,
-		beforeChange: (current, next) => setActiveIndex(next),
-		afterChange: (index) => setActiveIndex(index),
-		ref: sliderRef,
-		initialSlide: activeIndex,
+		slidesToShow: 4,
+		slidesToScroll: 4,
+		arrows: false,
 		responsive: [
 			{
-				breakpoint: 1199.98,
+				breakpoint: 1024,
 				settings: {
-					slidesToShow: 3,
+					slidesToShow: 4,
+					slidesToScroll: 2,
 				},
 			},
 			{
-				breakpoint: 768,
+				breakpoint: 600,
 				settings: {
-					slidesToShow: 1,
-					swipeToSlide: true,
+					slidesToShow: 2,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1.5,
+					slidesToScroll: 1,
 				},
 			},
 		],
 	};
 
 	const handlePrevious = () => {
-		if (activeIndex > 0) {
+		if (sliderRef.current) {
 			sliderRef.current.slickPrev();
 		}
 	};
 
 	const handleNext = () => {
-		if (activeIndex < mainData?.mediaImages.length - 1) {
+		if (sliderRef.current) {
 			sliderRef.current.slickNext();
 		}
 	};
@@ -102,7 +93,7 @@ const ProductSlider = ({ mainData }) => {
 				</div>
 
 				<div className="productSliderThumbnails">
-					<Slider {...settings}>
+					<Slider ref={sliderRef} {...settings}>
 						{mainData?.mediaImages.map((item, index) => (
 							<div key={index}>
 								<img
@@ -115,19 +106,11 @@ const ProductSlider = ({ mainData }) => {
 						))}
 					</Slider>
 
-					<button
-						className="arrow left"
-						onClick={handlePrevious}
-						disabled={activeIndex === 0}
-					>
+					<button className="arrow left" onClick={handlePrevious}>
 						<img src={leftArrow} alt="Previous" />
 					</button>
 
-					<button
-						className="arrow right"
-						onClick={handleNext}
-						disabled={activeIndex === mainData?.mediaImages.length - 1}
-					>
+					<button className="arrow right" onClick={handleNext}>
 						<img src={rightArrow} alt="Next" />
 					</button>
 				</div>

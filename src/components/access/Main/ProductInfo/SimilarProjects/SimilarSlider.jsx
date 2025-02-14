@@ -24,7 +24,8 @@ const settings = {
 	dots: false,
 	infinite: false,
 	speed: 500,
-	slidesToScroll: 1,
+	slidesToShow: 4,
+	slidesToScroll: 2,
 	arrows: true,
 	prevArrow: <CustomPrevArrow />,
 	nextArrow: <CustomNextArrow />,
@@ -35,13 +36,16 @@ const settings = {
 			breakpoint: 1200,
 			settings: {
 				arrows: false,
+				slidesToShow: 4,
+				slidesToScroll: 2,
 			},
 		},
 		{
 			breakpoint: 768,
 			settings: {
 				arrows: false,
-				slidesToShow: 2.5,
+				slidesToShow: 3,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},
@@ -50,7 +54,8 @@ const settings = {
 			breakpoint: 670,
 			settings: {
 				arrows: false,
-				slidesToShow: 1.5,
+				slidesToShow: 1,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},
@@ -59,7 +64,8 @@ const settings = {
 			breakpoint: 576,
 			settings: {
 				arrows: false,
-				slidesToShow: 1.5,
+				slidesToShow: 1,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},
@@ -68,7 +74,8 @@ const settings = {
 			breakpoint: 470,
 			settings: {
 				arrows: false,
-				slidesToShow: 1.2,
+				slidesToShow: 1,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},
@@ -77,7 +84,8 @@ const settings = {
 			breakpoint: 410,
 			settings: {
 				arrows: false,
-				slidesToShow: 1.2,
+				slidesToShow: 1,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},
@@ -86,7 +94,8 @@ const settings = {
 			breakpoint: 375,
 			settings: {
 				arrows: false,
-				slidesToShow: 1.2,
+				slidesToShow: 1,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},
@@ -95,7 +104,8 @@ const settings = {
 			breakpoint: 360,
 			settings: {
 				arrows: false,
-				slidesToShow: 1.1,
+				slidesToShow: 1,
+				slidesToScroll: 1,
 				centerMode: false,
 				variableWidth: false,
 			},

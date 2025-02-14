@@ -29,6 +29,9 @@
 
 @media (max-width: 576.99px) {
   .productSlider {
+    .productSliderThumbnails .slick-slide {
+      margin: 16px 0;
+    }
     .productSliderActive {
       height: 202px;
     }
