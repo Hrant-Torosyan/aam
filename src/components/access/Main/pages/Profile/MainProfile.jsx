@@ -63,7 +63,7 @@ const MainProfile = ({ setProfilePage }) => {
 				</div>
 			}
 		>
-			{ userAllInfo !== null && careerInfo !== null && profileProducts !== null ?  (
+			{userAllInfo !== null && careerInfo !== null && profileProducts !== null ? (
 				<div className="mainProfile">
 					<div className="mainProfileTitle">
 						<h1>Мой профиль</h1>

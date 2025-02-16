@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./OperationPopUp.scss";
 import { OperationsListItem } from "../../../../../api/analytics";
+import { formatNumber } from "../../../../../utils/formatNumber";
 function formatDate(milliseconds) {
 	const date = new Date(milliseconds);
 	const options = {
@@ -151,67 +152,65 @@ const OperationPopUp = ({ setIsactive, operationId }) => {
 						</div>
 						<div className="popUpProdContent">
 							<div className="operationPopUpTitle">
-								<p>
-									{operationData.type === "DIVIDEND_PAYMENT"
-										? `Выплата по дивидендам проекта “${operationData.projectTitle}” за ${
-												operationData.projectTerm
-										  } ${
-												operationData.projectPeriod === "MONTHLY"
-													? "месяц"
-													: operationData.projectPeriod === "QUARTERLY"
-													? "квартал"
-													: "полугодоа"
-										  }`
-										: operationData.type === "PROJECT_INVEST"
-										? `Инвестиция “${operationData.projectTitle}”`
-										: operationData.type === "PROJECT_DELETE"
-										? `${operationData.projectTitle} проект отменен`
-										: operationData.type === "TRANSFER_BETWEEN_WALLETS"
-										? "Внутренний перевод по счетами"
-										: operationData.type === "TRANSFER_BETWEEN_USERS_WALLETS"
-										? "Выплата средств на внешний кошелек из инвестиционного счета"
-										: operationData.type === "WITHDRAWALS"
-										? "Вывод средств из основного счета"
-										: operationData.type === "DEPOSITS"
-										? "Пополнения основного  счета"
-										: `${
-												operationData.type === "PROJECT_PURCHASE_COMMISSION"
-													? "Комиссия при покупке"
-													: operationData.type === "PROJECT_MANAGEMENT_COMMISSION"
-													? "Комиссия за управление"
-													: operationData.type === "PROJECT_PROFIT_COMMISSION"
-													? "Комиссия с прибыли"
-													: operationData.type === "PROJECT_WITHDRAWAL_COMMISSION"
-													? "Комиссия за вывод"
-													: ""
-										  }`}
-								</p>
-								<div
-									className={
-										operationData.status === "DONE"
-											? "done"
-											: operationData.status === "IN_PROCESS"
-											? "progress"
-											: "failed"
-									}
-								>
-									<span>
-										{operationData.status === "DONE"
-											? "Выполнено"
-											: operationData.status === "IN_PROCESS"
-											? "В процессе"
-											: "Неуспешно"}
-									</span>
+								<div className="operationPopUpTitleItem">
+									<div
+										className={
+											operationData.status === "DONE"
+												? "done"
+												: operationData.status === "IN_PROCESS"
+												? "progress"
+												: "failed"
+										}
+									>
+										<span>
+											{operationData.status === "DONE"
+												? "Выполнено"
+												: operationData.status === "IN_PROCESS"
+												? "В процессе"
+												: "Неуспешно"}
+										</span>
+									</div>
+									<img src="./images/bannerLogo.svg" alt="bannerLogo" />
 								</div>
+								<p className="amount">${formatNumber(operationData.amount)}</p>
+								<p>Сумма транзакции</p>
 							</div>
-							<div className="operationPopUpTitle">
-								<p>
-									Время транзакции: <span> {formatDate(+operationData.date)}</span>
-								</p>
-								<h3>
-									Сумма транзакции: <span>${operationData.amount}</span>
-								</h3>
-							</div>
+
+							<p className="operationInfo">
+								{operationData.type === "DIVIDEND_PAYMENT"
+									? `Выплата по дивидендам проекта “${operationData.projectTitle}” за ${
+											operationData.projectTerm
+									  } ${
+											operationData.projectPeriod === "MONTHLY"
+												? "месяц"
+												: operationData.projectPeriod === "QUARTERLY"
+												? "квартал"
+												: "полугодоа"
+									  }`
+									: operationData.type === "PROJECT_INVEST"
+									? `Инвестиция “${operationData.projectTitle}”`
+									: operationData.type === "PROJECT_DELETE"
+									? `${operationData.projectTitle} проект отменен`
+									: operationData.type === "TRANSFER_BETWEEN_WALLETS"
+									? "Внутренний перевод по счетами"
+									: operationData.type === "TRANSFER_BETWEEN_USERS_WALLETS"
+									? "Выплата средств на внешний кошелек из инвестиционного счета"
+									: operationData.type === "WITHDRAWALS"
+									? "Вывод средств из основного счета"
+									: operationData.type === "DEPOSITS"
+									? "Пополнения основного  счета"
+									: `${
+											operationData.type === "PROJECT_PURCHASE_COMMISSION"
+												? "Комиссия при покупке"
+												: operationData.type === "PROJECT_MANAGEMENT_COMMISSION"
+												? "Комиссия за управление"
+												: operationData.type === "PROJECT_PROFIT_COMMISSION"
+												? "Комиссия с прибыли"
+												: operationData.type === "PROJECT_WITHDRAWAL_COMMISSION"
+												? "Комиссия за вывод"
+												: ""
+									  }`}
+							</p>
 
 							{operationData.type === "WITHDRAWALS" && (
 								<>
@@ -429,6 +428,9 @@ const OperationPopUp = ({ setIsactive, operationId }) => {
 							) : (
 								""
 							)}
+							<p className="dateInfo">
+								Время транзакции: <span> {formatDate(+operationData.date)}</span>
+							</p>
 						</div>
 					</div>
 				</div>

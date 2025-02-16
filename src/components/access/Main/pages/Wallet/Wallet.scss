@@ -89,6 +89,7 @@
 				width: 100%;
 				margin-top: 25px;
 				justify-content: space-between;
+				gap: 15px;
 				.walletBalance {
 					padding: 8px 30px;
 					font-size: 14px;
@@ -99,9 +100,13 @@
 				}
 
 				.walletButton {
+					width: 100%;
 					button {
+						width: 100%;
+						text-align: center;
 						padding: 6px 11px;
 						p {
+							text-align: center;
 							font-size: 12px;
 						}
 					}
@@ -127,6 +132,7 @@
 				width: 100%;
 				margin-top: 30px;
 				justify-content: space-between;
+				gap: 30px;
 				.walletBalance {
 					padding: 8px 30px;
 					margin-right: 0;
@@ -136,8 +142,15 @@
 				}
 
 				.walletButton {
+					width: 100%;
 					button {
-						padding: 8px 20px;
+						width: 100%;
+						text-align: center;
+						padding: 6px 11px;
+						p {
+							text-align: center;
+							font-size: 12px;
+						}
 					}
 				}
 			}

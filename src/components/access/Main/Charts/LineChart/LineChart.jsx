@@ -132,11 +132,9 @@ export default function LineChart({
 	return (
 		<div id="lineChart">
 			<p>График изменения баланса</p>
-			{infoPopUp === "popUp" ? (
+			{infoPopUp === "popUp" && (
 				<Select selectValue={selectValue} setSelectValue={setSelectValue} />
-			) : (
-				""
-			)}
+			) }
 			<div>
 				<canvas ref={chartRef} />
 			</div>

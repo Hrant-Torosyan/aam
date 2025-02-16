@@ -10,52 +10,83 @@
 	justify-content: center;
 	background: rgba(0, 0, 0, 0.1);
 	.popUpProdBlock {
-		width: 60%;
+		width: 90%;
+		max-width: 500px;
 		background: white;
 		border-radius: 25px;
 
 		.operationPopUpTitle {
 			display: flex;
 			justify-content: space-between;
-			align-items: center;
-			margin-bottom: 60px;
+			flex-direction: column;
+			margin-bottom: 10px;
+			height: 200px;
+			background: linear-gradient(
+				244.77deg,
+				rgba(77, 156, 243, 0.5) 11.71%,
+				rgba(224, 224, 224, 0) 95.43%
+			);
+			border-radius: 25px;
+			display: flex;
+			justify-content: space-between;
+			padding: 12px 27px;
+			img {
+				width: 60px;
+			}
+			.amount {
+				color: #00b4d2;
+				font-size: 32px;
+				width: 100%;
+				text-align-last: left;
+				font-weight: bold;
+			}
 			div {
-				display: flex;
-				justify-content: center;
-				align-items: center;
 				span {
 					display: inline-block;
-					border-radius: 10px;
-					padding: 11px 25px;
 					color: rgb(255, 198, 0);
-					font-size: 17px;
+					font-size: 16px;
 					font-weight: 600;
 				}
+			}
+			.operationPopUpTitleItem {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 			}
 
 			.progress {
 				span {
-					border: 1px solid rgb(255, 198, 0);
 					color: rgb(255, 198, 0);
 				}
 			}
 			.done {
 				span {
-					border: 1px solid rgb(32, 209, 164);
-
 					color: rgb(32, 209, 164);
 				}
 			}
-			p,
-			h3 {
-				color: rgb(14, 26, 50);
-				font-size: 18px;
-				font-weight: 600;
-				line-height: 25px;
+			.failed {
 				span {
-					font-weight: 700;
+					color: rgb(194, 55, 37);
 				}
 			}
+			p {
+				color: #0e1a3280;
+				font-size: 12px;
+				text-align-last: left;
+			}
+		}
+		.dateInfo {
+			color: #0e1a324d;
+			font-size: 14px;
+			margin-top: 20px;
+			span {
+				color: #0e1a32b1;
+			}
+		}
+		.operationInfo {
+			color: #0e1a3280;
+			text-align-last: left;
+			font-size: 16px;
 		}
 		.operationPopUpInfo {
 			margin-top: 25px;
@@ -126,9 +157,9 @@
 			justify-content: space-between;
 			align-items: center;
 			border-radius: 25px 25px 0px 0px;
-			background: rgb(229, 247, 251);
+			background: #2e93ef1a;
 			p {
-				color: rgb(0, 180, 210);
+				color: #4d9cf3;
 				font-size: 24px;
 				font-weight: 500;
 				line-height: 20px;
@@ -214,28 +245,7 @@
 			}
 			.popUpProdContent {
 				padding: 25px;
-				.operationPopUpTitle {
-					margin: 0;
-					align-items: start;
-					flex-direction: column;
-					div {
-						margin: 25px 0;
-						width: 100%;
-						span {
-							width: 100%;
-							font-size: 14px;
-						}
-					}
 
-					p,
-					h3 {
-						font-size: 14px;
-					}
-					h3 {
-						margin-top: 15px;
-						margin-bottom: 10px;
-					}
-				}
 				.operationPopUpInfo {
 					margin-top: 15px;
 					p {
@@ -292,27 +302,7 @@
 			}
 			.popUpProdContent {
 				padding: 25px;
-				.operationPopUpTitle {
-					margin: 0;
-					align-items: start;
-					flex-direction: column;
-					div {
-						margin: 25px 0;
-						width: 100%;
-						span {
-							width: 100%;
-							font-size: 14px;
-						}
-					}
 
-					p,
-					h3 {
-						font-size: 14px;
-					}
-					h3 {
-						margin-top: 15px;
-					}
-				}
 				.operationPopUpInfo {
 					margin-top: 20px;
 					p {
@@ -368,19 +358,7 @@
 			}
 			.popUpProdContent {
 				padding: 30px;
-				.operationPopUpTitle {
-					margin-bottom: 40px;
-					div {
-						span {
-							font-size: 14px;
-						}
-					}
 
-					p,
-					h3 {
-						font-size: 14px;
-					}
-				}
 				.operationPopUpInfo {
 					margin-top: 20px;
 					p {
@@ -436,19 +414,7 @@
 			}
 			.popUpProdContent {
 				padding: 30px;
-				.operationPopUpTitle {
-					margin-bottom: 40px;
-					div {
-						span {
-							font-size: 14px;
-						}
-					}
 
-					p,
-					h3 {
-						font-size: 14px;
-					}
-				}
 				.operationPopUpInfo {
 					margin-top: 20px;
 					p {

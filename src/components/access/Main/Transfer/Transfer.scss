@@ -22,8 +22,11 @@
 			align-items: center;
 			border-radius: 25px 25px 0px 0px;
 			background: rgb(229, 247, 251);
+			background: #2e93ef1a;
+
 			p {
-				color: rgb(0, 180, 210);
+				color: #4d9cf3;
+
 				font-size: 24px;
 				font-weight: 500;
 				line-height: 20px;
@@ -49,9 +52,11 @@
 				margin-bottom: 25px;
 			}
 			.buttonStyleToo {
-				margin-top: 40px;
+				width: 80%;
 				overflow: hidden;
+				margin: 0 auto;
 				border-radius: 50px;
+				margin-top: 40px;
 				padding: 2px;
 				background: linear-gradient(
 					158.2deg,

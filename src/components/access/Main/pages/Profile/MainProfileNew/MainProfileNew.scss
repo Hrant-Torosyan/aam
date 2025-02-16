@@ -1,170 +1,184 @@
 .mainInfo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  min-height: 219px;
-  position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	min-height: 219px;
+	position: relative;
 
-  .userInfoEdit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 296px;
-    height: 50px;
-    position: absolute;
-    box-sizing: border-box;
-    padding: 15px;
-    background-color: white;
-    border-radius: 30px;
-    border: solid 2px transparent;
-    top: 170px;
-    order: 3;
+	.userInfoEdit {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 296px;
+		height: 50px;
+		position: absolute;
+		box-sizing: border-box;
+		padding: 15px;
+		background-color: white;
+		border-radius: 30px;
+		border: solid 2px transparent;
+		top: 170px;
+		order: 3;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      margin: -5px;
-      border-radius: inherit;
-      background: linear-gradient(95.63deg, #2C73F3 -33.22%, #30CDE7 106.45%);
-    }
-    span {
-      font-size: 14px;
-      font-weight: 600;
-      background: linear-gradient(95.63deg, #2C73F3 -33.22%, #30CDE7 106.45%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-left: 10px;
-      display: flex;
-      align-items: center;
-    }
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			margin: -5px;
+			border-radius: inherit;
+			background: linear-gradient(95.63deg, #2c73f3 -33.22%, #30cde7 106.45%);
+		}
+		span {
+			font-size: 14px;
+			font-weight: 600;
+			color: #2c73f3;
+			margin-left: 10px;
+			display: flex;
+			align-items: center;
+			transition: 0.3s;
+		}
+		transition: 0.3s;
+		svg {
+			path {
+				transition: 0.3s;
+			}
+		}
+		cursor: pointer;
+		&:hover {
+			background: transparent;
+			svg {
+				path {
+					stroke: white;
+				}
+			}
+			span {
+				color: white;
+			}
+		}
 
-    .svgBackground svg {
-      display: flex;
-    }
-  }
-  .user {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    position: relative;
-    order: 1;
+		.svgBackground svg {
+			display: flex;
+		}
+	}
+	.user {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		position: relative;
+		order: 1;
 
-    .socialLinks {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      flex-direction: row;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 50%;
-      img {
-        width: 32px;
-        height: 32px;
-        cursor: pointer;
-        margin-right: 8px;
-      }
-    }
+		.socialLinks {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			flex-direction: row;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 50%;
+			img {
+				width: 32px;
+				height: 32px;
+				cursor: pointer;
+				margin-right: 8px;
+			}
+		}
 
-    .userContent {
-      display: flex;
-    }
+		.userContent {
+			display: flex;
+		}
 
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
+		.avatar {
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			object-fit: cover;
 
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-    }
+			img {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+		}
 
-    .userName {
-      width: 152px;
-      height: 120px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-left: 24px;
+		.userName {
+			width: 152px;
+			height: 120px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			margin-left: 24px;
 
-      h1 {
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 21.94px;
-        color: #0E1A32;
-        text-wrap: wrap;
-      }
-    }
-  }
+			h1 {
+				font-size: 18px;
+				font-weight: 600;
+				line-height: 21.94px;
+				color: #0e1a32;
+				text-wrap: wrap;
+			}
+		}
+	}
 
-  .userOwnInfo {
-    display: flex;
-    flex-direction: column;
-    height: 225px;
-    flex-wrap: wrap;
-    margin-left: 78px;
-    order: 2;
-  }
+	.userOwnInfo {
+		display: flex;
+		flex-direction: column;
+		height: 225px;
+		flex-wrap: wrap;
+		margin-left: 78px;
+		order: 2;
+	}
 
-  .mainProfileUserInfos {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-    width: 291px;
+	.mainProfileUserInfos {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		margin-bottom: 24px;
+		width: 291px;
 
+		.mainProfileUserInfosImg {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-right: 18px;
+			width: 38px;
+			height: 38px;
+			border-radius: 10px;
+			box-shadow: 5px 5px 10px 0px #1634501a;
 
-    .mainProfileUserInfosImg {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 18px;
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      box-shadow: 5px 5px 10px 0px #1634501A;
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
 
+		.mainProfileUserInfosItem {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 
-      img {
-        width: 20px;
-        height: 20px;
-      }
-    }
+			span {
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 19.11px;
+				color: #a3aed0;
+			}
 
-    .mainProfileUserInfosItem {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      span {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 19.11px;
-        color: #A3AED0;
-      }
-
-      p, a {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24.64px;
-        color: #0E1A32;
-        text-decoration: none;
-      }
-    }
-  }
-
-
+			p,
+			a {
+				font-size: 16px;
+				font-weight: 500;
+				line-height: 24.64px;
+				color: #0e1a32;
+				text-decoration: none;
+			}
+		}
+	}
 }

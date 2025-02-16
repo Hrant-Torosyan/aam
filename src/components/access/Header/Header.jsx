@@ -226,19 +226,24 @@ const Header = () => {
 				</div>
 			</div>
 			<div className="headerTop">
-				<Notification
-					setNotification={setNotification}
-					notification={notification}
-					setIsActiveSelectHeader={setIsActiveSelectHeader}
-					setIsOpenSc={setIsOpenSc}
-					setSuccessInfo={setSuccessInfo}
-				/>
-				<SelectHeader
-					userData={userData}
-					setNotification={setNotification}
-					setIsActiveSelectHeader={setIsActiveSelectHeader}
-					isActiveSelectHeader={isActiveSelectHeader}
-				/>
+				<div className="headerTopLogo">
+					<img src="./images/LogoLogin.png" alt="Logo" />
+				</div>
+				<div className="headerTopUser">
+					<Notification
+						setNotification={setNotification}
+						notification={notification}
+						setIsActiveSelectHeader={setIsActiveSelectHeader}
+						setIsOpenSc={setIsOpenSc}
+						setSuccessInfo={setSuccessInfo}
+					/>
+					<SelectHeader
+						userData={userData}
+						setNotification={setNotification}
+						setIsActiveSelectHeader={setIsActiveSelectHeader}
+						isActiveSelectHeader={isActiveSelectHeader}
+					/>
+				</div>
 			</div>
 		</header>
 	);

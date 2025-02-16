@@ -5,6 +5,7 @@ import MainSelect from "../MainSelect/MainSelect";
 import MainInput from "../MainInput/MainInput";
 import { GetReplenishMinMax, SetReplenish } from "../../../../api/analytics";
 import { MainContext } from "../../../../app/App";
+import CopyOnClick from "../CopyOnClick";
 
 let infoes = {
 	USTD: [
@@ -93,7 +94,13 @@ const Replenish = ({ setIsOpenReplenish, walletsData, setSuccessInfo, setIsOpenS
 	const [remainingTime, setRemainingTime] = useState(1200);
 	const [isActive, setIsActive] = useState(false);
 	const [replenishData, setReplenishData] = useState(null);
-
+	const [copied, setCopied] = useState(false);
+	const handleCopy = () => {
+		setCopied(true);
+		setTimeout(() => {
+			setCopied(false);
+		}, 2000);
+	};
 	useEffect(() => {
 		let interval;
 		if (isActive) {
@@ -247,6 +254,46 @@ const Replenish = ({ setIsOpenReplenish, walletsData, setSuccessInfo, setIsOpenS
 											<p>Для оплаты переведите эту сумму:</p>
 											<div className="popUpProdContentQrInfoItemBlock">
 												<p>{replenishData.payAddress}</p>
+												<CopyOnClick text={replenishData.payAddress}>
+													<button onClick={handleCopy}>
+														{copied ? (
+															<svg
+																className="coped"
+																xmlns="http://www.w3.org/2000/svg"
+																width={24}
+																height={24}
+															>
+																<path d="M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z" />
+															</svg>
+														) : (
+															<svg
+																xmlns="http://www.w3.org/2000/svg"
+																width={24}
+																height={24}
+																fill="none"
+															>
+																<defs>
+																	<clipPath id="a">
+																		<path
+																			fill="#fff"
+																			fillOpacity={0}
+																			d="M0 0h24v24H0z"
+																		/>
+																	</clipPath>
+																</defs>
+																<g clipPath="url(#a)">
+																	<path
+																		stroke="#96C5F9"
+																		strokeLinecap="round"
+																		strokeLinejoin="round"
+																		strokeWidth={1.5}
+																		d="M10.07 7c.31-3.03 1.77-4 5.43-4C19.7 3 21 4.29 21 8.5c0 3.65-.99 5.11-4 5.43M8.5 10c4.2 0 5.5 1.29 5.5 5.5 0 4.2-1.3 5.5-5.5 5.5C4.29 21 3 19.7 3 15.5 3 11.29 4.29 10 8.5 10Z"
+																	/>
+																</g>
+															</svg>
+														)}
+													</button>
+												</CopyOnClick>
 											</div>
 										</div>
 										<div className="timeLine">

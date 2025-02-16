@@ -21,6 +21,11 @@
 		.headerTop {
 			background: rgb(244, 247, 254);
 			padding: 12px 15px;
+			.headerTopLogo {
+				img {
+					display: block;
+				}
+			}
 		}
 	}
 }
@@ -48,6 +53,11 @@
 		.headerTop {
 			background: rgb(244, 247, 254);
 			padding: 12px 15px;
+			.headerTopLogo {
+				img {
+					display: block;
+				}
+			}
 		}
 	}
 }

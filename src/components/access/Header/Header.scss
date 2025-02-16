@@ -149,9 +149,18 @@ header {
 		background: rgb(244, 247, 254);
 		z-index: 999;
 		display: flex;
-		justify-content: end;
+		justify-content: space-between;
 		align-items: center;
 		padding: 15px 35px;
+		.headerTopLogo {
+			img {
+				display: none;
+			}
+		}
+		.headerTopUser {
+			display: flex;
+			align-items: center;
+		}
 
 		.notification {
 			position: relative;
@@ -159,6 +168,10 @@ header {
 			.notificationItem {
 				position: absolute;
 				right: 50%;
+				@media (max-width: 767.98px) {
+					right: 100px;
+				}
+
 				transform: translate(50%, 0);
 				width: 300px;
 				max-height: 340px;

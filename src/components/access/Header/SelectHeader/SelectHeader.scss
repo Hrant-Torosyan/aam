@@ -3,6 +3,10 @@
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	@media (max-width: 767.98px) {
+		flex-direction: row-reverse;
+		margin: 0;
+	}
 	> img {
 		width: 41px;
 		height: 41px;
@@ -19,12 +23,19 @@
 			color: rgb(126, 126, 126);
 			background: transparent;
 		}
+		@media (max-width: 767.98px) {
+			> p {
+				display: none;
+			}
+			img {
+				display: none;
+			}
+		}
 		> p {
 			color: rgb(126, 126, 126);
 			font-weight: 400;
 			font-size: 14px;
 			text-align: center;
-			width: 100%;
 			margin-right: 5px;
 		}
 		.selectItem {
