@@ -16,6 +16,10 @@
 					border-radius: 41px;
 					font-size: 13px;
 					color: rgb(0, 180, 210);
+					max-width: 100px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
 				}
 			}
 		}

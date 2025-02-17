@@ -130,6 +130,10 @@
 					border: 1px solid rgb(0, 180, 210);
 					border-radius: 41px;
 					color: rgb(0, 180, 210);
+					max-width: 100px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
 				}
 			}
 

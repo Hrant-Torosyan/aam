@@ -309,11 +309,11 @@ const MainProfile = ({ setProfilePage }) => {
 									</div>
 								</div>
 							)}
-							<div className="mainProfileContentProducts">
-								{profileProducts && (
-									<Products info={"Briefcase"} products={profileProducts} />
-								)}
-							</div>
+							{profileProducts && (
+								<div className="mainProfileContentProducts">
+									<Products info={"Briefcase"} products={profileProducts}/>
+								</div>
+							)}
 							<UserLvl
 								levelValue={careerInfo?.levelValue}
 								nextLevelUserCount={careerInfo?.nextLevelUserCount}
