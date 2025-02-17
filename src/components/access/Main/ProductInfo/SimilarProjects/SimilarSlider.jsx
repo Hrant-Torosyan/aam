@@ -118,7 +118,102 @@ const SimilarSlider = ({ products = [], info, prodId, setProdId, handleImageErro
 		setProdId(id);
 		window.scrollTo({ top: 0 });
 	};
-	const filteredProducts = products.filter((p) => p.projectId !== prodId);
+	// const filteredProducts = products.filter((p) => p.projectId !== prodId);
+
+	const filteredProducts = [
+		{
+			projectId: 24,
+			title: "Офис 1 / Этаж 1 / Кампус 2",
+			description: "-",
+			price: 116760.0,
+			minPrice: 116760.0,
+			country: "Армения",
+			tags: ["Bali", "Недвижимость", "Коммерческая_недвижимость"],
+			image: {
+				name: "1739448058100.png",
+				url: "http://aams.life//aam-media/projects/1739448058100.png",
+			},
+			logo: {
+				name: "1739448218858.png",
+				url: "http://aams.life//aam-media/projects/1739448218858.png",
+			},
+			active: true,
+		},
+		{
+			projectId: 24,
+			title: "Офис 1 / Этаж 1 / Кампус 2",
+			description: "-",
+			price: 116760.0,
+			minPrice: 116760.0,
+			country: "Армения",
+			tags: ["Bali", "Недвижимость", "Коммерческая_недвижимость"],
+			image: {
+				name: "1739448058100.png",
+				url: "http://aams.life//aam-media/projects/1739448058100.png",
+			},
+			logo: {
+				name: "1739448218858.png",
+				url: "http://aams.life//aam-media/projects/1739448218858.png",
+			},
+			active: true,
+		},
+
+		{
+			projectId: 24,
+			title: "Офис 1 / Этаж 1 / Кампус 2",
+			description: "-",
+			price: 116760.0,
+			minPrice: 116760.0,
+			country: "Армения",
+			tags: ["Bali", "Недвижимость", "Коммерческая_недвижимость"],
+			image: {
+				name: "1739448058100.png",
+				url: "http://aams.life//aam-media/projects/1739448058100.png",
+			},
+			logo: {
+				name: "1739448218858.png",
+				url: "http://aams.life//aam-media/projects/1739448218858.png",
+			},
+			active: true,
+		},
+		{
+			projectId: 24,
+			title: "Офис 1 / Этаж 1 / Кампус 2",
+			description: "-",
+			price: 116760.0,
+			minPrice: 116760.0,
+			country: "Армения",
+			tags: ["Bali", "Недвижимость", "Коммерческая_недвижимость"],
+			image: {
+				name: "1739448058100.png",
+				url: "http://aams.life//aam-media/projects/1739448058100.png",
+			},
+			logo: {
+				name: "1739448218858.png",
+				url: "http://aams.life//aam-media/projects/1739448218858.png",
+			},
+			active: true,
+		},
+		{
+			projectId: 24,
+			title: "Офис 1 / Этаж 1 / Кампус 2",
+			description: "-",
+			price: 116760.0,
+			minPrice: 116760.0,
+			country: "Армения",
+			tags: ["Bali", "Недвижимость", "Коммерческая_недвижимость"],
+			image: {
+				name: "1739448058100.png",
+				url: "http://aams.life//aam-media/projects/1739448058100.png",
+			},
+			logo: {
+				name: "1739448218858.png",
+				url: "http://aams.life//aam-media/projects/1739448218858.png",
+			},
+			active: true,
+		},
+	];
+
 	if (!filteredProducts.length) return null;
 	return (
 		<div className="similarSliderWrapper">

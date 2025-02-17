@@ -4,9 +4,9 @@ import "./AboutCompanyResponsive.scss";
 
 const AboutCompany = ({ mainData }) => {
 	const processedContent = mainData?.financialIndicatorContent
-		?.replace(/\/n/g, '<br>')
-		.replace(/<br>+/g, '<br>')
-		.replace(/^<br>/, '')
+		?.replace(/\/n/g, "<br>")
+		.replace(/<br>+/g, "<br>")
+		.replace(/^<br>/, "")
 		.trim();
 
 	return (

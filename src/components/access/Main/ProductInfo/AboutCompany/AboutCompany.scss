@@ -1,35 +1,36 @@
 .aboutCompany {
-  margin-top: 48px;
+	margin-top: 48px;
 
-  h1 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 24px;
-  }
+	h1 {
+		font-size: 24px;
+		font-weight: 700;
+		color: #000000;
+		margin-bottom: 24px;
+	}
 
-  .aboutCompanyData {
-    img {
-      float: left;
-      margin-right: 16px;
-      margin-bottom: 16px;
-      width: 348px;
-      height: 284px;
-      border-radius: 10px;
-    }
+	.aboutCompanyData {
+		img {
+			float: left;
+			margin-right: 16px;
+			margin-bottom: 16px;
+			width: 348px;
+			height: 284px;
+			border-radius: 10px;
+		}
 
-    p {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 27.2px;
-      letter-spacing: 0.03em;
-      color: #000000;
-    }
+		p {
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 27.2px;
+			letter-spacing: 0.03em;
+			color: #000000;
+			white-space: pre-wrap;
+		}
 
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-  }
+		&:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+	}
 }
