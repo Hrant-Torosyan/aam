@@ -1,111 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { lazy } from "react";
 import "./Products.scss";
 import "./ProductsResponsive.scss";
 import { MainContext } from "../../../../app/App";
 import Product from "../Product/Product";
-import Slider from "react-slick";
 import leftArrow from "../../../svg/leftArrow.svg";
 import rightArrow from "../../../svg/rightArrow.svg";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProductInfo = lazy(() => import("../ProductInfo/ProductInfo"));
-
-const CustomPrevArrow = ({ onClick }) => (
-	<button className="customArrow prevArrow" onClick={onClick}>
-		<img src={leftArrow} alt="Previous" />
-	</button>
-);
-const CustomNextArrow = ({ onClick }) => (
-	<button className="customArrow nextArrow" onClick={onClick}>
-		<img src={rightArrow} alt="Next" />
-	</button>
-);
-const settings = {
-	dots: false,
-	infinite: false,
-	speed: 500,
-	slidesToScroll: 1,
-	arrows: true,
-	prevArrow: <CustomPrevArrow />,
-	nextArrow: <CustomNextArrow />,
-	centerMode: false,
-	variableWidth: true,
-	responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				arrows: false,
-			},
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				arrows: false,
-				slidesToShow: 2.5,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-		{
-			breakpoint: 670,
-			settings: {
-				arrows: false,
-				slidesToShow: 1.5,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-		{
-			breakpoint: 576,
-			settings: {
-				arrows: false,
-				slidesToShow: 1.5,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-		{
-			breakpoint: 470,
-			settings: {
-				arrows: false,
-				slidesToShow: 1.2,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-		{
-			breakpoint: 410,
-			settings: {
-				arrows: false,
-				slidesToShow: 1.2,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-		{
-			breakpoint: 375,
-			settings: {
-				arrows: false,
-				slidesToShow: 1.2,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-		{
-			breakpoint: 360,
-			settings: {
-				arrows: false,
-				slidesToShow: 1.1,
-				centerMode: false,
-				variableWidth: false,
-			},
-		},
-	],
-};
 
 const Products = ({ products, info, type = "LIST" }) => {
 	const [prodId, setProdId] = useState(null);
 	const mainCntx = useContext(MainContext);
+	const swiperRef = useRef(null);
 
 	const handleImageError = (event) => {
 		event.target.onerror = null;
@@ -145,30 +53,49 @@ const Products = ({ products, info, type = "LIST" }) => {
 						</div>
 					)
 				) : (
-					<Slider {...settings}>
-						{products.length > 0 ? (
-							products.map((prod, index) => (
-								<div key={index} className="slideItem">
-									<Product
-										fullWidth={true}
-										key={index}
-										prod={prod}
-										info={info}
-										projectId={prod.projectId}
-										setProdId={setProdId}
-										handleImageError={handleImageError}
-										setHiddenHeader={mainCntx.setHiddenHeader}
-									/>
+					<div className="profileSlid">
+						<Swiper
+							onSwiper={(swiper) => (swiperRef.current = swiper)}
+							slidesPerView={"auto"}
+							navigation={false}
+							grabCursor={true}
+						>
+							{products.length > 0 ? (
+								products.map((prod, index) => (
+									<SwiperSlide key={prod.projectId || index}>
+										<Product
+											fullWidth={true}
+											key={index}
+											prod={prod}
+											info={info}
+											projectId={prod.projectId}
+											setProdId={setProdId}
+											handleImageError={handleImageError}
+											setHiddenHeader={mainCntx.setHiddenHeader}
+										/>
+									</SwiperSlide>
+								))
+							) : (
+								<div className="noProductsMessage">
+									{info === "Briefcase"
+										? "Ваш портфель пока пуст. Начните инвестировать прямо сейчас!"
+										: "В магазине не найдена продуктов"}
 								</div>
-							))
-						) : (
-							<div className="noProductsMessage">
-								{info === "Briefcase"
-									? "Ваш портфель пока пуст. Начните инвестировать прямо сейчас!"
-									: "В магазине не найдена продуктов"}
-							</div>
-						)}
-					</Slider>
+							)}
+						</Swiper>
+						<button
+							onClick={() => swiperRef.current?.slidePrev()}
+							className="customArrow prevArrow"
+						>
+							<img src={leftArrow} alt="Previous" />
+						</button>
+						<button
+							onClick={() => swiperRef.current?.slideNext()}
+							className="customArrow nextArrow"
+						>
+							<img src={rightArrow} alt="Next" />
+						</button>
+					</div>
 				)}
 			</div>
 		</>

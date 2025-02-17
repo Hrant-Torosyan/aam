@@ -29,6 +29,7 @@
 @media (max-width: 576.99px) {
 	.similarSliderWrapper {
 		border-radius: 0;
+		padding: 0;
 
 		.product {
 			padding: 0 !important;
@@ -36,12 +37,10 @@
 			}
 		}
 		.profileSlider {
-
 			.slick-list {
 				.slick-track {
 					width: fit-content !important;
 				}
-
 			}
 			.slick-slide {
 				margin-right: 0;
@@ -60,4 +59,3 @@
 		}
 	}
 }
-

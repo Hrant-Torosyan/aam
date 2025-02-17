@@ -2,6 +2,33 @@
 	display: flex;
 	margin-top: 30px;
 	flex-wrap: wrap;
+	.profileSlid {
+		position: relative;
+		width: 100%;
+		.customArrow {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: none;
+			border: none;
+			cursor: pointer;
+			z-index: 10;
+			outline: none;
+
+			img {
+				width: 24px;
+				height: 24px;
+			}
+
+			&.prevArrow {
+				left: -40px;
+			}
+
+			&.nextArrow {
+				right: -40px;
+			}
+		}
+	}
 
 	.notProd {
 		font-size: 20px;
@@ -10,10 +37,23 @@
 		margin: 100px auto;
 	}
 
-	.slick-slider {
-		width: 100%;
+	.swiper {
+		width: 100% !important;
+		height: 100% !important;
 	}
 
+	.swiper-slide {
+		width: 100% !important;
+		height: 100% !important;
+		padding: 20px;
+	}
+
+	.swiper-slide {
+		width: auto !important;
+	}
+	.swiper-wrapper {
+		display: flex;
+	}
 	.product {
 		cursor: pointer;
 		position: relative;
@@ -26,7 +66,7 @@
 		position: relative;
 
 		&.productFull {
-			width: 280px;
+			width: 320px !important;
 		}
 
 		&:hover {
