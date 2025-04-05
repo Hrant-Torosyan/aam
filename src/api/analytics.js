@@ -1,4 +1,4 @@
-const BASE_URL = "http://145.223.99.13:8080/api/rest/";
+const BASE_URL = "https://aams.live/api/rest/";
 const WALLETS = "wallets";
 const BALANCE_CHART = "wallets/balance/chart";
 const OPERATIONS_LIST = "transaction/operations/list";

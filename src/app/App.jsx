@@ -23,9 +23,7 @@ const App = () => {
 		const handlePopState = () => {
 			setHiddenHeader("");
 		};
-
 		window.addEventListener("popstate", handlePopState);
-
 		return () => {
 			window.removeEventListener("popstate", handlePopState);
 		};

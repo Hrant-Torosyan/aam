@@ -1,4 +1,4 @@
-const BASE_URL = "http://145.223.99.13:8080/api/rest/projects";
+const BASE_URL = "https://aams.live/api/rest/projects";
 const BALANCE_CHART = "/balance/chart";
 
 export const GetProductInfo = async (id) => {

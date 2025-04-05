@@ -21,7 +21,7 @@ const SelectHeader = ({
 		>
 			<img src={userData?.image ? userData?.image.url : "./images/avatar.png"} alt="user" />
 			<div className="selectHeader">
-				<p>{userData && userData.fullName.split(" ")[0]}</p>
+				<p>{userData && userData.firstName}</p>
 				<img src="./images/angle.png" alt="" />
 				<div className="selectItem">
 					<NavLink to={"/profile"}>

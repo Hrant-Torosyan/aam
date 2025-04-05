@@ -33,16 +33,13 @@ const ProfileEdit = ({ setProfilePage }) => {
 		GetUerInfo().then((res) => {
 			let userDate = res.birthDay ? new Date(+res.birthDay) : "";
 
-			let nameUser = res.fullName.split(" ")[0];
-			let surnameUser = res.fullName.split(" ")[1] || "";
-
 			setImageUrl(res.image);
-			setName(nameUser || "");
+			setName(res.firstName || "");
 			setDay(userDate ? userDate.getDate() : "");
 			setMonth(userDate ? userDate.getMonth() + 1 : "");
 			setYear(userDate ? userDate.getFullYear() : "");
 			setEmail(res.email || "");
-			setSurname(surnameUser || "");
+			setSurname(res.lastName || "");
 			setPhone(res.phone || "");
 			setCity(res.city || "");
 			setWebsite(res.website || "");
@@ -91,11 +88,13 @@ const ProfileEdit = ({ setProfilePage }) => {
 				if (res.success === true) {
 					SetUerInfo({
 						email: email,
-						fullName: `${name} ${surname}`,
+						firstName: name,
+						lastName: surname,
 						companyName: "string",
 						investmentAmount: "string",
 						investmentExperience: "string",
-						image: imageName === null ? (imageUrl === null ? null : imageUrl.name) : imageName,
+						image:
+							imageName === null ? (imageUrl === null ? null : imageUrl.name) : imageName,
 						birthDay: dateForm,
 						city: city,
 						phone: phone,
@@ -114,7 +113,8 @@ const ProfileEdit = ({ setProfilePage }) => {
 		} else {
 			SetUerInfo({
 				email: email,
-				fullName: `${name} ${surname}`,
+				firstName: name,
+				lastName: surname,
 				companyName: "string",
 				investmentAmount: "string",
 				investmentExperience: "string",

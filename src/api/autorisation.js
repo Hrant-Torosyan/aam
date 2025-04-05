@@ -1,4 +1,4 @@
-const BASE_URL = "http://145.223.99.13:8080/api/rest/";
+const BASE_URL = "https://aams.live/api/rest/";
 const URL_LOGIN = "auth/signin";
 const URL_SIGNUP = "auth/signup";
 const URL_CHECK = "reset/password/check";
@@ -115,7 +115,6 @@ export const resetPass = async (data) => {
 		return err.message;
 	}
 };
-
 
 export const GetNotifications = async (query = {}) => {
 	try {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "http://145.223.99.13:8080/api/rest/";
+const BASE_URL = "https://aams.live/api/rest/";
 export const GetUerInfo = async () => {
 	try {
 		const res = await fetch(`${BASE_URL}users/profiles/me`, {

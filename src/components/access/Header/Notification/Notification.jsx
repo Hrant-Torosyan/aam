@@ -59,7 +59,7 @@ const Notification = ({
 	}, [notificationInfo, limitNotification, notification]);
 	useEffect(() => {
 		// console.log = function () {};
-		const socket = new SockJS("http://145.223.99.13:8080/aam-websocket");
+		const socket = new SockJS("https://aams.live/aam-websocket");
 		const stompClient = webstomp.over(socket);
 		const connectCallback = () => {
 			stompClient.subscribe(

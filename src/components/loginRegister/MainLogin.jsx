@@ -8,7 +8,7 @@ import { useSearchParams } from "react-router-dom";
 const generateLinkedUserId = () => {
 	return `user_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
 };
-const BASE_URL = "http://145.223.99.13:8080";
+const BASE_URL = "https://aams.live";
 
 const MainLogin = () => {
 	const [searchParams, setSearchParams] = useSearchParams();

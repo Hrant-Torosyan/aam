@@ -88,11 +88,9 @@ const MainProfileNew = ({ setProfilePage, products }) => {
 										/>
 									</div>
 									<div className="userName">
-										<h1>{`${userAllInfo?.fullName.split(" ")[0]} ${
-											userAllInfo?.fullName.split(" ").length !== 1
-												? userAllInfo?.fullName.split(" ")[1]
-												: ""
-										}`}</h1>
+										<h1>{`${userAllInfo?.firstName || ""} ${
+											userAllInfo?.lastName || ""
+										} `}</h1>
 									</div>
 								</div>
 								<div className="socialLinks">

@@ -1,4 +1,4 @@
-const BASE_URL = "http://145.223.99.13:8080/api/rest/";
+const BASE_URL = "https://aams.live/api/rest/";
 
 export const BriefcaseProducts = async (category) => {
 	try {
